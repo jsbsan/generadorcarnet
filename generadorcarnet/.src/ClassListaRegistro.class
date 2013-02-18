@@ -1,0 +1,89 @@
+' Gambas class file
+
+Property registros As ClassRegistro[] 
+Private hregistros As New ClassRegistro[] 
+
+Private Function registros_read() As ClassRegistro[] 
+  
+  Return hregistros 
+  
+End  
+
+Private Sub registros_write(Valor As ClassRegistro[])
+  
+  hregistros = Valor 
+  
+End
+
+Public Sub generarId() As Integer
+  
+  Dim a As Integer
+  Dim valor As Integer
+  
+  valor = -1
+  For a = 0 To hregistros.Max
+    valor = Max(valor, hregistros[a].id)
+  Next
+  Return (valor + 1)
+  
+End
+
+Public Sub buscar(id As Integer) As Integer
+  
+  Dim a As Integer
+  'recorremos todos los indices hasta encontrar el id, devolviendo la posicion del array donde esta (a)
+  For a = 0 To hregistros.Max
+    If id = hregistros[a].id Then Return a
+  Next
+  Message("se ha producido un error al buscar el indice")
+  Return -1
+  
+End
+
+Public Sub contenido() As String
+  
+  Dim regtmp As ClassRegistro
+  Dim texto As String
+  
+  For Each regtmp In hregistros
+    texto &= regtmp.Text()
+  Next
+  Return texto
+  
+End
+
+Public Sub LecturaDatos(cadenas As String[]) As Boolean
+  
+  Dim a As Integer
+  Dim regtmp As New ClassRegistro
+  
+  hregistros.clear() 'limpio todos los datos anteriores...
+  
+  For a = 0 To cadenas.count - 2
+    regtmp.foto = cadenas[a]
+    a += 1
+    regtmp.nombre = cadenas[a]
+    a += 1
+    regtmp.Apellidos = cadenas[a]
+    a += 1
+    regtmp.FechaNacimiento = cadenas[a]
+    a += 1
+    regtmp.curso = cadenas[a]
+    a += 1
+    regtmp.centro = cadenas[a]
+    a += 1
+    regtmp.localidad = cadenas[a]
+    a += 1
+    If cadenas[a] = "" Then cadenas[a] = "0"
+    regtmp.NumeroCarnet = Val(cadenas[a])
+    a += 1
+    regtmp.tag = cadenas[a]
+    a += 1
+    regtmp.id = cadenas[a]
+    
+    hregistros.Add(regtmp)
+    regtmp = New ClassRegistro
+  Next
+  Return True 'lectura correcta  
+  
+End

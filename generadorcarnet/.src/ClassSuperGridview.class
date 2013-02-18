@@ -1,0 +1,130 @@
+' Gambas class file
+
+Public observador As New Observer(Me) As "observador1"
+
+Inherits GridView
+
+Property indice As Integer[]
+
+Private hindice As New Integer[]
+
+Private Function indice_Read() As Integer[]
+  
+  Return hindice
+  
+End
+
+Private Sub indice_Write(Value As Integer[])
+  
+  hindice = Value
+  
+End
+
+'PEGAR DATOS DEL PORTAPAPELES
+''-----------------------------------------------------------------------------
+' codigo para pegar contenido del portapapeles al grid
+'-----------------------------------------------------------------------------
+Public Sub pegardelportapapeles(Optional filainicial As Integer, Optional titulos As Boolean)
+  'titulos: 0: sin titulo, -1 titulo contiene la 1º fila
+  
+  Dim lineas As String[]
+  Dim linea_procesada As String
+  Dim columnas As String[]
+  Dim a As Integer
+  Dim c As Integer
+  Dim cadena As String
+  Dim portapapeles As String
+  Dim finlinea As String
+  Dim fincolumna As String
+  
+  Dim annadir As Integer
+  
+  finlinea = "\n" ' retorno de carro (separa las filas)
+  fincolumna = "\t" 'tabulador (separa las colunas)
+  
+  Try portapapeles = Clipboard.paste()
+  Try lineas = Split(portapapeles, finlinea)
+  Try columnas = Split(lineas[0], fincolumna) 
+  
+  If Error Then
+    Message.Error(("error al leer datos del portapapeles"))
+    Goto finleer
+  Endif 
+  
+  annadir = filainicial
+  
+  Me.Rows.count = lineas.Count + annadir  ' para sobreescribir
+  
+  linea_procesada = lineas[a]
+  columnas = Split(linea_procesada, fincolumna) 
+  For c = 0 To Me.Columns.count - 1
+    
+    Try Me[a + annadir, c].text = columnas[c]
+    If Error Then 
+      Message.Error(("Producido un error al intentar pegar"))
+      Return
+    Endif
+    
+  Next 
+  
+  For a = 1 To Me.Rows.count - 2
+    linea_procesada = lineas[a]
+    If linea_procesada = "" Then Break 
+    columnas = Split(linea_procesada, fincolumna) 
+    
+    For c = 0 To Me.columns.count - 1
+      Me[a + annadir, c].text = columnas[c]
+    finnext:
+    Next 'c
+  Next 'a
+  Me.Rows.count -= 1
+  
+  'refrescamos el contenido de la tabla 
+  Me.Refresh
+  
+finleer:
+  
+End
+'-----------------------------------------------------------------------
+' codigo que genera copiar al portapapeles
+'-----------------------------------------------------------------------
+
+Public Sub copiaralportapapeles()
+  
+  Dim texto As String
+  Dim a As Integer
+  Dim b As Integer
+  
+  If Me.header = 1 Or Me.header = 3 Then 
+    For a = 0 To Me.Columns.count - 1
+      texto &= Me.Columns[a].Title & "\t"  
+    Next 
+    texto &= "\n"
+  Endif 
+  For a = 0 To Me.Rows.Count - 1
+    For b = 0 To Me.Columns.count - 1
+      texto &= revisa(Me[a, b].text) & "\t"  'separa los datos con un tabulador
+    Next ' b
+    texto &= "\n"  'fin de linea
+  Next 'a
+  Clipboard.Copy(texto)
+  Message.Info(("Copiado contenido al portapapeles"))  
+  
+End
+
+Private Function revisa(cadena As String) As String
+  
+  Dim a As Integer
+  Dim letra As String
+  Dim devuelta As String
+  
+  For a = 1 To Len(cadena)
+    letra = Mid$(cadena, a, 1)
+    If letra = "." Then 
+      letra = ","
+    Endif 
+    devuelta &= letra
+  Next 
+  Return devuelta
+  
+End
