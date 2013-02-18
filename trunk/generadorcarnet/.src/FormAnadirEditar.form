@@ -1,0 +1,156 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,81,63)
+  Icon = Picture["icon:/22/edit"]
+  { PictureBox1 PictureBox
+    MoveScaled(2,0,18,23)
+    ToolTip = ("Haga click, para elegir una imagen en tu disco duro")
+    Stretch = True
+    Border = Border.Plain
+  }
+  { Label1 Label
+    MoveScaled(23,2,13,5)
+    Text = ("Nombre:")
+  }
+  { campo01 TextBox
+    MoveScaled(33,2,30,5)
+    ToolTip = ("CAMPO01")
+  }
+  { Label2 Label
+    MoveScaled(23,8,13,5)
+    Text = ("Apellidos:")
+  }
+  { campo02 TextBox
+    MoveScaled(33,8,30,5)
+    ToolTip = ("CAMPO02")
+  }
+  { Label3 Label
+    MoveScaled(23,14,19,5)
+    Text = ("Fecha Nacimiento:")
+  }
+  { Label4 Label
+    MoveScaled(23,20,13,5)
+    Text = ("Curso")
+  }
+  { campo04 TextBox
+    MoveScaled(30,20,33,5)
+    ToolTip = ("CAMPO04")
+  }
+  { Label5 Label
+    MoveScaled(3,29,9,5)
+    Text = ("Centro")
+  }
+  { campo05 TextBox
+    MoveScaled(13,29,50,5)
+    ToolTip = ("CAMPO05")
+  }
+  { Label6 Label
+    MoveScaled(3,35,10,5)
+    Text = ("Localidad")
+  }
+  { campo06 TextBox
+    MoveScaled(13,35,50,5)
+    ToolTip = ("CAMPO06")
+  }
+  { Label7 Label
+    MoveScaled(3,41,30,5)
+    Text = ("Numero de Carnet (opcional):")
+  }
+  { campo07 ValueBox
+    MoveScaled(35,41,13,5)
+    ToolTip = ("CAMPO07")
+    Text = ("ValueBox1")
+  }
+  { Label8 Label
+    MoveScaled(3,47,20,5)
+    Text = ("Otro Dato (opcional):")
+  }
+  { campo08 TextBox
+    MoveScaled(24,47,39,5)
+    ToolTip = ("CAMPO08")
+  }
+  { ToolButtonAceptar ToolButton
+    MoveScaled(16,55,15,6)
+    Text = ("Aceptar")
+    Picture = Picture["icon:/22/apply"]
+    Border = True
+  }
+  { ToolButtonCancelar ToolButton
+    MoveScaled(39,55,15,6)
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+  { Campo03 DateBox
+    MoveScaled(43,14,20,5)
+  }
+  { Label9 Label
+    MoveScaled(64,0,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("(en plantilla)")
+    Alignment = Align.Center
+  }
+  { Label10 Label
+    MoveScaled(64,3,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO01")
+    Alignment = Align.Center
+  }
+  { Label11 Label
+    MoveScaled(64,9,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO02")
+    Alignment = Align.Center
+  }
+  { Label12 Label
+    MoveScaled(64,15,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO03")
+    Alignment = Align.Center
+  }
+  { Label13 Label
+    MoveScaled(64,21,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO04")
+    Alignment = Align.Center
+  }
+  { Label14 Label
+    MoveScaled(64,27,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO05")
+    Alignment = Align.Center
+  }
+  { Label15 Label
+    MoveScaled(64,33,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO06")
+    Alignment = Align.Center
+  }
+  { Label16 Label
+    MoveScaled(64,39,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO07")
+    Alignment = Align.Center
+  }
+  { Label17 Label
+    MoveScaled(64,45,15,3)
+    Font = Font["Italic,-1"]
+    Text = ("CAMPO08")
+    Alignment = Align.Center
+  }
+  { Label18 Label
+    MoveScaled(63,52,18,3)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = (" FOTOPLANTILLA.JPG")
+    Alignment = Align.Center
+  }
+  { ToolButtonTomaFoto ToolButton
+    MoveScaled(1,23,20,6)
+    Font = Font["Bitstream Charter,-2"]
+    ToolTip = ("Toma una foto con la webcam")
+    Text = ("Foto WebCam")
+    Picture = Picture["camara_icono.png"]
+    Border = True
+  }
+}

@@ -1,0 +1,158 @@
+' Gambas class file
+
+Public anadir As Integer = -1
+
+Public reg As New ClassRegistro
+Public modo As Integer 'modo añadir=-1, editar=nº de id
+
+Public Sub ToolButtonCancelar_Click()
+  
+  Me.Close
+  
+End
+
+Public Sub ToolButtonAceptar_Click()
+  
+  'recoge todos los datos y lo envia al modulePrincipal para que sea alli tratado...
+  'copia de la foto al directorio de 
+  
+  reg.foto = Replace(PictureBox1.Tag, " ", "_")
+  reg.nombre = campo01.Text
+  reg.Apellidos = campo02.Text
+  reg.FechaNacimiento = Str$(campo03.value)
+  reg.curso = campo04.Text
+  reg.centro = campo05.Text
+  reg.localidad = campo06.Text
+  reg.NumeroCarnet = Str$(campo07.Value)
+  reg.tag = campo08.Text
+  
+  If modo = anadir Then 
+    'si estoy añadiendo paso a añadir datos
+    ModulePrincipal.anadirRegistro(reg)
+    Form1.gridviewContenido.rows.count += 1
+  Else
+    ' si estoy editando paso a modificar datos..
+    ModulePrincipal.EditarRegistro(reg, modo)
+  Endif
+  
+  'luego termina
+  '
+  Me.Close
+  
+End
+
+Public Sub Form_Open()
+  'recargar datos...
+  
+  If reg.foto <> "" And Exist(User.home & "/GeneradorCarnets/temporales/fotos/" & reg.foto) Then 
+    PictureBox1.Tag = Replace$(reg.foto, " ", "_")
+    
+    PictureBox1.Picture = Picture[User.home & "/GeneradorCarnets/temporales/fotos/" & reg.foto]
+  Else
+    If Not Exist(User.home & "/GeneradorCarnets/temporales/fotos/icono_fotos_personas.png") Then 
+      Copy "icono_fotos_personas.png" To User.home & "/GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"
+    Endif
+    PictureBox1.Picture = Picture[User.home & "/GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"]
+    PictureBox1.Tag = "icono_fotos_personas.png"
+  Endif
+  
+  campo01.Text = reg.nombre 
+  campo02.Text = reg.Apellidos 
+  campo03.value = Val(reg.FechaNacimiento)
+  campo04.Text = reg.curso 
+  campo05.Text = reg.centro
+  campo06.Text = reg.localidad
+  campo07.Value = reg.NumeroCarnet
+  campo08.Text = reg.tag 
+  
+End
+
+Public Sub campo01_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then campo02.SetFocus()
+  
+End
+
+Public Sub campo02_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then campo03.SetFocus()
+  
+End
+
+Public Sub campo03_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then campo04.SetFocus()
+  
+End
+
+Public Sub campo04_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then campo05.SetFocus()
+  
+End
+
+Public Sub campo05_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then campo06.SetFocus()
+  
+End
+
+Public Sub campo06_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then campo07.SetFocus()
+  
+End
+
+Public Sub campo07_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then campo08.SetFocus()
+  
+End
+
+Public Sub campo08_KeyPress()
+  
+  If Key.code = key.enter Or key.code = key.return Then ToolButtonAceptar.SetFocus()
+  
+End
+
+Public Sub ToolButtonAceptar_KeyPress()
+  
+  If key.code = key.enter Or key.code = key.return Then ToolButtonAceptar_Click()
+  
+End
+
+Public Sub ToolButtonCancelar_KeyPress()
+  
+End
+
+Public Sub PictureBox1_MouseDown()
+  
+  Dialog.Title = "Elija el archivo gráfico"
+  
+  Dialog.Filter = ["*.jpg", "jpg"]
+  If Not Dialog.OpenFile() Then 
+    PictureBox1.Picture = Picture[Dialog.Path]
+    PictureBox1.tag = Dialog.Path
+    
+    Exec ["cp", PictureBox1.tag, User.home & "/GeneradorCarnets/temporales/fotos/" & Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_")] Wait
+    reg.foto = Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_") ' User.home & "/GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
+    PictureBox1.tag = reg.foto
+  Endif
+  
+End
+
+Public Sub ToolButtonTomaFoto_Click()
+  
+  Dim nombrefinal As String
+  Dim comando As String = User.home & "/FotoCarnetMyWebCam.gambas"
+  
+  Exec [comando] Wait
+  '  User.home & "/webcam_carnet.png"
+  nombrefinal = User.home & "/GeneradorCarnets/temporales/fotos/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
+  
+  Exec ["cp", User.home & "/webcam_carnet.png", nombrefinal] Wait
+  reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal) ' User.home & "/GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
+  PictureBox1.tag = reg.foto
+  PictureBox1.picture = Picture[nombrefinal]
+  
+End

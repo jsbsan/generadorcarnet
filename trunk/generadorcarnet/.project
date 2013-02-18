@@ -1,0 +1,28 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.3.4
+Title=Generador De Carnets
+Startup=Form1
+Icon=carnet.png
+Version=0.0.14
+Component=gb.image
+Component=gb.qt4
+Component=gb.form
+Component=gb.desktop
+Component=gb.settings
+Component=gb.qt4.ext
+Description="Generador de Carnets\nAcceso a realizar fotos desde la webcam\nAcceso a programa \"GaleriaEnLaNube\"\nAyuda."
+TabSize=2
+Translate=1
+Language=es
+ExecPath=/home/uno/GeneradorCarnets.gambas
+Maintainer=jsbsan
+Address=jusabejusabe@gmail.com
+Url=http://jsbsan.blogspot.com.es/
+License=General Public License
+PackageName=generadorcarnets-0.0.12
+CreateEachDirectory=1
+Packager=1
+Systems=ubuntu
+Menus=ubuntu:"Applications/Office"
+Categories=ubuntu:"Office"
+Groups=ubuntu:"graphics"

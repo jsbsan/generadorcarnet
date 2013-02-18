@@ -1,0 +1,429 @@
+' Gambas module file
+
+Public plantillaUsada As String = User.home & "/GeneradorCarnets/plantillas/plantilla.svg"
+Public Lista As New ClassListaRegistro
+Public Guardado As Boolean = True ''true: se ha guardado... false no se ha guardado las ultimas modificaciones
+Public EstadoDelTrabajo As Float 'fotos convertidas...
+Public EstadoDelTrabajoPaginas As Float 'que pagina llevo realizada
+Public RutaCarnet As String 'ruta donde se guardaran las fotos, rejillas de datos
+
+'Módulo donde trabajaremos con un objeto de la clase ClassListaRegistro
+
+Public Sub CrearGrupo(ruta As String) As Boolean ''crear grupo dado una ruta, devuelve true si todo ha ido bien
+  
+  vaciarDirectorio(User.Home & "/GeneradorCarnets/temporales/fotos", "*.*")
+  vaciarDirectorio(User.Home & "/GeneradorCarnets/temporales/plantillas", "*.*")
+  'limpio datos contenidos en el Lista
+  Lista.registros.Clear()
+  
+  RutaCarnet = ruta
+  guardado = False
+  Return True
+  
+End
+
+Public Sub anadirRegistro(registro As ClassRegistro)
+  
+  registro.id = Lista.generarId()
+  
+  Lista.registros.Add(registro)
+  Guardado = False
+  
+End
+
+Public Sub EditarRegistro(reg As ClassRegistro, id As Integer)
+  
+  Dim listaArrayReg As New ClassRegistro[]
+  Dim indice As Integer
+  
+  indice = Lista.buscar(id)
+  If indice <> -1 Then 
+    listaArrayReg.add(reg)
+    Lista.registros.Delete(indice)
+    Lista.registros.Insert(listaArrayReg, indice)
+    guardado = False
+  Endif
+  
+End
+
+Public Sub BorrarRegistro(id As Integer)
+  
+  Dim indice As Integer
+  
+  indice = Lista.buscar(id)
+  If indice <> -1 Then 
+    Lista.registros.Delete(indice)
+    guardado = False
+  Endif
+  
+End
+
+Public Sub PegarDatosPortapapeles() As Boolean 'devuelve true si todo ha ido bien.., false si se ha producido un error
+  
+  Dim portapapeles As String
+  Dim lineas As New String[]
+  Dim columnas As New String[]
+  Dim regtmp As New ClassRegistro
+  Dim finlinea As String
+  Dim fincolumna As String
+  Dim a As Integer
+  'es añadir datos 
+  'por cada linea leida, asignar a un reg temporal y añadirlo
+  finlinea = "\n" ' retorno de carro (separa las filas)
+  fincolumna = "\t" 'tabulador (separa las colunas)
+  
+  Try portapapeles = Clipboard.paste()
+  Try lineas = Split(portapapeles, finlinea)
+  Try columnas = Split(lineas[0], fincolumna) 
+  
+  If Error Then
+    Message.Error(("error al leer datos del portapapeles"))
+    Return False
+  Endif 
+  
+  For a = 0 To lineas.count - 1
+    'intento leer toda la informacion del portapapeles, si hay algun error, sigue ejecutandose
+    regtmp = New ClassRegistro
+    regtmp.vacio() 'creo el registro completamente vacio
+    
+    Try columnas = Split(lineas[a], fincolumna) 
+    Try regtmp.foto = columnas[0] '
+    Try regtmp.nombre = columnas[1] '01
+    Try regtmp.Apellidos = columnas[2] '02
+    Try regtmp.FechaNacimiento = columnas[3] '03
+    Try regtmp.curso = columnas[4] '04
+    Try regtmp.centro = columnas[5] '05
+    Try regtmp.localidad = columnas[6] '06
+    Try regtmp.NumeroCarnet = Val(columnas[7]) '07
+    Try regtmp.tag = columnas[8]
+    
+    'añado registro 
+    anadirRegistro(regtmp)
+    EstadoDelTrabajo = a
+  Next
+  
+End
+'--------------------------------------------
+'  generacion de pdf de los distintos carnet
+'--------------------------------------------
+'numerar: true , los numeros empiezan por un valor indicado en el cuadro de dialog
+
+Public Sub creandoPNg(regtmp As ClassRegistro, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer) As Boolean
+  
+  Dim proceso As Process
+  
+  '  Form1.longitudTrabajo = 1
+  If Exist(User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
+    Kill User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
+  Endif
+  
+  Try Copy ModulePrincipal.plantillaUsada To User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
+  If Error Then 
+    'problema al intentar copiar fichero
+    Return False
+  Endif
+  ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", formato, numerar, valorinicialNumeroCarnet + a)
+  
+  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png"] 
+  EsperarProceso(proceso, a)
+  
+End
+
+Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String) As Boolean
+  
+  Dim contador As Integer 'contador para llevar el numero de carnet que se estan creando
+  Dim contadorEnUnaPagina As Integer 'paginas que llevamos creadas
+  
+  Dim a As Integer 'bucle
+  Dim regtmp As ClassRegistro
+  Dim paginas As Integer
+  'borro plantilla anterior
+  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp")
+  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/pdf")
+  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
+  For a = (inicioRegistro) To inicioFin
+    regtmp = New ClassRegistro
+    regtmp = Lista.registros[a]
+    
+    creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet)
+    
+    contador += 1
+    
+    contadorEnUnaPagina += 1
+    If (Val(tileArgumentoV) * Val(tileArgumentoH)) = contadorEnUnaPagina Then
+      'genero montaje...
+      Paginas += 1
+      montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
+      contadorEnUnaPagina = 0
+      vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png")
+    Endif
+    
+  Next
+  
+  'creando ultimo bloque de fotos...
+  Paginas += 1
+  montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
+  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
+  EstadoDelTrabajo = -1 'trabajo completado
+  EstadoDelTrabajoPaginas = -1 'paginas
+  Desktop.Open(User.home & "/GeneradorCarnets/trabajoTmp/pdf/")
+  
+End
+
+'-------------------------------------------------------------
+' borrado de ficheros de un directorio...
+'-------------------------------------------------------------
+Public Sub vaciarDirectorio(ruta As String, Optional patron As String)
+  'borrado si existe la ruta
+  
+  Dim file As String
+  
+  If patron = "" Then patron = "*.*"
+  
+  For Each File In Dir(ruta, patron)
+    Kill ruta & "/" & file
+  Next
+  
+End
+
+'--------------------------
+'montando imagenes
+'--------------------------
+Public Sub montaje(geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, Optional numeropagina As Integer)
+  
+  Dim proceso As Process
+  
+  proceso = Exec ["montage", User.home & "/GeneradorCarnets/trabajoTmp/*.png", "-geometry", geometriaArgumento, "-tile", tileArgumentoV & "x" & tileArgumentoH, User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png"] 
+  EsperarProceso(proceso)
+  
+  proceso = Exec ["convert", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png", User.home & "/GeneradorCarnets/trabajoTmp/pdf/pagina" & numeropagina & ".pdf"]
+  EsperarProceso(proceso, numeropagina, 1)
+  
+End
+
+'-------------------------------
+' esperar proceso que termine
+' ------------------------------
+Public Sub EsperarProceso(proceso As Process, Optional a As Integer, Optional pagina As Integer)
+  
+  Do While proceso.state = Process.Running
+    Wait 0.1
+  Loop
+  If pagina = 0 Then 
+    If a <> 0 Then EstadoDelTrabajo = a  'tiempo de proceso
+  Else
+    If a <> 0 Then EstadoDelTrabajoPaginas = a
+  Endif
+  
+End
+
+Public Sub guardarDatos() As Boolean
+  
+  Dim resultado As Boolean
+  'creo fichero de datos...
+  File.Save(User.home & "/GeneradorCarnets/temporales/datos.txt", "version 1" & "\n" & ModulePrincipal.Lista.contenido())
+  'copia de plantillas...
+  resultado = copiarplantillas()
+  If resultado = False Then Message.Error("Problemas al copiar las plantillas")
+  resultado = comprimirDatos() 
+  If resultado = False Then Message.Error("Problemas al comprimir datos")
+  Return resultado
+  
+End
+
+Public Sub copiarplantillas() As Boolean
+  
+  Dim file As String
+  
+  For Each File In Dir(User.home & "/GeneradorCarnets/plantillas", "*.svg")
+    Try Exec ["cp", User.home & "/GeneradorCarnets/plantillas/" & file, User.home & "/GeneradorCarnets/temporales/plantillas/"] Wait
+  Next
+  
+  If Error Then 
+    Return False 'se ha producido un error, devuelvo fallo
+  Else
+    Return True 'todo ha ido bien
+    
+  Endif
+  
+End
+
+Public Sub comprimirDatos() As Boolean
+  
+  If Exist(User.home & "/temporal.zip") Then Kill User.home & "/temporal.zip"
+  
+  Shell "zip " & User.home & "/temporal.zip " & User.home & "/GeneradorCarnets/temporales/*" Wait
+  Shell "zip " & User.home & "/temporal.zip " & User.home & "/GeneradorCarnets/temporales/fotos/*" Wait
+  Shell "zip " & User.home & "/temporal.zip " & User.home & "/GeneradorCarnets/temporales/plantillas/*" Wait
+  
+  If Exist(RutaCarnet & ".GeneradorCarnets") Then 
+    'existe, lo borro para actualizarlo
+    Try Kill RutaCarnet & ".GeneradorCarnets"
+  Endif
+  If RutaCarnet = "" Then
+    Message.Error("Nombre de archivo incorrecto:" & gb.CrLf & RutaCarnet)
+    Return False
+  Else  
+    
+    Try Copy User.home & "/temporal.zip" To RutaCarnet & ".GeneradorCarnets"
+  Endif
+  Try Kill User.home & "/temporal.zip"
+  Guardado = True 'todo guardado
+  
+  If Error Then 
+    Return False
+  Else
+    Return True
+  Endif
+  
+End
+'-----------------------------------------------------
+'.zip(zip)
+'-----------------------------------------------------
+'Comprimir zip archivo.zip /mayo/archivos
+'Descomprimir unzip archivo.zip
+'Ver contenido unzip - v archivo.zip
+
+Public Sub extraeRutaZip(nombre As String) As String
+  
+  Dim a As Integer
+  Dim pos As Integer 'posicion de la fila donde empieza el nombre
+  Dim pos2 As Integer 'posicion de la fila donde empieza /GeneradorCarnets
+  Dim ContenidoComprimido As String
+  Dim cadena As New String[]
+  Dim nombreUsuarioAntiguo As String
+  Dim letra As String
+  Dim nombreCompleto As String
+  
+  Shell "unzip -v " & nombre To ContenidoComprimido
+  Print "Contenido del Fichero:"
+  Print ContenidoComprimido
+  cadena = Split(ContenidoComprimido, "\n")
+  Print "Cadena 1º fichero:"; cadena[3]
+  
+  For a = Len(cadena[2]) To 1 Step -1 'miro la linea de titulos de columnas
+    letra = Mid$(cadena[2], a, 1)
+    If letra = " " Then 
+      pos = a 'ultima posicion con espacios...
+      Break
+    Endif
+  Next
+  
+  nombreCompleto = Mid$(cadena[3], pos, Len(cadena[3]))
+  
+  Print "Cadena completa: "; nombreCompleto
+  pos2 = InStr(cadena[3], "/GeneradorCarnets/")
+  
+  nombreUsuarioAntiguo = Mid$(cadena[3], pos + 1, pos2 - pos - 1)
+  
+  Print "Nombre de usuario: "; nombreUsuarioAntiguo
+  Return nombreUsuarioAntiguo
+  
+End
+
+Public Sub AbrirFichero(nombre As String) As Boolean
+  
+  Dim borrasubruta As String
+  Dim rutaDescomprimida As String
+  Dim resultado As Boolean
+  Dim nombreRutaAntinua As String
+  'Operaciones a realizar
+  ' listar contenido del fichero -> para obtener rutas relativas
+  nombreRutaAntinua = extraeRutaZip(nombre)
+  
+  If nombreRutaAntinua = "" Then 
+    Return False ' a fallado la extracion de informacion del fichero
+  Endif
+  Shell "rm -r " & User.Home & "/GeneradorCarnets/trabajoTmp/home/" Wait
+  ' extraer en algun lugar temporal...
+  Shell "cd " & User.Home & "/GeneradorCarnets/trabajoTmp/" & " && unzip " & nombre Wait
+  'borro los datos temporales que haya
+  vaciarDirectorio(User.home & "/GeneradorCarnets/temporales/")
+  vaciarDirectorio(User.home & "/GeneradorCarnets/temporales/fotos/")
+  vaciarDirectorio(User.home & "/GeneradorCarnets/temporales/plantillas/")
+  Rmdir User.home & "/GeneradorCarnets/temporales/fotos"
+  Rmdir User.home & "/GeneradorCarnets/temporales/plantillas"
+  
+  Wait 0.5
+  rutaDescomprimida = User.Home & "/GeneradorCarnets/trabajoTmp/" & nombreRutaAntinua & "/GeneradorCarnets/temporales/"
+  ' copiar ficheros desde ruta descomprimida hasta la ruta relativa
+  MoverFicheros(rutaDescomprimida, User.Home & "/GeneradorCarnets/temporales/")
+  MoverFicheros(rutaDescomprimida & "fotos/", User.Home & "/GeneradorCarnets/temporales/")
+  MoverFicheros(User.Home & "/GeneradorCarnets/temporales/fotos/", User.Home & "/GeneradorCarnets/temporales/fotos/")
+  
+  MoverFicheros(rutaDescomprimida & "plantillas/", User.Home & "/GeneradorCarnets/temporales/")
+  MoverFicheros(User.Home & "/GeneradorCarnets/temporales/plantillas/", User.Home & "/GeneradorCarnets/temporales/plantillas/")
+  Wait 2 'doy tiempo a que se muevan los archivos...
+  
+  Rmdir rutaDescomprimida 
+  borrasubruta = Mid$(rutaDescomprimida, 1, Len(rutaDescomprimida) - 1)
+  Print "siguiente directorio: "; ModuleIntermedio.extraedesdebarra(borrasubruta)
+  borrasubruta = Mid$(borrasubruta, 1, Len(borrasubruta) - Len(ModuleIntermedio.extraedesdebarra(borrasubruta)) - 1)
+  Print "siguiente directorio: "; borrasubruta
+  Rmdir borrasubruta
+  borrasubruta = Mid$(borrasubruta, 1, Len(borrasubruta) - Len(ModuleIntermedio.extraedesdebarra(borrasubruta)) - 1)
+  Print "siguiente directorio: "; borrasubruta
+  Rmdir borrasubruta
+  borrasubruta = Mid$(borrasubruta, 1, Len(borrasubruta) - Len(ModuleIntermedio.extraedesdebarra(borrasubruta)) - 1)
+  Print "siguiente directorio: "; borrasubruta
+  Rmdir borrasubruta
+  
+  ' Rmdir rutaDescomprimida & "fotos/"
+  ' Rmdir rutaDescomprimida 
+  ' fotos / datos / plantillas
+  ' borrado de las carpetas temporales...
+  ' ************************************************************************
+  'TODO: lectura de datos del fichero de datos y cargar al gridview...
+  ' ************************************************************************
+  If Exist(User.home & "/GeneradorCarnets/temporales/datos.txt") Then 
+    resultado = CargarDatos()
+    ModulePrincipal.RutaCarnet = nombre
+    
+  Else
+    Message.Error("No encuentro fichero de datos.txt")
+    Return False
+  Endif
+  
+  Return resultado
+  
+End
+
+Public Sub MoverFicheros(origen As String, destino As String) As Boolean
+  
+  Dim file As String
+  
+  Print "Moviendo..............."
+  Print "ruta movida: "; origen
+  Print "ruta destino: "; destino
+  If Exist(origen) Then 
+    For Each File In Dir(origen)
+      Print file
+      Shell "mv " & origen & "/" & file & " " & destino & "/" & file Wait
+    Next
+  Endif
+  
+  Return True 'todo ha ido bien
+  
+End
+
+'---------------------------------------------
+'Carga de datos desde el fichero "datos"
+'
+Public Sub CargarDatos() As Boolean
+  
+  Dim contenido As String
+  Dim cadenas As New String[]
+  
+  contenido = file.Load(User.home & "/GeneradorCarnets/temporales/datos.txt")
+  cadenas = Split(contenido, "\n")
+  
+  If cadenas[0] = "version 1" Then
+    cadenas.Delete(0) 'borro la primera linea,que solo me sirve para averiguar la version
+    Return Lista.LecturaDatos(cadenas)
+    
+  Else
+    Message.Error("El fichero no lo puedo leer.\n Versión Desconocida.")
+    Return False
+  Endif
+  
+End
