@@ -14,7 +14,7 @@
     Text = ("Nombre:")
   }
   { campo01 TextBox
-    MoveScaled(33,2,30,5)
+    MoveScaled(33,2,26,5)
     ToolTip = ("CAMPO01")
   }
   { Label2 Label
@@ -22,7 +22,7 @@
     Text = ("Apellidos:")
   }
   { campo02 TextBox
-    MoveScaled(33,8,30,5)
+    MoveScaled(33,8,26,5)
     ToolTip = ("CAMPO02")
   }
   { Label3 Label
@@ -34,7 +34,7 @@
     Text = ("Curso")
   }
   { campo04 TextBox
-    MoveScaled(30,20,33,5)
+    MoveScaled(30,20,29,5)
     ToolTip = ("CAMPO04")
   }
   { Label5 Label
@@ -42,7 +42,7 @@
     Text = ("Centro")
   }
   { campo05 TextBox
-    MoveScaled(13,29,50,5)
+    MoveScaled(13,29,46,5)
     ToolTip = ("CAMPO05")
   }
   { Label6 Label
@@ -50,7 +50,7 @@
     Text = ("Localidad")
   }
   { campo06 TextBox
-    MoveScaled(13,35,50,5)
+    MoveScaled(13,35,46,5)
     ToolTip = ("CAMPO06")
   }
   { Label7 Label
@@ -67,7 +67,7 @@
     Text = ("Otro Dato (opcional):")
   }
   { campo08 TextBox
-    MoveScaled(24,47,39,5)
+    MoveScaled(24,47,35,5)
     ToolTip = ("CAMPO08")
   }
   { ToolButtonAceptar ToolButton
@@ -83,7 +83,7 @@
     Border = True
   }
   { Campo03 DateBox
-    MoveScaled(43,14,20,5)
+    MoveScaled(41,14,18,5)
   }
   { Label9 Label
     MoveScaled(64,0,15,3)
@@ -152,5 +152,47 @@
     Text = ("Foto WebCam")
     Picture = Picture["camara_icono.png"]
     Border = True
+  }
+  { ButtonIguala Button iguala
+    Name = "ButtonIguala"
+    MoveScaled(59,2,4,5)
+    Tag = "Nombre"
+    ToolTip = ("Toma datos del anterior registro")
+    Text = ("=")
+  }
+  { ButtonIguala2 Button iguala
+    Name = "ButtonIguala2"
+    MoveScaled(59,8,4,5)
+    Tag = "Apellidos"
+    ToolTip = ("Toma datos del anterior registro")
+    Text = ("=")
+  }
+  { ButtonIguala4 Button iguala
+    Name = "ButtonIguala4"
+    MoveScaled(59,20,4,5)
+    Tag = "curso"
+    ToolTip = ("Toma datos del anterior registro")
+    Text = ("=")
+  }
+  { ButtonIguala5 Button iguala
+    Name = "ButtonIguala5"
+    MoveScaled(59,29,4,5)
+    Tag = "centro"
+    ToolTip = ("Toma datos del anterior registro")
+    Text = ("=")
+  }
+  { ButtonIguala6 Button iguala
+    Name = "ButtonIguala6"
+    MoveScaled(59,35,4,5)
+    Tag = "localidad"
+    ToolTip = ("Toma datos del anterior registro")
+    Text = ("=")
+  }
+  { ButtonIguala7 Button iguala
+    Name = "ButtonIguala7"
+    MoveScaled(59,47,4,5)
+    Tag = "tag"
+    ToolTip = ("Toma datos del anterior registro")
+    Text = ("=")
   }
 }

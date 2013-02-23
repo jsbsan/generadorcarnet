@@ -1,0 +1,45 @@
+' Gambas module file
+
+Public Sub comprobarEntorno()
+  
+  Dim texto As String
+  Dim falta As Boolean = False
+  
+  If Not comun.instalado("zip") Then 
+    texto = ("zip") & "\n"
+    falta = True
+  Endif
+  
+  If Not comun.instalado("pdftk") Then 
+    texto &= ("pdftk") & "\n"
+    falta = True
+  Endif
+  
+  If Not comun.instalado("imagemagick") Then 
+    texto &= ("imagemagick") & "\n"
+    falta = True
+  Endif
+  
+  If falta = True Then
+    Message.Info(("Falta los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
+  Endif
+  
+End
+
+Public Function instalado(paquete As String) As Boolean
+  'Indica si un paquete de software está instalado en el sistema o no (Debian y derivados)
+  
+  Dim contenido As String
+  Dim n As Integer
+  
+  Shell "dpkg -l|grep " & paquete & " > /tmp/paq.txt" Wait 
+  Try contenido = File.load("/tmp/paq.txt")
+  n = InStr(contenido, " " & paquete & " ")
+  
+  If n > 0 And Left(contenido, 2) = "ii" Then 'si el paquete se desinstaló pero no completamente la línea empieza por rc
+    Return True
+  Else 
+    Return False
+  Endif 
+  
+End 
