@@ -304,13 +304,13 @@ End
 Public Sub anadirPlantilla()
   
   Dialog.path = User.home & "/GeneradorCarnets/temporales/plantillas/"
-  Dialog.Title = "Elige la plantilla en formato .svg (inkscape)"
+  Dialog.Title = ("Elige la plantilla en formato .svg (inkscape)")
   Dialog.Filter = ["*.svg", "Archivos .svg"]
   If Not Dialog.OpenFile() Then 
     'copio el archivo elegido al directorio donde se guardan las plantillas...
     Try Copy Dialog.path To User.home & "/GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)
     If Error Then 
-      Message.Error("Se ha producido un error, al intentar copiar la plantilla")
+      Message.Error(("Se ha producido un error, al intentar copiar la plantilla"))
     Endif
   Endif
   

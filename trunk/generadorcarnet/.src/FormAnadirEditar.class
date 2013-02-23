@@ -127,7 +127,7 @@ End
 
 Public Sub PictureBox1_MouseDown()
   
-  Dialog.Title = "Elija el archivo gráfico"
+  Dialog.Title = ("Elija el archivo gráfico")
   
   Dialog.Filter = ["*.jpg", "jpg"]
   If Not Dialog.OpenFile() Then 
@@ -154,5 +154,58 @@ Public Sub ToolButtonTomaFoto_Click()
   reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal) ' User.home & "/GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
   PictureBox1.tag = reg.foto
   PictureBox1.picture = Picture[nombrefinal]
+  
+End
+
+Public Sub iguala_Click()
+  
+  Dim maximo As Integer
+  Dim valor As Variant
+  'se ha producido un click en el grupo de botones iguala
+  
+  If modo = 0 Then Return 
+  
+  If modo = -1 Then 
+    'estoy añadiendo un registro, me fijo en el ultimo dado
+    maximo = ModulePrincipal.Lista.registros.Max
+    If maximo = -1 Then Return
+    valor = Object.GetProperty(ModulePrincipal.Lista.registros[maximo], Last.tag)
+    
+  Else
+    'estoy editando un registro, me fijo en el registro anterior
+    valor = Object.GetProperty(ModulePrincipal.Lista.registros[modo - 1], Last.tag)
+    
+  Endif
+  'le paso el valor
+  Object.SetProperty(reg, Last.tag, valor)  
+  '  Print Object.Type(devuelvetextbox(Last.tag))
+  If Object.Type(devuelvetextbox(Last.tag)) = "DateBox" Then 
+    
+  Else
+    Object.SetProperty(devuelvetextbox(Last.tag), "text", Object.GetProperty(reg, Last.tag))
+  Endif
+  
+End
+
+Public Sub devuelvetextbox(texto As String) As Object
+  
+  Dim propiedades As String[] = ["nombre", "apellidos", "fechanacimiento", "curso", "centro", "localidad", "tag"]
+  
+  Select Case propiedades.Find(Lower(texto))
+    Case 0
+      Return campo01
+    Case 1 
+      Return campo02
+    Case 2
+      Return campo03
+    Case 3
+      Return campo04
+    Case 4
+      Return campo05
+    Case 5
+      Return campo06
+    Case 6
+      Return campo08 
+  End Select
   
 End

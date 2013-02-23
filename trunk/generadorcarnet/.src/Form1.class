@@ -11,6 +11,7 @@ Public longitudPaginas As Float 'paginas que se iran creando en PDF
 
 Public Sub Form_Open()
   
+  comun.comprobarEntorno()
   ModuleIntermedio.IniciarLaPrimeraVez()
   Expander1.Hidden = True
   Me.Center
@@ -31,17 +32,17 @@ Public Sub IconPanel1_Click()
   
   Dim resultado As Boolean
   
-  If IconPanel1.text = "Crear Grupo" Then 
+  If IconPanel1.text = ("Crear Grupo") Then 
     If ModulePrincipal.Guardado = False Then 
-      Message.Warning("Los datos anteriores no se guardaron," & "\n" & "si crea un Grupo nuevo, se borrarán!!")
+      Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si crea un Grupo nuevo, se borrarán!!"))
     Endif
   Endif
   
-  If IconPanel1.text = "Abrir Grupo" Then 
+  If IconPanel1.text = ("Abrir Grupo") Then 
     If ModulePrincipal.Guardado = False Then 
-      Message.Warning("Los datos anteriores no se guardaron," & "\n" & "si crea un Grupo nuevo, se borrarán!!")
+      Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si crea un Grupo nuevo, se borrarán!!"))
     Endif
-    Dialog.title = "Indique archivo de datos para abrir..."
+    Dialog.title = ("Indique archivo de datos para abrir...")
     Dialog.Filter = ["*.GeneradorCarnets", ".GeneradorCarnets"]
     If Not Dialog.OpenFile() Then 
       ModulePrincipal.AbrirFichero(Dialog.Path)
@@ -52,7 +53,7 @@ Public Sub IconPanel1_Click()
     Endif
     
   Endif
-  If IconPanel1.text = "Guardar como...." Then
+  If Replace(IconPanel1.text, ".", "") = ("Guardar como") Then
     ''TODO: guardar como....
     If ModulePrincipal.RutaCarnet <> "" Then 
       Dialog.Filter = ["*.GeneradorCarnets", ".GeneradorCarnets"]
@@ -61,39 +62,39 @@ Public Sub IconPanel1_Click()
         
       Endif
     Else
-      Message.Info("Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo")
+      Message.Info(("Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"))
     Endif
     
   Endif
   
-  If IconPanel1.text = "Guardar Grupo" Or IconPanel1.text = "Guardar como...." Then 
+  If IconPanel1.text = ("Guardar Grupo") Or Replace$(IconPanel1.text, ".", "") = ("Guardar como") Then 
     'guardar el archivo de datos...
     LabelNombreFichero.text = Replace$(ModulePrincipal.RutaCarnet, ".GeneradorCarnets", "") & ".GeneradorCarnets"
     resultado = ModulePrincipal.GuardarDatos()
     If resultado Then 
       ModulePrincipal.RutaCarnet = Replace$(ModulePrincipal.RutaCarnet, ".GeneradorCarnets", "") 
-      Message.Info("Guardado correctamente" & gb.CrLf & ModulePrincipal.RutaCarnet & ".GeneradorCarnets")
+      Message.Info(("Guardado correctamente") & gb.CrLf & ModulePrincipal.RutaCarnet & ".GeneradorCarnets")
     Else
-      Message.Error("No he podido guardar los datos")
+      Message.Error(("No he podido guardar los datos"))
     Endif
     IconPanel1.index = 3
     IconPanel1_Click()
   Endif
   
-  If IconPanel1.text = "Crear Pdf para imprimir" Then 
+  If IconPanel1.text = ("Crear Pdf para imprimir") Then 
     
     ValueBoxHasta.Value = ModulePrincipal.Lista.registros.count
     
   Endif
   
-  If IconPanel1.text = "Previsualizar" Then 
+  If IconPanel1.text = ("Previsualizar") Then 
     'dibujo plantilla con relleno de datos
     ModuleIntermedio.CargaLista(ListBoxListaPlantillas)
     ButtonPlantillaPrimeraReg_Click()
     
   Endif
   
-  If IconPanel1.text = "Plantillas" Then 
+  If IconPanel1.text = ("Plantillas") Then 
     'cargar plantillas existentes
     Labelactual.text = ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
     ModuleIntermedio.CargaLista(ListBoxListaPlantillas)
@@ -102,7 +103,7 @@ Public Sub IconPanel1_Click()
   
   'Hago click en cerrar aplicación.
   
-  If IconPanel1.TEXT = "Salir" Then Me.close()
+  If IconPanel1.TEXT = ("Salir") Then Me.close()
   
 End
 
@@ -112,7 +113,7 @@ Public Sub DesplazarseAIntroducirDatos()
   
   IconPanel1.index = 3
   IconPanel1_Click()
-  Form1.Title = "Generador De Carnets: " & ModulePrincipal.RutaCarnet
+  Form1.Title = ("Generador De Carnets: ") & ModulePrincipal.RutaCarnet
   
 End
 
@@ -124,7 +125,7 @@ Public Sub ToolButtonCrear_Click()
   'comprobar que hay un fichero a crear
   
   If TextBoxNombreFicheroNuevo.text = "" Then 
-    Message.Error("Necesita poner un nombre")
+    Message.Error(("Necesita poner un nombre"))
   Else
     'comprobar que si existe...
     If Not Exist(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text) Then
@@ -133,13 +134,13 @@ Public Sub ToolButtonCrear_Click()
       IconPanel1.index = 3
       IconPanel1_Click()
     Else
-      respuesta = Message.Question("Existe el fichero:" & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & "¿que desea hacer?", " SobreEscribir ", " Cancelar ")
+      respuesta = Message.Question(("Existe el fichero:") & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & ("¿que desea hacer?"), (" SobreEscribir "), (" Cancelar "))
       If respuesta = 1 Then 
         CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
         DesplazarseAIntroducirDatos()
       Else
         'ha cancelado la operacion...
-        Print "Cancelado Crear Grupo"
+        '  Print "Cancelado Crear Grupo"
         
       Endif
       
@@ -231,7 +232,7 @@ Public Sub ToolButtonEditar_Click()
     
     ' regtemp = Null 'borro el objeto
   Else
-    Message.Info("No se puede editar un registro vacío")
+    Message.Info(("No se puede editar un registro vacío"))
   Endif  
   
 End
@@ -241,7 +242,7 @@ Public Sub ToolButtonBorrar_Click()
   Dim res As Integer
   
   If gridviewContenido.indice.count > gridviewContenido.row Then 
-    res = Message.Question("Seguro que desea borrar..", "Si", "Cancelar")
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
       ModulePrincipal.BorrarRegistro(gridviewContenido.indice[gridviewContenido.row])
       'refrescar el gridviews
@@ -259,9 +260,9 @@ Public Sub ButtonPlantillaPrimeraReg_Click()
   operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   If operacion = True Then 
     'todo ha ido bien...
-    LabelRegistro.text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+    LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
     TextLabelFaltanDatos2.visible = False
-    LabelPlantilla.text = "Plantilla: " & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
+    LabelPlantilla.text = ("Plantilla: ") & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
     DrawingAreaPrevisualizar.Visible = True
   Else
     DrawingAreaPrevisualizar.Visible = False
@@ -277,7 +278,7 @@ Public Sub ButtonPlantillaSiguienteReg_Click()
   contadorVistaPreliminar += 1
   operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   If operacion = True Then
-    LabelRegistro.text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+    LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
   Else
     'intento invalido de realizar la previsualizacion
     contadorVistaPreliminar -= 1
@@ -292,7 +293,7 @@ Public Sub ButtonPlantillaAnteriorReg_Click()
   contadorVistaPreliminar -= 1
   operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   If operacion = True Then
-    LabelRegistro.Text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+    LabelRegistro.Text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
   Else
     'intento invalido de realizar la previsualizacion
     contadorVistaPreliminar += 1
@@ -307,7 +308,7 @@ Public Sub ButtonPlantillaUltimaReg_Click()
   operacion = ModuleIntermedio.PrevisualizarRegistro(ModulePrincipal.Lista.registros.count - 1, DrawingAreaPrevisualizar, gridviewContenido)
   If operacion = True Then
     contadorVistaPreliminar = ModulePrincipal.Lista.registros.count - 1
-    LabelRegistro.text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+    LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
   Else
     'intento invalido de realizar la previsualizacion
     
@@ -318,8 +319,7 @@ End
 Public Sub Form_Close()
   
   If ModulePrincipal.Guardado = False Then 
-    If Message.Warning("¿Seguro que desea cerrar?" & "\n" & "Todos cambios no guardados se perderan",
-        "Cerrar", "Cancelar") = 1 Then
+    If Message.Warning(("¿Seguro que desea cerrar?") & "\n" & ("Todos cambios no guardados se perderan"), ("Cerrar"), ("Cancelar")) = 1 Then
       Me.Close
     Else
       Stop Event
@@ -400,7 +400,7 @@ Public Sub ToolButtonEditaPlantilla_Click()
   
   tex = ToolButtonEditaPlantilla.Text
   ToolButtonEditaPlantilla.Refresh()
-  ToolButtonEditaPlantilla.Text = "Espere..."
+  ToolButtonEditaPlantilla.Text = ("Espere...")
   comando = "inkscape " & User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.text
   Shell comando 
   ToolButtonEditaPlantilla.Text = tex
@@ -460,7 +460,8 @@ Public Sub ToolButtonGenerar_Click()
   'relojes para controlar el estado de las barras...
   Timer1.Start()
   TimerPaginas.Start() 'control de barras
-  ModulePrincipal.generarPdf(RadioButtonNumerarDesde.value, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text)
+  ModulePrincipal.generarPdf(RadioButtonNumerarDesde.value, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, ValueBoxCarnetAncho.value, valueboxcarnetlargo.value, RadioButtonPriW.value)
+  
   ProgressBarBarraEstado.Visible = False
   
 End
@@ -517,7 +518,7 @@ Public Sub ButtonPlantillaAnterior_Click()
   If contadorVistaPreliminarPlantilla > 0 Then
     contadorVistaPreliminarPlantilla = contadorVistaPreliminarPlantilla - 1
     ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
-    LabelPlantilla.text = "Plantilla: " & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
+    LabelPlantilla.text = ("Plantilla: ") & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
     operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   Endif
   
@@ -529,7 +530,7 @@ Public Sub ButtonPlantillaUltima_Click()
   
   contadorVistaPreliminarPlantilla = ListBoxListaPlantillas.List.count - 1
   ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
-  LabelPlantilla.text = "Plantilla: " & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
+  LabelPlantilla.text = ("Plantilla: ") & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
   operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   
 End
@@ -614,7 +615,8 @@ Public Sub labelInkscape2_MouseDown()
 End
 
 Public Sub ToolButtonGaleriaEnLaNube_Click()
+  'Unidad en disco drive google
   
-  Shell "GaleriaEnLaNube"
+  Desktop.Open("https://docs.google.com/folder/d/0B7uxDVszpXK2bDd3WVdDdlE4MmM/edit?usp=sharing")
   
 End

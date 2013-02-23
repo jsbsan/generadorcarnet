@@ -35,7 +35,7 @@ Public Sub buscar(id As Integer) As Integer
   For a = 0 To hregistros.Max
     If id = hregistros[a].id Then Return a
   Next
-  Message("se ha producido un error al buscar el indice")
+  Message.Error(("se ha producido un error al buscar el indice"))
   Return -1
   
 End

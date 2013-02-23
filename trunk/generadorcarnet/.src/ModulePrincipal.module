@@ -70,7 +70,7 @@ Public Sub PegarDatosPortapapeles() As Boolean 'devuelve true si todo ha ido bie
   'es añadir datos 
   'por cada linea leida, asignar a un reg temporal y añadirlo
   finlinea = "\n" ' retorno de carro (separa las filas)
-  fincolumna = "\t" 'tabulador (separa las colunas)
+  fincolumna = "\t" 'tabulador (separa las colunmas)
   
   Try portapapeles = Clipboard.paste()
   Try lineas = Split(portapapeles, finlinea)
@@ -81,21 +81,23 @@ Public Sub PegarDatosPortapapeles() As Boolean 'devuelve true si todo ha ido bie
     Return False
   Endif 
   
-  For a = 0 To lineas.count - 1
+  For a = 0 To lineas.count - 2
     'intento leer toda la informacion del portapapeles, si hay algun error, sigue ejecutandose
     regtmp = New ClassRegistro
     regtmp.vacio() 'creo el registro completamente vacio
     
     Try columnas = Split(lineas[a], fincolumna) 
-    Try regtmp.foto = columnas[0] '
-    Try regtmp.nombre = columnas[1] '01
-    Try regtmp.Apellidos = columnas[2] '02
-    Try regtmp.FechaNacimiento = columnas[3] '03
-    Try regtmp.curso = columnas[4] '04
-    Try regtmp.centro = columnas[5] '05
-    Try regtmp.localidad = columnas[6] '06
-    Try regtmp.NumeroCarnet = Val(columnas[7]) '07
-    Try regtmp.tag = columnas[8]
+    'no pongo datos 
+    '    Try regtmp.foto = columnas[0] '
+    
+    Try regtmp.nombre = columnas[0] '01
+    Try regtmp.Apellidos = columnas[1] '02
+    Try regtmp.FechaNacimiento = columnas[2] '03
+    Try regtmp.curso = columnas[3] '04
+    Try regtmp.centro = columnas[4] '05
+    Try regtmp.localidad = columnas[5] '06
+    Try regtmp.NumeroCarnet = Val(columnas[6]) '07
+    Try regtmp.tag = columnas[7]
     
     'añado registro 
     anadirRegistro(regtmp)
@@ -108,9 +110,13 @@ End
 '--------------------------------------------
 'numerar: true , los numeros empiezan por un valor indicado en el cuadro de dialog
 
-Public Sub creandoPNg(regtmp As ClassRegistro, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer) As Boolean
+Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer, ancho As Integer, largo As Integer, dimensionPrioritariaAncho As Boolean) As Boolean
   
   Dim proceso As Process
+  Dim comando As String
+  Dim nombreinicio As String
+  Dim nombrefin As String
+  Dim opcion As String
   
   '  Form1.longitudTrabajo = 1
   If Exist(User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
@@ -124,13 +130,29 @@ Public Sub creandoPNg(regtmp As ClassRegistro, a As Integer, formato As String, 
   Endif
   ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", formato, numerar, valorinicialNumeroCarnet + a)
   
-  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png"] 
+  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"] 
   EsperarProceso(proceso, a)
+  
+  nombreinicio = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"
+  nombrefin = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png" 
+  
+  If dimensionPrioritariaAncho = True Then 
+    opcion = Str$(ancho) & "x"
+  Else
+    opcion = "x" & Str$(largo)
+  Endif
+  
+  Exec ["convert", "-resize", opcion, nombreinicio, nombrefin] Wait
+  
+  Print "terminado crear un carnet"
+  'borro el archivo que me ha servido de temporal... (con tamaño segun plantilla inicial)
+  Kill nombreinicio
   
 End
 
-Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String) As Boolean
+Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, unir As Boolean, Carnetancho As Integer, Carnetlargo As Integer, dimensionPrioritariaAncho As Boolean) As Boolean
   
+  Dim comando As String
   Dim contador As Integer 'contador para llevar el numero de carnet que se estan creando
   Dim contadorEnUnaPagina As Integer 'paginas que llevamos creadas
   
@@ -145,7 +167,7 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     regtmp = New ClassRegistro
     regtmp = Lista.registros[a]
     
-    creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet)
+    creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet, carnetancho, Carnetlargo, dimensionPrioritariaAncho)
     
     contador += 1
     
@@ -166,7 +188,18 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
   EstadoDelTrabajo = -1 'trabajo completado
   EstadoDelTrabajoPaginas = -1 'paginas
-  Desktop.Open(User.home & "/GeneradorCarnets/trabajoTmp/pdf/")
+  
+  'unir todos los pdf en uno...
+  Wait 0.1
+  If unir = True Then 
+    comando = "pdftk " & User.home & "/GeneradorCarnets/trabajoTmp/pdf/* cat output " & User.home & "/GeneradorCarnets/trabajoTmp/pdf/resultado.pdf"
+    Shell comando Wait
+  Endif
+  
+  'usar pcmanfm para ver archivos...
+  Exec ["pcmanfm", User.home & "/GeneradorCarnets/trabajoTmp/pdf/"]
+  
+  'Desktop.Open(User.home & "/GeneradorCarnets/trabajoTmp/pdf/")
   
 End
 
@@ -194,6 +227,9 @@ Public Sub montaje(geometriaArgumento As String, tileArgumentoV As String, tileA
   Dim proceso As Process
   
   proceso = Exec ["montage", User.home & "/GeneradorCarnets/trabajoTmp/*.png", "-geometry", geometriaArgumento, "-tile", tileArgumentoV & "x" & tileArgumentoH, User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png"] 
+  'sin geometria
+  '  proceso = Exec ["montage", User.home & "/GeneradorCarnets/trabajoTmp/*.png", "-tile", tileArgumentoV & "x" & tileArgumentoH, User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png"] 
+  
   EsperarProceso(proceso)
   
   proceso = Exec ["convert", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png", User.home & "/GeneradorCarnets/trabajoTmp/pdf/pagina" & numeropagina & ".pdf"]
@@ -224,9 +260,9 @@ Public Sub guardarDatos() As Boolean
   File.Save(User.home & "/GeneradorCarnets/temporales/datos.txt", "version 1" & "\n" & ModulePrincipal.Lista.contenido())
   'copia de plantillas...
   resultado = copiarplantillas()
-  If resultado = False Then Message.Error("Problemas al copiar las plantillas")
+  If resultado = False Then Message.Error(("Problemas al copiar las plantillas"))
   resultado = comprimirDatos() 
-  If resultado = False Then Message.Error("Problemas al comprimir datos")
+  If resultado = False Then Message.Error(("Problemas al comprimir datos"))
   Return resultado
   
 End
@@ -261,7 +297,7 @@ Public Sub comprimirDatos() As Boolean
     Try Kill RutaCarnet & ".GeneradorCarnets"
   Endif
   If RutaCarnet = "" Then
-    Message.Error("Nombre de archivo incorrecto:" & gb.CrLf & RutaCarnet)
+    Message.Error(("Nombre de archivo incorrecto:") & gb.CrLf & RutaCarnet)
     Return False
   Else  
     
@@ -380,7 +416,7 @@ Public Sub AbrirFichero(nombre As String) As Boolean
     ModulePrincipal.RutaCarnet = nombre
     
   Else
-    Message.Error("No encuentro fichero de datos.txt")
+    Message.Error(("No encuentro fichero de datos.txt"))
     Return False
   Endif
   
@@ -422,7 +458,7 @@ Public Sub CargarDatos() As Boolean
     Return Lista.LecturaDatos(cadenas)
     
   Else
-    Message.Error("El fichero no lo puedo leer.\n Versión Desconocida.")
+    Message.Error(("El fichero no lo puedo leer.\n Versión Desconocida."))
     Return False
   Endif
   
