@@ -318,7 +318,7 @@
     Text = ("Crear Pdf para imprimir")
     Picture = Picture["icon:/22/print"]
     { ToolButtonGenerar ToolButton
-      MoveScaled(41,32,20,7)
+      MoveScaled(28,41,20,7)
       Text = ("Generar Pdf")
       Picture = Picture["icon:/22/exec"]
       Border = True
@@ -377,7 +377,8 @@
       }
     }
     { Expander1 Expander
-      MoveScaled(7,48,65,32)
+      MoveScaled(7,73,65,18)
+      Visible = False
       Expand = True
       Text = ("Parámetros Avanzados")
       { Label5 Label
@@ -481,7 +482,7 @@
       MoveScaled(1,14,74,1)
     }
     { ProgressBarBarraEstado ProgressBar
-      MoveScaled(4,40,68,6)
+      MoveScaled(4,54,68,6)
       Visible = False
       ToolTip = ("Convirtiendo fotografias")
     }
@@ -490,7 +491,7 @@
       Delay = 20
     }
     { ProgressBarBarraEstadoPaginas ProgressBar
-      MoveScaled(4,46,68,6)
+      MoveScaled(4,65,68,6)
       Visible = False
       ToolTip = ("Creando Páginas")
     }
@@ -499,9 +500,21 @@
       Delay = 20
     }
     { CheckBoxUnir CheckBox
-      MoveScaled(6,33,29,6)
+      MoveScaled(22,34,29,6)
       Text = ("Unir todos los pdf en uno")
       Value = CheckBox.True
+    }
+    { TextLabelImagenes TextLabel
+      MoveScaled(27,51,26,3)
+      Visible = False
+      Text = ("Generando Imagenes")
+      Alignment = Align.Center
+    }
+    { TextLabelGenerandoPaginas TextLabel
+      MoveScaled(27,62,26,3)
+      Visible = False
+      Text = ("Generando Paginas")
+      Alignment = Align.Center
     }
     Index = 9
     Text = ("Salir")
