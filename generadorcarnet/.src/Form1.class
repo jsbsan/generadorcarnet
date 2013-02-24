@@ -417,7 +417,7 @@ Public Sub ToolButtonGenerar_Click()
   Dim registroinicio As Integer
   Dim registrofin As Integer
   Dim valorInicialNumero As Integer
-
+  
   TextLabelImagenes.Visible = True
   TextLabelGenerandoPaginas.Visible = True
   ProgressBarBarraEstado.Visible = True
@@ -469,7 +469,7 @@ Public Sub ToolButtonGenerar_Click()
   ProgressBarBarraEstado.Visible = False
   TextLabelImagenes.Visible = False
   TextLabelGenerandoPaginas.Visible = False 
-
+  
 End
 
 Public Sub ToolButtonActual_Click()
