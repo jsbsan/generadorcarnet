@@ -117,7 +117,7 @@ Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, 
   Dim nombreinicio As String
   Dim nombrefin As String
   Dim opcion As String
-  
+  Dim numeroImagen As Integer
   '  Form1.longitudTrabajo = 1
   If Exist(User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
     Kill User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
@@ -130,23 +130,25 @@ Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, 
   Endif
   ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", formato, numerar, valorinicialNumeroCarnet + a)
   
-  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"] 
+  numeroImagen = (a + 1) - Int((a + 1) / 8) * 8
+  If numeroImagen = 0 Then numeroImagen = 8
+  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"] 
   EsperarProceso(proceso, a)
   
-  nombreinicio = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"
-  nombrefin = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png" 
+  '  nombreinicio = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"
+  ' nombrefin = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png" 
   
-  If dimensionPrioritariaAncho = True Then 
-    opcion = Str$(ancho) & "x"
-  Else
-    opcion = "x" & Str$(largo)
-  Endif
+  ' If dimensionPrioritariaAncho = True Then 
+  '   opcion = Str$(ancho) & "x"
+  ' Else
+  '   opcion = "x" & Str$(largo)
+  ' Endif
   
-  Exec ["convert", "-resize", opcion, nombreinicio, nombrefin] Wait
+  ' Exec ["convert", "-resize", opcion, nombreinicio, nombrefin] Wait
   
-  Print "terminado crear un carnet"
+  ' Print "terminado crear un carnet"
   'borro el archivo que me ha servido de temporal... (con tamaño segun plantilla inicial)
-  Kill nombreinicio
+  'If Exist(nombreinicio) Then Kill nombreinicio
   
 End
 
@@ -163,6 +165,10 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp")
   vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/pdf")
   vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
+  
+  EstadoDelTrabajo = 0
+  EstadoDelTrabajoPaginas = 0
+  
   For a = (inicioRegistro) To inicioFin
     regtmp = New ClassRegistro
     regtmp = Lista.registros[a]
@@ -175,7 +181,8 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     If (Val(tileArgumentoV) * Val(tileArgumentoH)) = contadorEnUnaPagina Then
       'genero montaje...
       Paginas += 1
-      montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
+      montarPlantilla2x4(paginas)
+      'montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
       contadorEnUnaPagina = 0
       vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png")
     Endif
@@ -184,7 +191,8 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   
   'creando ultimo bloque de fotos...
   Paginas += 1
-  montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
+  montarPlantilla2x4(paginas)
+  '  montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
   vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
   EstadoDelTrabajo = -1 'trabajo completado
   EstadoDelTrabajoPaginas = -1 'paginas
@@ -461,5 +469,26 @@ Public Sub CargarDatos() As Boolean
     Message.Error(("El fichero no lo puedo leer.\n Versión Desconocida."))
     Return False
   Endif
+  
+End
+
+Public Sub montarPlantilla2x4(numeropagina As Integer)
+
+  Dim a As Integer
+  Dim proceso As Process
+  'copio el archivo  plantillaA3_2x4.svg al directorio de trabajo
+  Try Copy "plantillaA4_2x4.svg" To User.home & "/GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg"
+  'copio imagenes transparentes si no existe la imagen png
+  For a = 1 To 8
+    If Not Exist(User.home & "/GeneradorCarnets/trabajoTmp/imagen0" & Str$(a) & ".png") Then Copy "transparente.png" To User.home & "/GeneradorCarnets/trabajoTmp/imagen0" & Str$(a) & ".png"
+  Next
+  
+  'genero plantilla rellena...
+  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"] 
+  
+  EsperarProceso(proceso)
+  
+  proceso = Exec ["convert", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png", User.home & "/GeneradorCarnets/trabajoTmp/pdf/pagina" & numeropagina & ".pdf"]
+  EsperarProceso(proceso, numeropagina, 1)
   
 End

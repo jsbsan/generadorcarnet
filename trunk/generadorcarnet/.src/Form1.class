@@ -417,7 +417,9 @@ Public Sub ToolButtonGenerar_Click()
   Dim registroinicio As Integer
   Dim registrofin As Integer
   Dim valorInicialNumero As Integer
-  
+
+  TextLabelImagenes.Visible = True
+  TextLabelGenerandoPaginas.Visible = True
   ProgressBarBarraEstado.Visible = True
   ProgressBarBarraEstado.Value = 0
   ''TODO: Barra de creación de páginas
@@ -425,6 +427,8 @@ Public Sub ToolButtonGenerar_Click()
   ProgressBarBarraEstadoPaginas.Value = 0
   ProgressBarBarraEstadoPaginas.Refresh()
   ProgressBarBarraEstado.Refresh()
+  longitudTrabajo = 0
+  longitudPaginas = 0
   '---------------------------------------
   '  condiciones... y opciones elegidas
   '---------------------------------------
@@ -463,7 +467,9 @@ Public Sub ToolButtonGenerar_Click()
   ModulePrincipal.generarPdf(RadioButtonNumerarDesde.value, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, ValueBoxCarnetAncho.value, valueboxcarnetlargo.value, RadioButtonPriW.value)
   
   ProgressBarBarraEstado.Visible = False
-  
+  TextLabelImagenes.Visible = False
+  TextLabelGenerandoPaginas.Visible = False 
+
 End
 
 Public Sub ToolButtonActual_Click()

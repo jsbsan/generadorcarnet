@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448"
+   height="1052.3622"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="plantillaA4_2x4.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-6.8702436"
+     inkscape:cy="492.42188"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1280"
+     inkscape:window-height="750"
+     inkscape:window-x="1280"
+     inkscape:window-y="74"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,5.2302535e-5)">
+    <image
+       sodipodi:absref="imagen01.png"
+       xlink:href="imagen01.png"
+       y="55"
+       x="60"
+       id="image3066-7"
+       height="191"
+       width="303" />
+    <image
+       y="55"
+       x="405"
+       id="image3066-7-3"
+       height="191"
+       width="303"
+       xlink:href="imagen02.png"
+       sodipodi:absref="imagen02.png" />
+    <image
+       y="277"
+       x="60"
+       id="image3066-7-3-0"
+       height="191"
+       width="303"
+       xlink:href="imagen03.png"
+       sodipodi:absref="imagen03.png" />
+    <image
+       y="277"
+       x="405"
+       id="image3066-7-3-0-4"
+       height="191"
+       width="303"
+       xlink:href="imagen04.png"
+       sodipodi:absref="imagen04.png" />
+    <image
+       y="522"
+       x="60"
+       id="image3066-7-3-0-4-5"
+       height="191"
+       width="303"
+       xlink:href="imagen05.png"
+       sodipodi:absref="imagen05.png" />
+    <image
+       y="522"
+       x="405"
+       id="image3066-7-3-0-4-5-0"
+       height="191"
+       width="303"
+       xlink:href="imagen06.png"
+       sodipodi:absref="imagen06.png" />
+    <image
+       y="764"
+       x="60"
+       id="image3066-7-3-0-4-5-0-8"
+       height="191"
+       width="303"
+       xlink:href="imagen07.png"
+       sodipodi:absref="imagen07.png" />
+    <image
+       y="764"
+       x="405"
+       id="image3066-7-3-0-4-5-0-8-4"
+       height="191"
+       width="303"
+       xlink:href="imagen08.png"
+       sodipodi:absref="imagen08.png" />
+  </g>
+</svg>
