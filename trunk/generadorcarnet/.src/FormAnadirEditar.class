@@ -128,8 +128,8 @@ End
 Public Sub PictureBox1_MouseDown()
   
   Dialog.Title = ("Elija el archivo gráfico")
-  
-  Dialog.Filter = ["*.jpg", "jpg"]
+  Dialog.Path = ""
+  Dialog.Filter = ["*.*", "All"]
   If Not Dialog.OpenFile() Then 
     PictureBox1.Picture = Picture[Dialog.Path]
     PictureBox1.tag = Dialog.Path
