@@ -1,3 +1,6 @@
+[Bookmarks]
+up=[]
+
 [Breakpoints]
 Count=0
 
@@ -71,22 +74,22 @@ Geometry=[-7,3,210,645]
 Geometry=[-7,3,210,210]
 
 [FCommit]
-LastCommit="Revision de ficheros que faltaban por versionar\n---- Esta línea y las siguientes serán ignoradas ----\n\nA       generadorcarnet.gambas\nA       .lang/#project.pot\nA       .lang/FormAnadirEditar.pot\nA       .lang/.pot\nA       .lang/ClassListaRegistro.pot\nA       .lang/comun.pot\nA       .lang/ClassRegistro.pot\nA       .lang/Form1.pot\nA       .lang/ClassSuperGridview.pot\nA       .lang/ModuleIntermedio.pot\nA       .lang/ModulePrincipal.pot\nM       .src/Form1.class\nA       .gambas\nA       .gambas/COMUN\nA       .gambas/CLASSLISTAREGISTRO\nA       .gambas/CLASSREGISTRO\nA       .gambas/FORM1\nA       .gambas/MODULEINTERMEDIO\nA       .gambas/CLASSSUPERGRIDVIEW\nA       .gambas/MODULEPRINCIPAL\nA       .gambas/FORMANADIREDITAR\nA       .settings\nM       .startup\nM       .project\nA       generadorcarnet.png"
+LastCommit="Cambio en dialogo para abrir todos los ficheros\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .src/FormAnadirEditar.class\nM       .gambas/FORMANADIREDITAR"
 
 [OpenFile]
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:37.65"
 File[4]=".src/ModuleIntermedio.module:203.21"
+Active=5
 File[5]=".src/Form1.form"
-Active=6
-File[6]=".src/Form1.class:456.4"
+File[6]=".src/Form1.class:38.24"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
 File[10]=".src/ModulePrincipal.module:112.189"
 File[11]=".src/FormAnadirEditar.form"
-File[12]=".src/FormAnadirEditar.class:129.45"
+File[12]=".src/FormAnadirEditar.class:130.18"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
 File[15]=".src/ClassSuperGridview.class:26.31"
@@ -106,7 +109,9 @@ File[28]=".src/comun.module:0.20"
 File[29]="googledriveacceso.png"
 File[30]="plantillaA4_2x4.svg:122.0"
 File[31]="transparente.png"
-Count=31
+File[32]="rayo.png"
+File[33]=".src/ModuleUpdate.module:13.3"
+Count=33
 
 [Watches]
 Count=0
