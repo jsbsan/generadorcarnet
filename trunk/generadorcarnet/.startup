@@ -2,12 +2,14 @@ Form1
 Generador De Carnets
 0
 0
-0.0.17
+0.0.18
 
 gb.image
 gb.qt4
 gb.form
 gb.desktop
 gb.settings
+gb.net
+gb.net.curl
 gb.qt4.ext
 

@@ -11,6 +11,8 @@ Public longitudPaginas As Float 'paginas que se iran creando en PDF
 
 Public Sub Form_Open()
   
+  ModuleUpdate.comprobar("generadorcarnets", Application.Version, "http://generadorcarnets.blogspot.com.es/2013/02/version.html", "no mostrar")
+  LabelVersion.text = "Vesión: " & Application.Version
   comun.comprobarEntorno()
   ModuleIntermedio.IniciarLaPrimeraVez()
   Expander1.Hidden = True
@@ -31,6 +33,12 @@ End
 Public Sub IconPanel1_Click()
   
   Dim resultado As Boolean
+  
+  If IconPanel1.index = 11 Then 
+    ModuleUpdate.comprobar("generadorcarnets", Application.Version, "http://generadorcarnets.blogspot.com.es/2013/02/version.html")
+    IconPanel1.index = 0
+    IconPanel1_Click()
+  Endif
   
   If IconPanel1.text = ("Crear Grupo") Then 
     If ModulePrincipal.Guardado = False Then 

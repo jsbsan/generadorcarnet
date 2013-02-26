@@ -7,7 +7,7 @@
   { IconPanel1 IconPanel
     MoveScaled(1,0,110,83)
     AutoResize = True
-    Count = 11
+    Count = 12
     Border = True
     Index = 0
     Text = ("Generador de Carnets")
@@ -68,6 +68,13 @@
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
       Text = ("minino.galpon.org")
+      Alignment = Align.Center
+    }
+    { LabelVersion Label
+      MoveScaled(41,9,22,6)
+      Font = Font["Bitstream Charter,Bold,+2"]
+      AutoResize = True
+      Text = ("Versión:")
       Alignment = Align.Center
     }
     Index = 1
@@ -526,6 +533,14 @@
       MoveScaled(2,2,68,77)
       Text = ("<b>Estructura de una plantilla:</b><br>\nSi usted quiere hacer sus propias plantillas, puede usar como base un plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, luego la guarda con un nombre nuevo, y en el menú Plantillas , con el botón \"añadir\" la prodia  añadir para usarla.\n<br>\nTiene que tener en cuenta que, es necesario que los textos (nombre, apellidos, centro, etc..) \nse deben de usar estos nombres:<br>\n<br>\nCAMPO01.............................................nombre\nCAMPO02.............................................apellidos\nCAMPO03.............................................fecha\nCAMPO04.............................................curso\nCAMPO05.............................................centro\nCAMPO06.............................................localidad\nCAMPO07.............................................NumeroDeCarnet\nCAMPO08.............................................otrocampo\n<br><br>\ny para la fotografia, el nombre del archivo fotografico es:<br>\nFOTOPLANTILLA.JPG.............................fotografia<br>\n<br>\nDe esta manera el programa reconoce los campos que tiene que sustituir de las plantillas.")
       Alignment = Align.Normal
+    }
+    Index = 11
+    Text = ("Buscar Actualizaciones")
+    Picture = Picture["rayo.png"]
+    { TextLabelEsperLeyendo2 TextLabel
+      MoveScaled(18,24,37,26)
+      Text = ("<h2>Espere por favor, estoy buscando actualizaciones</h2>")
+      Alignment = Align.Center
     }
     Index = 0
   }
