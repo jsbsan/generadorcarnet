@@ -460,79 +460,87 @@ msgstr ""
 msgid "Guardar como"
 msgstr ""
 
-#: Form1.class:73
+#: Form1.class:71
+msgid "Orden Cancelada:"
+msgstr ""
+
+#: Form1.class:71
+msgid "Guardar como..."
+msgstr ""
+
+#: Form1.class:75
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
 msgstr ""
 
-#: Form1.class:84
+#: Form1.class:87
 msgid "Guardado correctamente"
 msgstr ""
 
-#: Form1.class:86
+#: Form1.class:89
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: Form1.class:124
+#: Form1.class:127
 msgid "Generador De Carnets: "
 msgstr ""
 
-#: Form1.class:136
+#: Form1.class:139
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: Form1.class:145
+#: Form1.class:148
 msgid "Existe el fichero:"
 msgstr ""
 
-#: Form1.class:145
+#: Form1.class:148
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: Form1.class:145
+#: Form1.class:148
 msgid " SobreEscribir "
 msgstr ""
 
-#: Form1.class:145
+#: Form1.class:148
 msgid " Cancelar "
 msgstr ""
 
-#: Form1.class:243
+#: Form1.class:246
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: Form1.class:253
+#: Form1.class:256
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: Form1.class:253
+#: Form1.class:256
 msgid "Si"
 msgstr ""
 
-#: Form1.class:253 FormAnadirEditar.form:137
+#: Form1.class:256 FormAnadirEditar.form:137
 msgid "Cancelar"
 msgstr ""
 
-#: Form1.class:271
+#: Form1.class:274
 msgid "Registro: "
 msgstr ""
 
-#: Form1.class:273
+#: Form1.class:276
 msgid "Plantilla: "
 msgstr ""
 
-#: Form1.class:330
+#: Form1.class:333
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: Form1.class:330
+#: Form1.class:333
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: Form1.class:330
+#: Form1.class:333
 msgid "Cerrar"
 msgstr ""
 
-#: Form1.class:411
+#: Form1.class:414
 msgid "Espere..."
 msgstr ""
 

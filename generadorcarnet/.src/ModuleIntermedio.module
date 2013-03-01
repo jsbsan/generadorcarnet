@@ -203,8 +203,8 @@ Public Sub IniciarLaPrimeraVez()
   
   Dim texto As String
   'TODO: comprueba si existe, y si no lo crea...
-  If Not Exist(User.home & "/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam.gambas" To User.home & "/FotoCarnetMyWebCam.gambas"
-  Chmod User.home & "/FotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
+  If Not Exist(User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam.gambas" To User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas"
+  Chmod User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
   If Not Exist(User.home & "/GeneradorCarnets/") Then Mkdir User.home & "/GeneradorCarnets/"
   If Not Exist(User.home & "/GeneradorCarnets/temporales") Then Mkdir User.home & "/GeneradorCarnets/temporales"
   If Not Exist(User.home & "/GeneradorCarnets/temporales/fotos") Then Mkdir User.home & "/GeneradorCarnets/temporales/fotos"

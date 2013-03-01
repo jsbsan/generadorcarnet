@@ -200,7 +200,7 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   'unir todos los pdf en uno...
   Wait 0.1
   If unir = True Then 
-    comando = "pdftk " & User.home & "/GeneradorCarnets/trabajoTmp/pdf/* cat output " & User.home & "/GeneradorCarnets/trabajoTmp/pdf/resultado.pdf"
+    comando = "pdftk " & User.home & "/GeneradorCarnets/trabajoTmp/pdf/* cat output \"" & User.home & "/GeneradorCarnets/trabajoTmp/pdf/0 Todas las páginas.pdf\""
     Shell comando Wait
   Endif
   
@@ -473,7 +473,8 @@ Public Sub CargarDatos() As Boolean
 End
 
 Public Sub montarPlantilla2x4(numeropagina As Integer)
-
+  
+  Dim nombredestino As String
   Dim a As Integer
   Dim proceso As Process
   'copio el archivo  plantillaA3_2x4.svg al directorio de trabajo
@@ -487,8 +488,8 @@ Public Sub montarPlantilla2x4(numeropagina As Integer)
   proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"] 
   
   EsperarProceso(proceso)
-  
-  proceso = Exec ["convert", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png", User.home & "/GeneradorCarnets/trabajoTmp/pdf/pagina" & numeropagina & ".pdf"]
+  nombredestino = "\"" & User.home & "/GeneradorCarnets/trabajoTmp/pdf/Página " & Right$("00" & numeropagina, 2) & ".pdf\""
+  proceso = Shell ("convert " & User.home & "/GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png " & nombredestino)
   EsperarProceso(proceso, numeropagina, 1)
   
 End

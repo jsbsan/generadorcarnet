@@ -67,10 +67,13 @@ Public Sub IconPanel1_Click()
       Dialog.Filter = ["*.GeneradorCarnets", ".GeneradorCarnets"]
       If Not Dialog.SaveFile() Then 
         ModulePrincipal.RutaCarnet = Dialog.Path
-        
+      Else
+        Message.Info(("Orden Cancelada:") & "\n" & ("Guardar como..."))
+        Return
       Endif
     Else
       Message.Info(("Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"))
+      Return
     Endif
     
   Endif
