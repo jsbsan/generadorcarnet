@@ -72,13 +72,13 @@
   }
   { ToolButtonAceptar ToolButton
     MoveScaled(16,55,15,6)
-    Text = ("Aceptar")
+    Text = ("&Aceptar")
     Picture = Picture["icon:/22/apply"]
     Border = True
   }
   { ToolButtonCancelar ToolButton
     MoveScaled(39,55,15,6)
-    Text = ("Cancelar")
+    Text = ("&Cancelar")
     Picture = Picture["icon:/22/cancel"]
     Border = True
   }

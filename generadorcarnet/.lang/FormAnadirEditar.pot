@@ -83,11 +83,11 @@ msgid "CAMPO08"
 msgstr ""
 
 #: FormAnadirEditar.form:130
-msgid "Aceptar"
+msgid "&Aceptar"
 msgstr ""
 
 #: FormAnadirEditar.form:137
-msgid "Cancelar"
+msgid "&Cancelar"
 msgstr ""
 
 #: FormAnadirEditar.form:149
@@ -120,5 +120,9 @@ msgstr ""
 
 #: FormAnadirEditar.class:130
 msgid "Elija el archivo gráfico"
+msgstr ""
+
+#: FormAnadirEditar.class:132
+msgid "Ficheros de imágenes"
 msgstr ""
 
