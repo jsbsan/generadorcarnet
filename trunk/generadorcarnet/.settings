@@ -1,6 +1,3 @@
-[Bookmarks]
-up=[]
-
 [Breakpoints]
 Count=0
 
@@ -74,16 +71,15 @@ Geometry=[-7,3,210,645]
 Geometry=[-7,3,210,210]
 
 [FCommit]
-LastCommit="Cambio en dialogo para abrir todos los ficheros\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .src/FormAnadirEditar.class\nM       .gambas/FORMANADIREDITAR"
+LastCommit="Añadido sistema de actualizacion via web Update\n---- Esta línea y las siguientes serán ignoradas ----\n\nA       .gambas/MODULEUPDATE\nM       .gambas/FORM1\nM       .settings\nM       .startup\nM       .lang/.pot\nM       .lang/Form1.pot\nA       .lang/ModuleUpdate.pot\nM       .lang/#project.pot\nM       .src/Form1.form\nM       .src/Form1.class\nA       .src/ModuleUpdate.module\nM       .project\nA       rayo.png"
 
 [OpenFile]
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:37.65"
 File[4]=".src/ModuleIntermedio.module:203.21"
-Active=5
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:38.24"
+File[6]=".src/Form1.class:41.2"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
@@ -92,6 +88,7 @@ File[11]=".src/FormAnadirEditar.form"
 File[12]=".src/FormAnadirEditar.class:130.18"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
+Active=15
 File[15]=".src/ClassSuperGridview.class:26.31"
 File[16]="inkscape-icono.png"
 File[17]="icono inicial generador carnets.png"
