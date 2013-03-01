@@ -71,24 +71,24 @@ Geometry=[-7,3,210,645]
 Geometry=[-7,3,210,210]
 
 [FCommit]
-LastCommit="Añadido sistema de actualizacion via web Update\n---- Esta línea y las siguientes serán ignoradas ----\n\nA       .gambas/MODULEUPDATE\nM       .gambas/FORM1\nM       .settings\nM       .startup\nM       .lang/.pot\nM       .lang/Form1.pot\nA       .lang/ModuleUpdate.pot\nM       .lang/#project.pot\nM       .src/Form1.form\nM       .src/Form1.class\nA       .src/ModuleUpdate.module\nM       .project\nA       rayo.png"
+LastCommit="Muevo fichero que toma las fotos al directorio de generarcarnets\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .lang/.pot\nM       .lang/Form1.pot\nM       .startup\nM       generadorcarnet.gambas\nM       .src/FormAnadirEditar.class\nM       .src/Form1.class\nM       .src/ModuleIntermedio.module\nM       .src/ModulePrincipal.module\nM       .hidden/CHANGELOG\nM       .settings\nM       .project"
 
 [OpenFile]
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:37.65"
-File[4]=".src/ModuleIntermedio.module:203.21"
+File[4]=".src/ModuleIntermedio.module:40.27"
+Active=5
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:41.2"
+File[6]=".src/Form1.class:71.14"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
-File[10]=".src/ModulePrincipal.module:112.189"
+File[10]=".src/ModulePrincipal.module:202.147"
 File[11]=".src/FormAnadirEditar.form"
-File[12]=".src/FormAnadirEditar.class:130.18"
+File[12]=".src/FormAnadirEditar.class:152.65"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
-Active=15
 File[15]=".src/ClassSuperGridview.class:26.31"
 File[16]="inkscape-icono.png"
 File[17]="icono inicial generador carnets.png"
@@ -96,7 +96,7 @@ File[18]="plantilla/plantillaTmp.svg:18.34"
 File[19]="plantilla/plantilla-ciencias-club.svg:5820.34"
 File[20]="plantilla/plantilla-deporte-escolar.svg:313.34"
 File[21]="plantilla/plantilla-seguridad-vial.svg:687.34"
-File[22]="plantilla/plantillaComedor.svg:0.0"
+File[22]="plantilla/plantillaComedor.svg:250.34"
 File[23]="gambas360.png"
 File[24]="mininopicaros2012.png"
 File[25]="README.TXT:10.23"

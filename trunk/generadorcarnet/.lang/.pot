@@ -516,7 +516,7 @@ msgstr ""
 msgid "Si"
 msgstr ""
 
-#: Form1.class:256 FormAnadirEditar.form:137
+#: Form1.class:256
 msgid "Cancelar"
 msgstr ""
 
@@ -605,7 +605,11 @@ msgid "CAMPO08"
 msgstr ""
 
 #: FormAnadirEditar.form:130
-msgid "Aceptar"
+msgid "&Aceptar"
+msgstr ""
+
+#: FormAnadirEditar.form:137
+msgid "&Cancelar"
 msgstr ""
 
 #: FormAnadirEditar.form:149
@@ -638,6 +642,10 @@ msgstr ""
 
 #: FormAnadirEditar.class:130
 msgid "Elija el archivo gráfico"
+msgstr ""
+
+#: FormAnadirEditar.class:132
+msgid "Ficheros de imágenes"
 msgstr ""
 
 #: ModuleIntermedio.module:307
