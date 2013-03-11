@@ -1,0 +1,138 @@
+' Gambas module file
+
+'-------------------------------------------------------------
+' borrado de ficheros de un directorio...
+'-------------------------------------------------------------
+
+Public Sub vaciarDirectorio(ruta As String, Optional patron As String) ''Borrar contenido de un directorio dado un patron de borrado
+  'borrado si existe la ruta
+  
+  Dim file As String
+  
+  If patron = "" Then patron = "*"
+  If Exist(ruta) Then 
+    For Each File In Dir(ruta & "/", patron)
+      Try Kill ruta & "/" & file
+    Next
+  Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError() 
+  
+End
+
+Public Sub MoverFicheros(origen As String, destino As String) As Boolean
+  
+  Dim file As String
+  
+  ' Print "Moviendo..............."
+  ' Print "ruta movida: "; origen
+  ' Print "ruta destino: "; destino
+  If Exist(origen) Then 
+    For Each File In Dir(origen)
+      '  Print file
+      Try Shell "mv " & origen & "/" & file & " " & destino & "/" & file Wait
+    Next
+  Endif
+  
+  Return True 'todo ha ido bien
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub extraedesdebarra(ruta As String) As String
+  
+  Dim a As Integer
+  Dim letra As String
+  Dim cadena As String
+  
+  For a = Len(ruta) To 1 Step -1
+    letra = Mid$(ruta, a, 1)
+    If letra = "/" Then 
+      Return cadena
+    Else
+      cadena = letra & cadena
+    Endif
+    
+  Next
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub extraeExtension(ruta As String) As String
+  
+  Dim a As Integer
+  Dim letra As String
+  Dim cadena As String
+  
+  For a = Len(ruta) To 1 Step -1
+    letra = Mid$(ruta, a, 1)
+    If letra = "." Then 
+      Return cadena
+    Else
+      cadena = letra & cadena
+    Endif
+    
+  Next
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+'-------------------------------
+' esperar proceso que termine.
+' Parametros:
+' proceso: proceso que queremos esperar que termine....
+' ->  "a" indica el avance del trabajo de la variable "EstadoDelTrabajo" ->progressBar
+' ->  "pagina", segun su valor, hace que avance el progressBar de "EstadoDelTrabajo" o el "EstadoDelTrabajoPaginas
+' ------------------------------
+Public Sub EsperarProceso(proceso As Process, Optional a As Integer, Optional pagina As Integer)
+  
+  Do While proceso.state = Process.Running
+    Wait 0.1
+  Loop
+  If pagina = 0 Then 
+    If a <> 0 Then 
+      ' ModuleImprimir.EstadoDelTrabajo = a  'tiempo de proceso
+    Else
+      If a <> 0 Then 
+        'ModuleImprimir.EstadoDelTrabajoPaginas = a
+      Endif
+    Endif
+  Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub CopiarFicheros(Directorioorigen As String, Directoriodestino As String, patron As String) As Boolean
+  
+  Dim file As String
+  
+  If Exist(Directorioorigen) Then 
+    For Each File In Dir(Directorioorigen, patron)
+      '  Print file
+      Shell "cp " & Directorioorigen & "/" & file & " " & Directoriodestino & "/" & file Wait
+    Next
+  Endif
+  
+  Return True 'todo ha ido bien
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Function VerificarNombreEtiqueta(nombre As String, palabrasClave As String[], palabrasSustituir As String[]) As String
+  
+  Dim a As Integer
+  'En nuestro caso las plabrasClave son: FOTO, CAMPO, PLANTILLA, no se si directamente se le puede poner en la funcion ( ["FOTO","CAMPO","PLANTILLA"] o hay que definir un array
+  'Palabras clavesCambiadas son: IMAGEN, CA_PO, PLA_TILLA
+  For a = 0 To palabrasClave.Count - 1
+    nombre = Replace$(nombre, palabrasClave[a], palabrasSustituir[a])
+  Next
+  Return nombre
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End

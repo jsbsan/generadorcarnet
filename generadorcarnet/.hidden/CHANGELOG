@@ -1,3 +1,9 @@
+* Mon Mar 11 2013 jsbsan <jusabejusabe@gmail.com> 0.0.22
+-Corregido bug de edicion, soltar y poner url, ocultar campos de registros de plantilla
+
+* Sat Mar 02 2013 jsbsan <jusabejusabe@gmail.com> 0.0.20
+- Mejora en el filtro de fichero de imagenes
+
 * Fri Mar 01 2013 jsbsan <jusabejusabe@gmail.com> 0.0.19
 - Mover fichero .gambas de hacer foto al directorio del programa
 

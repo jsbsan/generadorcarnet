@@ -208,7 +208,7 @@
       Border = True
     }
     { DrawingAreaPlantilla DrawingArea
-      MoveScaled(35,19,27,23)
+      MoveScaled(42,20,27,23)
       Font = Font["-1"]
       Border = Border.Plain
       Cached = True
@@ -219,7 +219,7 @@
       Text = ("Plantillas Disponibles:")
     }
     { ToolButtonEditaPlantilla ToolButton
-      MoveScaled(36,56,20,5)
+      MoveScaled(60,14,18,5)
       Font = Font["-1"]
       Text = ("Editar Plantilla")
       Picture = Picture["icon:/22/pen"]
@@ -238,7 +238,7 @@
       Alignment = Align.Center
     }
     { ToolButtonActual ToolButton
-      MoveScaled(36,43,20,5)
+      MoveScaled(45,45,20,5)
       Font = Font["-1"]
       ToolTip = ("Hacer que la plantilla que se muestra sea la actual")
       Text = ("Utilizar....")
@@ -246,12 +246,12 @@
       Border = True
     }
     { Label8 Label
-      MoveScaled(35,48,17,4)
+      MoveScaled(47,50,17,4)
       Font = Font["Bold,-1"]
       Text = ("Plantilla actual:")
     }
     { Labelactual Label
-      MoveScaled(38,51,40,4)
+      MoveScaled(48,55,40,4)
       Font = Font["-1"]
     }
     { ToolButtonGaleriaEnLaNube ToolButton

@@ -1,0 +1,13 @@
+' Gambas module file
+
+Public Sub SistemaDescripcionError()
+  
+  Dim formularioError As New FormError ' formulario con un textArea y un boton de copia del texto al portapapeles,
+  Dim textmessage As String
+  
+  'creamos mensaje con todos los datos recopilados del  error producido...
+  textmessage = ("Pila: \n" & error.backtrace.Join("\n") & "\n\n" & "Clase: " & Str$(error.class) & "\n\n" & "Codigo Error: " & error.code & "\n" & "Mensaje Error: " & error.text & "\n\n" & "Localizacion: \n" & error.where)
+  formularioError.mensaje = textmessage
+  formularioError.show()
+  
+End

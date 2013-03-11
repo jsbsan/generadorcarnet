@@ -43,3 +43,14 @@ Public Function instalado(paquete As String) As Boolean
   Endif 
   
 End 
+
+Public Function Between(Datos As String, Cadena1 As String, Cadena2 As String) As String
+  
+  Dim iinf As Integer
+  Dim isup As Integer
+  
+  iinf = InStr(Datos, Cadena1) + Len(Cadena1)
+  isup = InStr(Datos, Cadena2, iinf)
+  Return Mid(Datos, iinf, isup - iinf)
+  
+End

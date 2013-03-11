@@ -14,115 +14,127 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormAnadirEditar.form:47
+#: FormAnadirEditar.form:50
 msgid "Haga click, para elegir una imagen en tu disco duro"
 msgstr ""
 
-#: FormAnadirEditar.form:54
+#: FormAnadirEditar.form:58
 msgid "Nombre:"
 msgstr ""
 
-#: FormAnadirEditar.form:59
+#: FormAnadirEditar.form:63
 msgid "CAMPO01"
 msgstr ""
 
-#: FormAnadirEditar.form:64
+#: FormAnadirEditar.form:68
 msgid "Apellidos:"
 msgstr ""
 
-#: FormAnadirEditar.form:69
+#: FormAnadirEditar.form:73
 msgid "CAMPO02"
 msgstr ""
 
-#: FormAnadirEditar.form:74
+#: FormAnadirEditar.form:78
 msgid "Fecha Nacimiento:"
 msgstr ""
 
-#: FormAnadirEditar.form:79
+#: FormAnadirEditar.form:83
 msgid "Curso"
 msgstr ""
 
-#: FormAnadirEditar.form:84
+#: FormAnadirEditar.form:88
 msgid "CAMPO04"
 msgstr ""
 
-#: FormAnadirEditar.form:89
+#: FormAnadirEditar.form:93
 msgid "Centro"
 msgstr ""
 
-#: FormAnadirEditar.form:94
+#: FormAnadirEditar.form:98
 msgid "CAMPO05"
 msgstr ""
 
-#: FormAnadirEditar.form:99
+#: FormAnadirEditar.form:103
 msgid "Localidad"
 msgstr ""
 
-#: FormAnadirEditar.form:104
+#: FormAnadirEditar.form:108
 msgid "CAMPO06"
 msgstr ""
 
-#: FormAnadirEditar.form:109
+#: FormAnadirEditar.form:113
 msgid "Numero de Carnet (opcional):"
 msgstr ""
 
-#: FormAnadirEditar.form:114
+#: FormAnadirEditar.form:118
 msgid "CAMPO07"
 msgstr ""
 
-#: FormAnadirEditar.form:115
+#: FormAnadirEditar.form:119
 msgid "ValueBox1"
 msgstr ""
 
-#: FormAnadirEditar.form:120
+#: FormAnadirEditar.form:124
 msgid "Otro Dato (opcional):"
 msgstr ""
 
-#: FormAnadirEditar.form:125
+#: FormAnadirEditar.form:129
 msgid "CAMPO08"
 msgstr ""
 
-#: FormAnadirEditar.form:130
+#: FormAnadirEditar.form:134
 msgid "&Aceptar"
 msgstr ""
 
-#: FormAnadirEditar.form:137
+#: FormAnadirEditar.form:141
 msgid "&Cancelar"
 msgstr ""
 
-#: FormAnadirEditar.form:149
+#: FormAnadirEditar.form:153
 msgid "(en plantilla)"
 msgstr ""
 
-#: FormAnadirEditar.form:170
+#: FormAnadirEditar.form:174
 msgid "CAMPO03"
 msgstr ""
 
-#: FormAnadirEditar.form:212
+#: FormAnadirEditar.form:216
 msgid " FOTOPLANTILLA.JPG"
 msgstr ""
 
-#: FormAnadirEditar.form:219
+#: FormAnadirEditar.form:223
 msgid "Toma una foto con la webcam"
 msgstr ""
 
-#: FormAnadirEditar.form:220
+#: FormAnadirEditar.form:224
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormAnadirEditar.form:229
+#: FormAnadirEditar.form:233
 msgid "Toma datos del anterior registro"
 msgstr ""
 
-#: FormAnadirEditar.form:230
+#: FormAnadirEditar.form:234
 msgid "="
 msgstr ""
 
-#: FormAnadirEditar.class:130
+#: FormAnadirEditar.form:279
+msgid "Plantilla Actual de Carnet:"
+msgstr ""
+
+#: FormAnadirEditar.class:175
+msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr ""
+
+#: FormAnadirEditar.class:231
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormAnadirEditar.class:132
-msgid "Ficheros de imágenes"
+#: FormAnadirEditar.class:232
+msgid "Ficheros de Imágenes"
+msgstr ""
+
+#: FormAnadirEditar.class:251
+msgid "No se ha podido descargarse el archivo"
 msgstr ""
 

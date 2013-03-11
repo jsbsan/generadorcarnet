@@ -1,5 +1,7 @@
 ' Gambas module file
 
+Public RutaPrograma As String = User.home & "/GeneradorCarnets/"
+
 Public plantillaUsada As String = User.home & "/GeneradorCarnets/plantillas/plantilla.svg"
 Public Lista As New ClassListaRegistro
 Public Guardado As Boolean = True ''true: se ha guardado... false no se ha guardado las ultimas modificaciones
@@ -38,6 +40,7 @@ Public Sub EditarRegistro(reg As ClassRegistro, id As Integer)
   
   indice = Lista.buscar(id)
   If indice <> -1 Then 
+    reg.id = indice 'añadido en version 0.0.22, faltaba en las anteriores dando errores en la edicion de registros.
     listaArrayReg.add(reg)
     Lista.registros.Delete(indice)
     Lista.registros.Insert(listaArrayReg, indice)
@@ -366,13 +369,15 @@ Public Sub extraeRutaZip(nombre As String) As String
 End
 
 Public Sub AbrirFichero(nombre As String) As Boolean
-  
+
+  Dim fpensando As New FormPensando
   Dim borrasubruta As String
   Dim rutaDescomprimida As String
   Dim resultado As Boolean
   Dim nombreRutaAntinua As String
   'Operaciones a realizar
   ' listar contenido del fichero -> para obtener rutas relativas
+  fpensando.Show()
   nombreRutaAntinua = extraeRutaZip(nombre)
   
   If nombreRutaAntinua = "" Then 
@@ -427,7 +432,8 @@ Public Sub AbrirFichero(nombre As String) As Boolean
     Message.Error(("No encuentro fichero de datos.txt"))
     Return False
   Endif
-  
+  fpensando.parar = True
+  fpensando.Delete()
   Return resultado
   
 End

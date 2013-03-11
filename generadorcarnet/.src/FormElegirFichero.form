@@ -1,0 +1,36 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,102,70)
+  { FileChooser1 FileChooser
+    MoveScaled(2,1,97,59)
+    ShowPreview = True
+    ShowFile = False
+  }
+  { ToolButtonAceptar ToolButton
+    MoveScaled(25,65,16,4)
+    Font = Font["Arial,-2"]
+    Text = ("Aceptar")
+    Picture = Picture["icon:/22/apply"]
+    Border = True
+  }
+  { ToolButtonCancelar ToolButton
+    MoveScaled(59,65,16,4)
+    Font = Font["Arial,-2"]
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+  { TextBoxUrl TextBox
+    MoveScaled(2,61,80,4)
+    Alignment = Align.Left
+  }
+  { ToolButtonPegarUrl ToolButton
+    MoveScaled(83,61,16,4)
+    Font = Font["-1"]
+    ToolTip = ("Pegar desde Portapapeles")
+    Text = ("Pegar (Url)")
+    Picture = Picture["icon:/22/paste"]
+    Border = True
+  }
+}

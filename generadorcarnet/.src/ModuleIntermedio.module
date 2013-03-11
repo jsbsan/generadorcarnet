@@ -61,7 +61,8 @@ Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
   AreaDibujo.Cached = True
   AreaDibujo.Border = 1
   
-  AreaDibujo.Painted = True
+  'ya no es necesario en gambas3.4:
+  ' AreaDibujo.Painted = True
   
   If Exist(fichero) Then 
     dra = dra.Load(fichero)
@@ -307,11 +308,16 @@ Public Sub anadirPlantilla()
   Dialog.Title = ("Elige la plantilla en formato .svg (inkscape)")
   Dialog.Filter = ["*.svg", "Archivos .svg"]
   If Not Dialog.OpenFile() Then 
-    'copio el archivo elegido al directorio donde se guardan las plantillas...
-    Try Copy Dialog.path To User.home & "/GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)
-    If Error Then 
-      Message.Error(("Se ha producido un error, al intentar copiar la plantilla"))
+    'copio el archivo elegido al directorio donde se guardan las plantillas...     
+    '
+    If Exist(User.home & "/GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)) Then 
+      Message.Info(("Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la plantilla a añadir"))
+    Else
+      
+      Copy Dialog.path To User.home & "/GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)
     Endif
   Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError() 
   
 End
