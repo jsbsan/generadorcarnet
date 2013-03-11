@@ -25,7 +25,7 @@ msgstr ""
 msgid "se ha producido un error al buscar el indice"
 msgstr ""
 
-#: ClassSuperGridview.class:50 ModulePrincipal.module:80
+#: ClassSuperGridview.class:50 ModulePrincipal.module:83
 msgid "error al leer datos del portapapeles"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 msgid "Crear"
 msgstr ""
 
-#: Form1.form:211 FormAnadirEditar.form:54
+#: Form1.form:211 FormAnadirEditar.form:58
 msgid "Nombre:"
 msgstr ""
 
@@ -288,7 +288,7 @@ msgstr ""
 msgid "El registro número"
 msgstr ""
 
-#: Form1.form:531 FormAnadirEditar.form:115
+#: Form1.form:531 FormAnadirEditar.form:119
 msgid "ValueBox1"
 msgstr ""
 
@@ -400,7 +400,7 @@ msgstr ""
 msgid "Generando Paginas"
 msgstr ""
 
-#: Form1.form:725
+#: Form1.form:725 FormError.form:24
 msgid "Salir"
 msgstr ""
 
@@ -444,235 +444,274 @@ msgstr ""
 msgid "<h2>Espere por favor, estoy buscando actualizaciones</h2>"
 msgstr ""
 
-#: Form1.class:45
+#: Form1.class:50
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: Form1.class:45
+#: Form1.class:50
 msgid "si crea un Grupo nuevo, se borrarán!!"
 msgstr ""
 
-#: Form1.class:53
+#: Form1.class:58
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: Form1.class:64
+#: Form1.class:70
 msgid "Guardar como"
 msgstr ""
 
-#: Form1.class:71
+#: Form1.class:77
 msgid "Orden Cancelada:"
 msgstr ""
 
-#: Form1.class:71
+#: Form1.class:77
 msgid "Guardar como..."
 msgstr ""
 
-#: Form1.class:75
+#: Form1.class:81
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
 msgstr ""
 
-#: Form1.class:87
+#: Form1.class:93
 msgid "Guardado correctamente"
 msgstr ""
 
-#: Form1.class:89
+#: Form1.class:95
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: Form1.class:127
+#: Form1.class:133
 msgid "Generador De Carnets: "
 msgstr ""
 
-#: Form1.class:139
+#: Form1.class:145
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: Form1.class:148
+#: Form1.class:154
 msgid "Existe el fichero:"
 msgstr ""
 
-#: Form1.class:148
+#: Form1.class:154
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: Form1.class:148
+#: Form1.class:154
 msgid " SobreEscribir "
 msgstr ""
 
-#: Form1.class:148
+#: Form1.class:154
 msgid " Cancelar "
 msgstr ""
 
-#: Form1.class:246
+#: Form1.class:252
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: Form1.class:256
+#: Form1.class:262
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: Form1.class:256
+#: Form1.class:262
 msgid "Si"
 msgstr ""
 
-#: Form1.class:256
+#: Form1.class:262 FormElegirFichero.form:30
 msgid "Cancelar"
 msgstr ""
 
-#: Form1.class:274
+#: Form1.class:280
 msgid "Registro: "
 msgstr ""
 
-#: Form1.class:276
+#: Form1.class:282
 msgid "Plantilla: "
 msgstr ""
 
-#: Form1.class:333
+#: Form1.class:339
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: Form1.class:333
+#: Form1.class:339
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: Form1.class:333
+#: Form1.class:339
 msgid "Cerrar"
 msgstr ""
 
-#: Form1.class:414
-msgid "Espere..."
-msgstr ""
-
-#: FormAnadirEditar.form:47
+#: FormAnadirEditar.form:50
 msgid "Haga click, para elegir una imagen en tu disco duro"
 msgstr ""
 
-#: FormAnadirEditar.form:59
+#: FormAnadirEditar.form:63
 msgid "CAMPO01"
 msgstr ""
 
-#: FormAnadirEditar.form:64
+#: FormAnadirEditar.form:68
 msgid "Apellidos:"
 msgstr ""
 
-#: FormAnadirEditar.form:69
+#: FormAnadirEditar.form:73
 msgid "CAMPO02"
 msgstr ""
 
-#: FormAnadirEditar.form:74
+#: FormAnadirEditar.form:78
 msgid "Fecha Nacimiento:"
 msgstr ""
 
-#: FormAnadirEditar.form:79
+#: FormAnadirEditar.form:83
 msgid "Curso"
 msgstr ""
 
-#: FormAnadirEditar.form:84
+#: FormAnadirEditar.form:88
 msgid "CAMPO04"
 msgstr ""
 
-#: FormAnadirEditar.form:89
+#: FormAnadirEditar.form:93
 msgid "Centro"
 msgstr ""
 
-#: FormAnadirEditar.form:94
+#: FormAnadirEditar.form:98
 msgid "CAMPO05"
 msgstr ""
 
-#: FormAnadirEditar.form:99
+#: FormAnadirEditar.form:103
 msgid "Localidad"
 msgstr ""
 
-#: FormAnadirEditar.form:104
+#: FormAnadirEditar.form:108
 msgid "CAMPO06"
 msgstr ""
 
-#: FormAnadirEditar.form:109
+#: FormAnadirEditar.form:113
 msgid "Numero de Carnet (opcional):"
 msgstr ""
 
-#: FormAnadirEditar.form:114
+#: FormAnadirEditar.form:118
 msgid "CAMPO07"
 msgstr ""
 
-#: FormAnadirEditar.form:120
+#: FormAnadirEditar.form:124
 msgid "Otro Dato (opcional):"
 msgstr ""
 
-#: FormAnadirEditar.form:125
+#: FormAnadirEditar.form:129
 msgid "CAMPO08"
 msgstr ""
 
-#: FormAnadirEditar.form:130
+#: FormAnadirEditar.form:134
 msgid "&Aceptar"
 msgstr ""
 
-#: FormAnadirEditar.form:137
+#: FormAnadirEditar.form:141
 msgid "&Cancelar"
 msgstr ""
 
-#: FormAnadirEditar.form:149
+#: FormAnadirEditar.form:153
 msgid "(en plantilla)"
 msgstr ""
 
-#: FormAnadirEditar.form:170
+#: FormAnadirEditar.form:174
 msgid "CAMPO03"
 msgstr ""
 
-#: FormAnadirEditar.form:212
+#: FormAnadirEditar.form:216
 msgid " FOTOPLANTILLA.JPG"
 msgstr ""
 
-#: FormAnadirEditar.form:219
+#: FormAnadirEditar.form:223
 msgid "Toma una foto con la webcam"
 msgstr ""
 
-#: FormAnadirEditar.form:220
+#: FormAnadirEditar.form:224
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormAnadirEditar.form:229
+#: FormAnadirEditar.form:233
 msgid "Toma datos del anterior registro"
 msgstr ""
 
-#: FormAnadirEditar.form:230
+#: FormAnadirEditar.form:234
 msgid "="
 msgstr ""
 
-#: FormAnadirEditar.class:130
+#: FormAnadirEditar.form:279
+msgid "Plantilla Actual de Carnet:"
+msgstr ""
+
+#: FormAnadirEditar.class:175
+msgid ""
+"Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr ""
+
+#: FormAnadirEditar.class:231
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormAnadirEditar.class:132
-msgid "Ficheros de imágenes"
+#: FormAnadirEditar.class:232
+msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: ModuleIntermedio.module:307
+#: FormAnadirEditar.class:251
+msgid "No se ha podido descargarse el archivo"
+msgstr ""
+
+#: FormElegirFichero.form:22
+msgid "Aceptar"
+msgstr ""
+
+#: FormElegirFichero.form:43
+msgid "Pegar desde Portapapeles"
+msgstr ""
+
+#: FormElegirFichero.form:44
+msgid "Pegar (Url)"
+msgstr ""
+
+#: FormError.form:13
+msgid "Mensaje de Error:"
+msgstr ""
+
+#: FormError.form:19
+msgid "Copiar Al portapapeles"
+msgstr ""
+
+#: FormPensando.form:19
+msgid "Pensando..."
+msgstr ""
+
+#: FormPensando.class:7
+msgid "Espere por favor..."
+msgstr ""
+
+#: ModuleIntermedio.module:308
 msgid "Elige la plantilla en formato .svg (inkscape)"
 msgstr ""
 
-#: ModuleIntermedio.module:313
-msgid "Se ha producido un error, al intentar copiar la plantilla"
+#: ModuleIntermedio.module:314
+msgid ""
+"Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la "
+"plantilla a añadir"
 msgstr ""
 
-#: ModulePrincipal.module:271
+#: ModulePrincipal.module:274
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:273
+#: ModulePrincipal.module:276
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:308
+#: ModulePrincipal.module:311
 msgid "Nombre de archivo incorrecto:"
 msgstr ""
 
-#: ModulePrincipal.module:427
+#: ModulePrincipal.module:432
 msgid "No encuentro fichero de datos.txt"
 msgstr ""
 
-#: ModulePrincipal.module:469
+#: ModulePrincipal.module:475
 msgid ""
 "El fichero no lo puedo leer.\n"
 " Versión Desconocida."

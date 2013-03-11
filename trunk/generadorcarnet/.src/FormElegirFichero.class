@@ -1,0 +1,79 @@
+' Gambas class file
+
+Public OpenFile As Boolean
+Public titulo As String 
+Public rutaPATH As String
+Public Filtro As String[]
+Public valor As New ClassDato
+
+Public Sub ToolButtonCancelar_Click()
+  
+  valor.dato = "-1"
+  Me.Close
+  
+End
+
+Public Sub Form_Open()
+  
+  FileChooser1.Filter = Filtro
+  Me.Caption = titulo
+  FileChooser1.ReadOnly = True
+  '  Print FileChooser1.Dir
+  
+End
+
+Public Sub ToolButtonAceptar_Click()
+  
+  Dim nombre As String
+  Dim a As String
+  Dim fpensando As New FormPensando
+  
+  a = TextBoxUrl.Text
+  
+  If InStr(a, "http://") <> 0 Then 
+    
+    nombre = "/tmp/1" & "." & Right$(a, 3)
+    Try Kill nombre 'borro nombre anterior
+    
+    Wait 0.1
+    fpensando.show()
+    Wait 0.1
+    Exec ["wget", a, "-O", nombre] Wait
+    'fichero de ruta...
+    Wait 0.1
+    fpensando.Delete()
+    
+    valor.dato = nombre
+    
+  Else
+    
+    valor.dato = FileChooser1.vALUE
+  Endif
+  
+  Me.Close
+  
+End
+
+Public Sub FileChooser1_MouseUp()
+  
+End
+
+Public Sub FileChooser1_Change()
+  
+  TextBoxUrl.text = FileChooser1.value
+  
+End
+
+Public Sub ToolButtonPegarUrl_Click()
+  
+  TextBoxUrl.text = Clipboard.Paste()
+  
+End
+
+Public Sub TextBoxUrl_KeyPress()
+  
+  If Key.code = Key.enter Or Key.code = Key.Return Or Key.code = Key.tab Then 
+    ToolButtonAceptar.SetFocus()
+  Endif
+  
+End

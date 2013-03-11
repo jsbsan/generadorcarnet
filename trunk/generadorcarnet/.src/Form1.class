@@ -11,6 +11,9 @@ Public longitudPaginas As Float 'paginas que se iran creando en PDF
 
 Public Sub Form_Open()
   
+  Dim fpensando As New FormPensando
+  
+  fpensando.Show()
   ModuleUpdate.comprobar("generadorcarnets", Application.Version, "http://generadorcarnets.blogspot.com.es/2013/02/version.html", "no mostrar")
   LabelVersion.text = "Vesión: " & Application.Version
   comun.comprobarEntorno()
@@ -23,6 +26,8 @@ Public Sub Form_Open()
   desactivarIntroduccionDeDatos()
   
   gridviewContenido.visible = False
+  fpensando.parar = True
+  fpensando.Delete()
   
 End
 
@@ -53,6 +58,7 @@ Public Sub IconPanel1_Click()
     Dialog.title = ("Indique archivo de datos para abrir...")
     Dialog.Filter = ["*.GeneradorCarnets", ".GeneradorCarnets"]
     If Not Dialog.OpenFile() Then 
+      
       ModulePrincipal.AbrirFichero(Dialog.Path)
       ModuleIntermedio.rellenarGridviews(gridviewContenido, ModulePrincipal.Lista) 'cargo datos en gridview
       activarIntroduccionDeDatos()
@@ -225,11 +231,11 @@ Public Sub ToolButtonEditar_Click()
   Dim feditar As New FormAnadirEditar
   
   If gridviewContenido.indice.count > gridviewContenido.row And gridviewContenido.row > -1 Then 
-    feditar.modo = gridviewContenido.indice[gridviewContenido.row] 'le paso el id del registro donde he hecho clik
+    feditar.modo = gridviewContenido.indice[gridviewContenido.row]
     feditar.reg.foto = gridviewContenido[gridviewContenido.row, 0].text
     feditar.reg.nombre = gridviewContenido[gridviewContenido.row, 1].text
     feditar.reg.Apellidos = gridviewContenido[gridviewContenido.row, 2].text
-    feditar.reg.FechaNacimiento = ModulePrincipal.Lista.registros[ModulePrincipal.Lista.buscar(gridviewContenido.indice[gridviewContenido.row])].FechaNacimiento 'gridviewContenido[gridviewContenido.row, 3].text
+    feditar.reg.FechaNacimiento = ModulePrincipal.Lista.registros[feditar.modo].FechaNacimiento 'gridviewContenido[gridviewContenido.row, 3].text
     feditar.reg.curso = gridviewContenido[gridviewContenido.row, 4].text
     feditar.reg.centro = gridviewContenido[gridviewContenido.row, 5].text
     feditar.reg.localidad = gridviewContenido[gridviewContenido.row, 6].text 'campo06.Text
@@ -408,14 +414,14 @@ Public Sub ToolButtonEditaPlantilla_Click()
   
   Dim tex As String
   Dim comando As String
+  Dim fespere As New FormPensando
   
-  tex = ToolButtonEditaPlantilla.Text
-  ToolButtonEditaPlantilla.Refresh()
-  ToolButtonEditaPlantilla.Text = ("Espere...")
+  fespere.Show()
+  Wait 0.1
   comando = "inkscape " & User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.text
-  Shell comando 
-  ToolButtonEditaPlantilla.Text = tex
-  ToolButtonEditaPlantilla.Refresh()
+  Shell comando Wait
+  fespere.parar = True
+  fespere.Delete()
   
 End
 

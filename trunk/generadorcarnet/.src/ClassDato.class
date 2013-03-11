@@ -1,0 +1,16 @@
+' Gambas class file
+
+Property dato As String
+Private hdato As String
+
+Private Function dato_Read() As String
+
+  Return hdato
+  
+End
+
+Private Sub dato_Write(Value As String)
+  
+  hdato = value
+  
+End

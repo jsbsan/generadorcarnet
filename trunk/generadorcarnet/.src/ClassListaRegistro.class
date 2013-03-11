@@ -79,7 +79,7 @@ Public Sub LecturaDatos(cadenas As String[]) As Boolean
     a += 1
     regtmp.tag = cadenas[a]
     a += 1
-    regtmp.id = cadenas[a]
+    regtmp.id = Val(cadenas[a])
     
     hregistros.Add(regtmp)
     regtmp = New ClassRegistro
