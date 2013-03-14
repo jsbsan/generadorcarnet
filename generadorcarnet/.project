@@ -3,7 +3,7 @@
 Title=Generador De Carnets
 Startup=Form1
 Icon=carnet.png
-Version=0.0.22
+Version=0.0.25
 Component=gb.image
 Component=gb.qt4
 Component=gb.form

@@ -1,0 +1,31 @@
+' Gambas module file
+
+Public Function ejecutandoUnicaCopia(nombre As String) As Boolean
+  
+  Dim veces As Integer
+  Dim contenido As String
+  Dim Arraycadena As New String[]
+  Dim a As Integer
+  
+  Shell "ps x | grep " & nombre To contenido
+  
+  Arraycadena = Split(contenido, "\n")
+  
+  For a = 0 To Arraycadena.Max
+    
+    If InStr(Arraycadena[a], "grep") = 0 Then
+      
+      veces += 1
+    Endif
+  Next
+  
+  If veces > 2 Then 
+    Print "Veces que se esta ejecutando:"; veces
+    Message.Info(("Ya se esta ejecutando este programa"))
+    Return True
+    
+  Endif
+  
+  Return False
+  
+End
