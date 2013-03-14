@@ -77,16 +77,15 @@ LastCommit="Mejora en el filtro de ficheros de imágenes\n---- Esta línea y las
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:81.31"
-File[4]=".src/ModuleIntermedio.module:313.118"
+File[4]=".src/ModuleIntermedio.module:206.71"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:419.10"
+File[6]=".src/Form1.class:32.12"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
 File[10]=".src/ModulePrincipal.module:435.20"
 File[11]=".src/FormAnadirEditar.form"
-Active=12
-File[12]=".src/FormAnadirEditar.class:457.31"
+File[12]=".src/FormAnadirEditar.class:152.82"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
 File[15]=".src/ClassSuperGridview.class:18.2"
@@ -115,9 +114,14 @@ File[37]="gatos-lana-2.gif"
 File[38]=".src/FormElegirFichero.class:23.0"
 File[39]=".src/ClassDato.class:0.19"
 File[40]=".src/FormPensando.class:18.2"
-File[41]=".src/ModuleUtilidadesDisco.module:18.47"
+File[41]=".src/ModuleUtilidadesDisco.module:6.0"
 File[42]=".src/ModuleMensajeError.module:0.20"
-Count=42
+Active=43
+File[43]=".src/ModuleUnicaVez.module:21.20"
+Count=43
+
+[VersionControl]
+RememberPassword=0
 
 [Watches]
 Count=0

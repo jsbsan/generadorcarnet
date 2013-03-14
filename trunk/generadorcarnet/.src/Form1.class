@@ -13,22 +13,26 @@ Public Sub Form_Open()
   
   Dim fpensando As New FormPensando
   
-  fpensando.Show()
-  ModuleUpdate.comprobar("generadorcarnets", Application.Version, "http://generadorcarnets.blogspot.com.es/2013/02/version.html", "no mostrar")
-  LabelVersion.text = "Vesión: " & Application.Version
-  comun.comprobarEntorno()
-  ModuleIntermedio.IniciarLaPrimeraVez()
-  Expander1.Hidden = True
-  Me.Center
-  gridviewContenido = New ClassSuperGridview(IconPanel1[3])
-  observador = New Observer(gridviewContenido) As "ObservadorGridviewContenido" 'observo al gridviewContenido
-  ModuleIntermedio.InicargridviewContenido(gridviewContenido)
-  desactivarIntroduccionDeDatos()
-  
-  gridviewContenido.visible = False
-  fpensando.parar = True
-  fpensando.Delete()
-  
+  If ModuleUnicaVez.ejecutandoUnicaCopia("GeneradorCarnets.gambas") <> True Then  
+    fpensando.Show()
+    ModuleUpdate.comprobar("generadorcarnets", Application.Version, "http://generadorcarnets.blogspot.com.es/2013/02/version.html", "no mostrar")
+    LabelVersion.text = "Vesión: " & Application.Version
+    comun.comprobarEntorno()
+    ModuleIntermedio.IniciarLaPrimeraVez()
+    Expander1.Hidden = True
+    Me.Center
+    gridviewContenido = New ClassSuperGridview(IconPanel1[3])
+    observador = New Observer(gridviewContenido) As "ObservadorGridviewContenido" 'observo al gridviewContenido
+    ModuleIntermedio.InicargridviewContenido(gridviewContenido)
+    desactivarIntroduccionDeDatos()
+    
+    gridviewContenido.visible = False
+    fpensando.parar = True
+    fpensando.Delete()
+  Else
+    Me.Close
+  Endif
+
 End
 
 Public Sub Form_Resize()
