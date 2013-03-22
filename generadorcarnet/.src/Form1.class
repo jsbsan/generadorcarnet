@@ -32,7 +32,7 @@ Public Sub Form_Open()
   Else
     Me.Close
   Endif
-
+  
 End
 
 Public Sub Form_Resize()
@@ -645,5 +645,19 @@ Public Sub ToolButtonGaleriaEnLaNube_Click()
   'Unidad en disco drive google
   
   Desktop.Open("https://docs.google.com/folder/d/0B7uxDVszpXK2bDd3WVdDdlE4MmM/edit?usp=sharing")
+  
+End
+
+Public Sub ListBoxListaPlantillas_Select()
+  
+  '  Dim a As Integer
+  
+  'For a = 0 To ListBoxListaPlantillas.Count - 1
+  '    ListBoxListaPlantillas[a].Background = Color.White
+  ' ListBoxListaPlantillas[a
+  '  Next
+  
+  'marcar fila
+  '  ListBoxListaPlantillas[ListBoxListaPlantillas.row].Background = Color.green
   
 End

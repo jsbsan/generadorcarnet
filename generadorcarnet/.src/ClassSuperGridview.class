@@ -1,7 +1,7 @@
 ' Gambas class file
 
 Public observador As New Observer(Me) As "observador1"
-
+Private filaseleccionada As Integer
 Inherits GridView
 
 Property indice As Integer[]
@@ -20,71 +20,6 @@ Private Sub indice_Write(Value As Integer[])
   
 End
 
-'PEGAR DATOS DEL PORTAPAPELES
-''-----------------------------------------------------------------------------
-' codigo para pegar contenido del portapapeles al grid
-'-----------------------------------------------------------------------------
-Public Sub pegardelportapapeles(Optional filainicial As Integer, Optional titulos As Boolean)
-  'titulos: 0: sin titulo, -1 titulo contiene la 1º fila
-  
-  Dim lineas As String[]
-  Dim linea_procesada As String
-  Dim columnas As String[]
-  Dim a As Integer
-  Dim c As Integer
-  Dim cadena As String
-  Dim portapapeles As String
-  Dim finlinea As String
-  Dim fincolumna As String
-  
-  Dim annadir As Integer
-  
-  finlinea = "\n" ' retorno de carro (separa las filas)
-  fincolumna = "\t" 'tabulador (separa las colunas)
-  
-  Try portapapeles = Clipboard.paste()
-  Try lineas = Split(portapapeles, finlinea)
-  Try columnas = Split(lineas[0], fincolumna) 
-  
-  If Error Then
-    Message.Error(("error al leer datos del portapapeles"))
-    Goto finleer
-  Endif 
-  
-  annadir = filainicial
-  
-  Me.Rows.count = lineas.Count + annadir  ' para sobreescribir
-  
-  linea_procesada = lineas[a]
-  columnas = Split(linea_procesada, fincolumna) 
-  For c = 0 To Me.Columns.count - 1
-    
-    Try Me[a + annadir, c].text = columnas[c]
-    If Error Then 
-      Message.Error(("Producido un error al intentar pegar"))
-      Return
-    Endif
-    
-  Next 
-  
-  For a = 1 To Me.Rows.count - 2
-    linea_procesada = lineas[a]
-    If linea_procesada = "" Then Break 
-    columnas = Split(linea_procesada, fincolumna) 
-    
-    For c = 0 To Me.columns.count - 1
-      Me[a + annadir, c].text = columnas[c]
-    finnext:
-    Next 'c
-  Next 'a
-  Me.Rows.count -= 1
-  
-  'refrescamos el contenido de la tabla 
-  Me.Refresh
-  
-finleer:
-  
-End
 '-----------------------------------------------------------------------
 ' codigo que genera copiar al portapapeles
 '-----------------------------------------------------------------------
@@ -126,5 +61,31 @@ Private Function revisa(cadena As String) As String
     devuelta &= letra
   Next 
   Return devuelta
+  
+End
+
+Public Sub observador1_Select()
+  
+  Dim a As Integer
+  
+  If filaseleccionada >= 0 Then
+    'borro la anterior fila seleccionada
+    For a = 0 To Me.Columns.Count - 1
+      Me[filaseleccionada, a].Background = Color.White
+      
+    Next
+  Endif
+  
+  'marcar fila
+  For a = 0 To Me.Columns.Count - 1
+    Me[Me.row, a].Background = Color.green
+    
+  Next
+  filaseleccionada = Me.row
+  
+  '
+  'marcar celda
+  'GridviewPrueba[gridviewprueba.row, gridviewprueba.column].Background = Color.green
+  '
   
 End

@@ -1,21 +1,23 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,52,25)
+  MoveScaled(0,0,28,5)
+  Background = &HFFFFFF&
+  Border = False
   { Timer1 #Timer
     #MoveScaled(1,1)
     Enabled = True
     Delay = 100
   }
   { Label1 Label
-    MoveScaled(26,10,23,5)
+    MoveScaled(5,0,21,5)
     Font = Font["Bitstream Charter,Bold,+4"]
     Text = ("Pensando...")
     Alignment = Align.Center
   }
   { MovieBox1 MovieBox
-    MoveScaled(2,0,23,24)
-    Path = "gatos-lana-2.gif"
+    MoveScaled(0,0,7,6)
+    Path = "icoLoading.gif"
     Playing = True
   }
 }
