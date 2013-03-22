@@ -25,15 +25,7 @@ msgstr ""
 msgid "se ha producido un error al buscar el indice"
 msgstr ""
 
-#: ClassSuperGridview.class:50 ModulePrincipal.module:83
-msgid "error al leer datos del portapapeles"
-msgstr ""
-
-#: ClassSuperGridview.class:64
-msgid "Producido un error al intentar pegar"
-msgstr ""
-
-#: ClassSuperGridview.class:111
+#: ClassSuperGridview.class:46
 msgid "Copiado contenido al portapapeles"
 msgstr ""
 
@@ -677,7 +669,7 @@ msgstr ""
 msgid "Copiar Al portapapeles"
 msgstr ""
 
-#: FormPensando.form:19
+#: FormPensando.form:21
 msgid "Pensando..."
 msgstr ""
 
@@ -693,6 +685,10 @@ msgstr ""
 msgid ""
 "Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la "
 "plantilla a añadir"
+msgstr ""
+
+#: ModulePrincipal.module:83
+msgid "error al leer datos del portapapeles"
 msgstr ""
 
 #: ModulePrincipal.module:274
