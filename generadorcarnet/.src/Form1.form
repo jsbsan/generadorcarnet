@@ -71,8 +71,8 @@
       Alignment = Align.Center
     }
     { LabelVersion Label
-      MoveScaled(41,9,22,6)
-      Font = Font["Bitstream Charter,Bold,+2"]
+      MoveScaled(45,12,22,4)
+      Font = Font["Bitstream Charter,Bold,+1"]
       AutoResize = True
       Text = ("Versión:")
       Alignment = Align.Center
