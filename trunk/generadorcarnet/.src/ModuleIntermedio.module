@@ -205,7 +205,7 @@ Public Sub IniciarLaPrimeraVez()
   Dim texto As String
   'TODO: comprueba si existe, y si no lo crea...
   If Not Exist(User.home & "/GeneradorCarnets/") Then Mkdir User.home & "/GeneradorCarnets/"
-  If Not Exist(User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam.gambas" To User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas"
+  If Not Exist(User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam" To User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas"
   Chmod User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
   
   If Not Exist(User.home & "/GeneradorCarnets/temporales") Then Mkdir User.home & "/GeneradorCarnets/temporales"
@@ -215,7 +215,7 @@ Public Sub IniciarLaPrimeraVez()
   If Not Exist(User.home & "/GeneradorCarnets/trabajoTmp/") Then Mkdir User.home & "/GeneradorCarnets/trabajoTmp/"
   If Not Exist(User.home & "/GeneradorCarnets/trabajoTmp/pdf") Then Mkdir User.home & "/GeneradorCarnets/trabajoTmp/pdf"
   If Not Exist(User.home & "/GeneradorCarnets/plantillas") Then Mkdir User.home & "/GeneradorCarnets/plantillas"
-  If Not Exist(Application.path & "/FOTOPLANTILLA.JPG") Then Copy "FOTOPLANTILLA.JPG" To Application.path & "/FOTOPLANTILLA.JPG"
+  'If Not Exist(Application.path & "/FOTOPLANTILLA.JPG") Then Copy "FOTOPLANTILLA.JPG" To Application.path & "/FOTOPLANTILLA.JPG"
   If Not Exist(User.home & "/GeneradorCarnets/plantillas/plantilla.svg") Then Copy "plantilla/plantilla.svg" To User.home & "/GeneradorCarnets/plantillas/plantilla.svg"
   
   If Not Exist(User.home & "/GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg") Then Copy "plantilla/plantilla-seguridad-vial.svg" To User.home & "/GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg"
@@ -228,6 +228,8 @@ Public Sub IniciarLaPrimeraVez()
   
   borradoIterativo(User.home & "/GeneradorCarnets/temporales/plantillas")
   borradoIterativo(User.home & "/GeneradorCarnets/trabajoTmp")
+Catch
+  ModuleMensajeError.SistemaDescripcionError() 
   
 End
 
