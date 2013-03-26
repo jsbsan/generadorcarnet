@@ -5,6 +5,11 @@ Public Sub comprobarEntorno()
   Dim texto As String
   Dim falta As Boolean = False
   
+  If Not comun.instalado("inkscape") Then
+    texto = ("inkscape") & "\n"
+    falta = True
+  Endif
+  
   If Not comun.instalado("zip") Then 
     texto = ("zip") & "\n"
     falta = True

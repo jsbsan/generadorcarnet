@@ -15,6 +15,7 @@ Public Sub Form_Open()
   
   If ModuleUnicaVez.ejecutandoUnicaCopia("GeneradorCarnets.gambas") <> True Then  
     fpensando.Show()
+    Wait 0.5
     ModuleUpdate.comprobar("generadorcarnets", Application.Version, "http://generadorcarnets.blogspot.com.es/2013/02/version.html", "no mostrar")
     LabelVersion.text = "Vesión: " & Application.Version
     comun.comprobarEntorno()
