@@ -15,22 +15,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: comun.module:9
-msgid "zip"
+msgid "inkscape"
 msgstr ""
 
 #: comun.module:14
-msgid "pdftk"
+msgid "zip"
 msgstr ""
 
 #: comun.module:19
+msgid "pdftk"
+msgstr ""
+
+#: comun.module:24
 msgid "imagemagick"
 msgstr ""
 
-#: comun.module:24
+#: comun.module:29
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: comun.module:24
+#: comun.module:29
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 

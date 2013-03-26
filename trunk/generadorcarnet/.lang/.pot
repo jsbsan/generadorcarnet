@@ -60,7 +60,7 @@ msgstr ""
 msgid "http://www.jsbsan.blogspot.com.es/"
 msgstr ""
 
-#: Form1.form:163
+#: Form1.form:163 comun.module:9
 msgid "inkscape"
 msgstr ""
 
@@ -436,99 +436,99 @@ msgstr ""
 msgid "<h2>Espere por favor, estoy buscando actualizaciones</h2>"
 msgstr ""
 
-#: Form1.class:54
+#: Form1.class:55
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: Form1.class:54
+#: Form1.class:55
 msgid "si crea un Grupo nuevo, se borrarán!!"
 msgstr ""
 
-#: Form1.class:62
+#: Form1.class:63
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: Form1.class:74
+#: Form1.class:75
 msgid "Guardar como"
 msgstr ""
 
-#: Form1.class:81
+#: Form1.class:82
 msgid "Orden Cancelada:"
 msgstr ""
 
-#: Form1.class:81
+#: Form1.class:82
 msgid "Guardar como..."
 msgstr ""
 
-#: Form1.class:85
+#: Form1.class:86
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
 msgstr ""
 
-#: Form1.class:97
+#: Form1.class:98
 msgid "Guardado correctamente"
 msgstr ""
 
-#: Form1.class:99
+#: Form1.class:100
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: Form1.class:137
+#: Form1.class:138
 msgid "Generador De Carnets: "
 msgstr ""
 
-#: Form1.class:149
+#: Form1.class:150
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: Form1.class:158
+#: Form1.class:159
 msgid "Existe el fichero:"
 msgstr ""
 
-#: Form1.class:158
+#: Form1.class:159
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: Form1.class:158
+#: Form1.class:159
 msgid " SobreEscribir "
 msgstr ""
 
-#: Form1.class:158
+#: Form1.class:159
 msgid " Cancelar "
 msgstr ""
 
-#: Form1.class:256
+#: Form1.class:257
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: Form1.class:266
+#: Form1.class:267
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: Form1.class:266
+#: Form1.class:267
 msgid "Si"
 msgstr ""
 
-#: Form1.class:266 FormElegirFichero.form:30
+#: Form1.class:267 FormElegirFichero.form:30
 msgid "Cancelar"
 msgstr ""
 
-#: Form1.class:284
+#: Form1.class:285
 msgid "Registro: "
 msgstr ""
 
-#: Form1.class:286
+#: Form1.class:287
 msgid "Plantilla: "
 msgstr ""
 
-#: Form1.class:343
+#: Form1.class:344
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: Form1.class:343
+#: Form1.class:344
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: Form1.class:343
+#: Form1.class:344
 msgid "Cerrar"
 msgstr ""
 
@@ -769,22 +769,22 @@ msgstr ""
 msgid "No necesita actualizarla"
 msgstr ""
 
-#: comun.module:9
+#: comun.module:14
 msgid "zip"
 msgstr ""
 
-#: comun.module:14
+#: comun.module:19
 msgid "pdftk"
 msgstr ""
 
-#: comun.module:19
+#: comun.module:24
 msgid "imagemagick"
 msgstr ""
 
-#: comun.module:24
+#: comun.module:29
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: comun.module:24
+#: comun.module:29
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
