@@ -1,5 +1,6 @@
 [Breakpoints]
-Count=0
+Breakpoint[1]="ModuleIntermedio.123"
+Count=1
 
 [DebugWindow]
 Count=0
@@ -76,17 +77,17 @@ LastCommit="Mejora en el filtro de ficheros de imágenes\n---- Esta línea y las
 [OpenFile]
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
-File[3]=".src/ClassListaRegistro.class:81.31"
-File[4]=".src/ModuleIntermedio.module:217.32"
-Active=5
+File[3]=".src/ClassListaRegistro.class:32.2"
+File[4]=".src/ModuleIntermedio.module:54.0"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:652.21"
+Active=6
+File[6]=".src/Form1.class:50.7"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
-File[10]=".src/ModulePrincipal.module:435.20"
+File[10]=".src/ModulePrincipal.module:498.2"
 File[11]=".src/FormAnadirEditar.form"
-File[12]=".src/FormAnadirEditar.class:152.82"
+File[12]=".src/FormAnadirEditar.class:300.0"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
 File[15]="inkscape-icono.png"
@@ -101,12 +102,12 @@ File[23]="mininopicaros2012.png"
 File[24]="README.TXT:10.23"
 File[25]="nube.png"
 File[26]="camara_icono.png"
-File[27]=".src/comun.module:55.3"
+File[27]=".src/comun.module:7.41"
 File[28]="googledriveacceso.png"
 File[29]="plantillaA4_2x4.svg:122.0"
 File[30]="transparente.png"
 File[31]="rayo.png"
-File[32]=".src/ModuleUpdate.module:13.3"
+File[32]=".src/ModuleUpdate.module:3.0"
 File[33]=".src/FormElegirFichero.form"
 File[34]=".src/FormError.form"
 File[35]=".src/FormElegirFichero.class:23.0"

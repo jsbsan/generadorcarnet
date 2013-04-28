@@ -14,11 +14,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleIntermedio.module:311
+#: ModuleIntermedio.module:310
 msgid "Elige la plantilla en formato .svg (inkscape)"
 msgstr ""
 
-#: ModuleIntermedio.module:317
+#: ModuleIntermedio.module:316
 msgid "Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la plantilla a añadir"
 msgstr ""
 

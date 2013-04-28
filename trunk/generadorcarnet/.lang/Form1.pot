@@ -362,99 +362,95 @@ msgstr ""
 msgid "<h2>Espere por favor, estoy buscando actualizaciones</h2>"
 msgstr ""
 
-#: Form1.class:55
+#: Form1.class:56
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: Form1.class:55
+#: Form1.class:56
 msgid "si crea un Grupo nuevo, se borrarán!!"
 msgstr ""
 
-#: Form1.class:63
+#: Form1.class:65
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: Form1.class:75
-msgid "Guardar como"
-msgstr ""
-
-#: Form1.class:82
+#: Form1.class:86
 msgid "Orden Cancelada:"
 msgstr ""
 
-#: Form1.class:82
+#: Form1.class:86
 msgid "Guardar como..."
 msgstr ""
 
-#: Form1.class:86
+#: Form1.class:90
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
 msgstr ""
 
-#: Form1.class:98
+#: Form1.class:103
 msgid "Guardado correctamente"
 msgstr ""
 
-#: Form1.class:100
+#: Form1.class:105
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: Form1.class:138
+#: Form1.class:146
 msgid "Generador De Carnets: "
 msgstr ""
 
-#: Form1.class:150
+#: Form1.class:158
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: Form1.class:159
+#: Form1.class:167
 msgid "Existe el fichero:"
 msgstr ""
 
-#: Form1.class:159
+#: Form1.class:167
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: Form1.class:159
+#: Form1.class:167
 msgid " SobreEscribir "
 msgstr ""
 
-#: Form1.class:159
+#: Form1.class:167
 msgid " Cancelar "
 msgstr ""
 
-#: Form1.class:257
+#: Form1.class:265
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: Form1.class:267
+#: Form1.class:275
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: Form1.class:267
+#: Form1.class:275
 msgid "Si"
 msgstr ""
 
-#: Form1.class:267
+#: Form1.class:275
 msgid "Cancelar"
 msgstr ""
 
-#: Form1.class:285
+#: Form1.class:293
 msgid "Registro: "
 msgstr ""
 
-#: Form1.class:287
+#: Form1.class:295
 msgid "Plantilla: "
 msgstr ""
 
-#: Form1.class:344
+#: Form1.class:352
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: Form1.class:344
+#: Form1.class:352
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: Form1.class:344
+#: Form1.class:352
 msgid "Cerrar"
 msgstr ""
 
