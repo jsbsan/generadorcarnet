@@ -43,20 +43,22 @@ End
 Public Sub IconPanel1_Click()
   
   Dim resultado As Boolean
-  
+  'buscar actualizaciones
   If IconPanel1.index = 11 Then 
     ModuleUpdate.comprobar("generadorcarnets", Application.Version, "http://generadorcarnets.blogspot.com.es/2013/02/version.html")
     IconPanel1.index = 0
     IconPanel1_Click()
   Endif
   
-  If IconPanel1.text = ("Crear Grupo") Then 
+  'crear grupo
+  If IconPanel1.index = 1 Then 
     If ModulePrincipal.Guardado = False Then 
       Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si crea un Grupo nuevo, se borrarán!!"))
     Endif
   Endif
   
-  If IconPanel1.text = ("Abrir Grupo") Then 
+  'Abrir grupo
+  If IconPanel1.index = 2 Then 
     If ModulePrincipal.Guardado = False Then 
       Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si crea un Grupo nuevo, se borrarán!!"))
     Endif
@@ -72,7 +74,9 @@ Public Sub IconPanel1_Click()
     Endif
     
   Endif
-  If Replace(IconPanel1.text, ".", "") = ("Guardar como") Then
+  
+  'Guardar como
+  If IconPanel1.Index = 5 Then
     ''TODO: guardar como....
     If ModulePrincipal.RutaCarnet <> "" Then 
       Dialog.Filter = ["*.GeneradorCarnets", ".GeneradorCarnets"]
@@ -89,7 +93,8 @@ Public Sub IconPanel1_Click()
     
   Endif
   
-  If IconPanel1.text = ("Guardar Grupo") Or Replace$(IconPanel1.text, ".", "") = ("Guardar como") Then 
+  'Guardar grupo y guardar 
+  If IconPanel1.index = 4 Or IconPanel1.index = 5 Then 
     'guardar el archivo de datos...
     LabelNombreFichero.text = Replace$(ModulePrincipal.RutaCarnet, ".GeneradorCarnets", "") & ".GeneradorCarnets"
     resultado = ModulePrincipal.GuardarDatos()
@@ -103,20 +108,23 @@ Public Sub IconPanel1_Click()
     IconPanel1_Click()
   Endif
   
-  If IconPanel1.text = ("Crear Pdf para imprimir") Then 
+  'Crear Pdf para imprimir
+  If IconPanel1.index = 8 Then 
     
     ValueBoxHasta.Value = ModulePrincipal.Lista.registros.count
     
   Endif
   
-  If IconPanel1.text = ("Previsualizar") Then 
+  'Previsualizar....
+  If IconPanel1.index = 7 Then 
     'dibujo plantilla con relleno de datos
     ModuleIntermedio.CargaLista(ListBoxListaPlantillas)
     ButtonPlantillaPrimeraReg_Click()
     
   Endif
   
-  If IconPanel1.text = ("Plantillas") Then 
+  'Plantillas
+  If IconPanel1.index = 6 Then 
     'cargar plantillas existentes
     Labelactual.text = ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
     ModuleIntermedio.CargaLista(ListBoxListaPlantillas)
@@ -124,8 +132,8 @@ Public Sub IconPanel1_Click()
   Endif
   
   'Hago click en cerrar aplicación.
-  
-  If IconPanel1.TEXT = ("Salir") Then Me.close()
+  'salir de la aplicacion 
+  If IconPanel1.index = 9 Then Me.close()
   
 End
 
@@ -417,7 +425,6 @@ End
 
 Public Sub ToolButtonEditaPlantilla_Click()
   
-  Dim tex As String
   Dim comando As String
   Dim fespere As New FormPensando
   

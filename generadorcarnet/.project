@@ -1,9 +1,9 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.4.0
+# Compiled with Gambas 3.4.1
 Title=Generador De Carnets
 Startup=Form1
 Icon=carnet.png
-Version=0.0.30
+Version=0.0.31
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -21,7 +21,7 @@ Maintainer=jsbsan
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es/
 License=General Public License
-PackageName=generadorcarnet-0.0.30
+PackageName=generadorcarnet-0.0.31
 CreateEachDirectory=1
 Packager=1
 Systems=debian

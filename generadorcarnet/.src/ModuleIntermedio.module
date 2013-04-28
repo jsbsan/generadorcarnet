@@ -202,7 +202,6 @@ End
 
 Public Sub IniciarLaPrimeraVez()
   
-  Dim texto As String
   'TODO: comprueba si existe, y si no lo crea...
   If Not Exist(User.home & "/GeneradorCarnets/") Then Mkdir User.home & "/GeneradorCarnets/"
   If Not Exist(User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam" To User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas"

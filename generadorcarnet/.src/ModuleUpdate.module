@@ -1,9 +1,6 @@
 ' Gambas module file
 
 Private MiHttp As New HttpClient
-Private version As String
-Private ruta As String
-Private programa As String
 
 Public Sub comprobar(nombreprograma As String, actualversion As String, rutaUrl As String, Optional texto As String) '' NombrePrograma: nombre del programa, ActualVersion= es la version del programa actual, rutaUrL= es url donde tengo que leer el archivo update,label etiqueta para que aparezca texto de espere...
   

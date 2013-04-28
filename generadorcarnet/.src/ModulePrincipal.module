@@ -369,7 +369,7 @@ Public Sub extraeRutaZip(nombre As String) As String
 End
 
 Public Sub AbrirFichero(nombre As String) As Boolean
-
+  
   Dim fpensando As New FormPensando
   Dim borrasubruta As String
   Dim rutaDescomprimida As String

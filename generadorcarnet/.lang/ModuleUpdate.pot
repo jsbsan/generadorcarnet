@@ -14,55 +14,55 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleUpdate.module:23
+#: ModuleUpdate.module:20
 msgid "No ha sido posible conectarse al servidor"
 msgstr ""
 
-#: ModuleUpdate.module:23
+#: ModuleUpdate.module:20
 msgid "No puedo comprobar si hay nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:33
 msgid "El archivo de versión no es para este programa"
 msgstr ""
 
-#: ModuleUpdate.module:39
+#: ModuleUpdate.module:36
 msgid "Existe una nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:39
+#: ModuleUpdate.module:36
 msgid "Programa:"
 msgstr ""
 
-#: ModuleUpdate.module:39
+#: ModuleUpdate.module:36
 msgid "Versión encontrada:"
 msgstr ""
 
-#: ModuleUpdate.module:39
+#: ModuleUpdate.module:36
 msgid "Mejoras:"
 msgstr ""
 
-#: ModuleUpdate.module:39
+#: ModuleUpdate.module:36
 msgid "Dirección Url de descarga:"
 msgstr ""
 
-#: ModuleUpdate.module:40
+#: ModuleUpdate.module:37
 msgid "Ir a la página de descarga"
 msgstr ""
 
-#: ModuleUpdate.module:40
+#: ModuleUpdate.module:37
 msgid "No actualización"
 msgstr ""
 
-#: ModuleUpdate.module:48
+#: ModuleUpdate.module:45
 msgid "La versión actual:"
 msgstr ""
 
-#: ModuleUpdate.module:48
+#: ModuleUpdate.module:45
 msgid "es igual o superior que la que hay en el servidor"
 msgstr ""
 
-#: ModuleUpdate.module:48
+#: ModuleUpdate.module:45
 msgid "No necesita actualizarla"
 msgstr ""
 
