@@ -1,6 +1,5 @@
 [Breakpoints]
-Breakpoint[1]="ModuleIntermedio.123"
-Count=1
+Count=0
 
 [DebugWindow]
 Count=0
@@ -78,16 +77,16 @@ LastCommit="Mejora en el filtro de ficheros de imágenes\n---- Esta línea y las
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:32.2"
-File[4]=".src/ModuleIntermedio.module:54.0"
+File[4]=".src/ModuleIntermedio.module:123.0"
 File[5]=".src/Form1.form"
-Active=6
 File[6]=".src/Form1.class:680.77"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
 File[10]=".src/ModulePrincipal.module:498.2"
 File[11]=".src/FormAnadirEditar.form"
-File[12]=".src/FormAnadirEditar.class:300.0"
+Active=12
+File[12]=".src/FormAnadirEditar.class:161.49"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
 File[15]="inkscape-icono.png"
