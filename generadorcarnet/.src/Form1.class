@@ -669,3 +669,15 @@ Public Sub ListBoxListaPlantillas_Select()
   '  ListBoxListaPlantillas[ListBoxListaPlantillas.row].Background = Color.green
   
 End
+
+Public Sub LabelProyectoWeb_MouseDown()
+  
+  Desktop.Open("http://generadorcarnets.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub PictureBox3_MouseDown()
+  
+  Desktop.Open("http://generadorcarnets.blogspot.com.es/p/presentacion.html")
+  
+End
