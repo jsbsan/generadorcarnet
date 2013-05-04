@@ -34,7 +34,7 @@
       Picture = Picture["gambas360.png"]
     }
     { PictureBox3 PictureBox
-      MoveScaled(25,9,9,7)
+      MoveScaled(14,9,9,7)
       Picture = Picture["carnet.png"]
     }
     { Labeljsbsan Label
@@ -75,6 +75,14 @@
       Font = Font["Bitstream Charter,Bold,+1"]
       AutoResize = True
       Text = ("Versión:")
+      Alignment = Align.Center
+    }
+    { LabelProyectoWeb Label
+      MoveScaled(21,10,28,3)
+      Font = Font["Bitstream Charter,Underline"]
+      Foreground = &H1F57FF&
+      Mouse = Mouse.Pointing
+      Text = ("Enlace Web del Proyecto")
       Alignment = Align.Center
     }
     Index = 1
