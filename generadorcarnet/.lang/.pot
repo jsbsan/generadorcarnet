@@ -29,11 +29,11 @@ msgstr ""
 msgid "Copiado contenido al portapapeles"
 msgstr ""
 
-#: Form1.form:117
+#: Form1.form:118
 msgid "Generador de Carnets"
 msgstr ""
 
-#: Form1.form:123
+#: Form1.form:124
 msgid ""
 "<h1>Generador de Carnets</h1><br>\n"
 "\n"
@@ -52,67 +52,67 @@ msgid ""
 "\n"
 msgstr ""
 
-#: Form1.form:136
+#: Form1.form:137
 msgid "Crea tus propias plantillas con:"
 msgstr ""
 
-#: Form1.form:155
+#: Form1.form:156
 msgid "http://www.jsbsan.blogspot.com.es/"
 msgstr ""
 
-#: Form1.form:164 comun.module:9
+#: Form1.form:165 comun.module:9
 msgid "inkscape"
 msgstr ""
 
-#: Form1.form:170
+#: Form1.form:171
 msgid "Creado especialmente para:"
 msgstr ""
 
-#: Form1.form:184
+#: Form1.form:185
 msgid "minino.galpon.org"
 msgstr ""
 
-#: Form1.form:192
+#: Form1.form:193
 msgid "Versión:"
 msgstr ""
 
-#: Form1.form:201
+#: Form1.form:202
 msgid "Enlace Web del Proyecto"
 msgstr ""
 
-#: Form1.form:205
+#: Form1.form:206
 msgid "Crear Grupo"
 msgstr ""
 
-#: Form1.form:210
+#: Form1.form:211
 msgid "Crear"
 msgstr ""
 
-#: Form1.form:221 FormAnadirEditar.form:58
+#: Form1.form:222 FormAnadirEditar.form:58
 msgid "Nombre:"
 msgstr ""
 
-#: Form1.form:231
+#: Form1.form:232
 msgid ".GeneradorCarnets"
 msgstr ""
 
-#: Form1.form:234
+#: Form1.form:235
 msgid "Abrir Grupo"
 msgstr ""
 
-#: Form1.form:239
+#: Form1.form:240
 msgid "<h2>Espere por favor, estoy leyendo los datos</h2>"
 msgstr ""
 
-#: Form1.form:243
+#: Form1.form:244
 msgid "Introducir Datos"
 msgstr ""
 
-#: Form1.form:252
+#: Form1.form:253
 msgid "Añadir"
 msgstr ""
 
-#: Form1.form:260
+#: Form1.form:261
 msgid ""
 "Pega los datos contenidos en el portapapeles,\n"
 " deben de estar separados por un tabulador \n"
@@ -120,15 +120,15 @@ msgid ""
 "y empiezo a pegar por la columna nombre"
 msgstr ""
 
-#: Form1.form:261
+#: Form1.form:262
 msgid "Editar"
 msgstr ""
 
-#: Form1.form:269
+#: Form1.form:270
 msgid "Borrar"
 msgstr ""
 
-#: Form1.form:277
+#: Form1.form:278
 msgid ""
 "Pegar el contenido del Portapapeles a la rejilla.\n"
 "Los datos deben de estar separados por tabuladores o\n"
@@ -136,11 +136,11 @@ msgid ""
 "Empiezo a pegar los datos desde la columna Nombre"
 msgstr ""
 
-#: Form1.form:278
+#: Form1.form:279
 msgid "Pegar"
 msgstr ""
 
-#: Form1.form:286
+#: Form1.form:287
 msgid ""
 "Copiar todo la rejilla de datos  actuales\n"
 "al portapapeles. \n"
@@ -149,262 +149,262 @@ msgid ""
 "(hojas de cálculo, procesadores de textos, etc)"
 msgstr ""
 
-#: Form1.form:287
+#: Form1.form:288
 msgid "Copiar Todo"
 msgstr ""
 
-#: Form1.form:295
+#: Form1.form:296
 msgid "Titulos"
 msgstr ""
 
-#: Form1.form:302
+#: Form1.form:303
 msgid ""
 "<h2>Nota:</h2><br>\n"
 "Necesita abrir o crear un grupo para poder introducir los datos de las "
 "personas"
 msgstr ""
 
-#: Form1.form:306
+#: Form1.form:307
 msgid "Guardar Grupo"
 msgstr ""
 
-#: Form1.form:312
+#: Form1.form:313
 msgid "Nombre fichero de Datos:"
 msgstr ""
 
-#: Form1.form:321
+#: Form1.form:322
 msgid "<h2>Espere por favor, estoy guardando <br>los datos</h2>"
 msgstr ""
 
-#: Form1.form:325
+#: Form1.form:326
 msgid "Guardar como...."
 msgstr ""
 
-#: Form1.form:330
+#: Form1.form:331
 msgid "<h2>Espere por favor, estoy guardando <br> los datos</h2>"
 msgstr ""
 
-#: Form1.form:334
+#: Form1.form:335
 msgid "Plantillas"
 msgstr ""
 
-#: Form1.form:339
+#: Form1.form:340
 msgid "Añadir Plantilla"
 msgstr ""
 
-#: Form1.form:351
+#: Form1.form:352
 msgid "Quitar Plantilla"
 msgstr ""
 
-#: Form1.form:366
+#: Form1.form:367
 msgid "Plantillas Disponibles:"
 msgstr ""
 
-#: Form1.form:372
+#: Form1.form:373
 msgid "Editar Plantilla"
 msgstr ""
 
-#: Form1.form:380
+#: Form1.form:381
 msgid ""
 "Pulse en este botón y se iniciará inkscape. donde podrá editar la plantilla "
 "actual."
 msgstr ""
 
-#: Form1.form:387
+#: Form1.form:388
 msgid ""
 "Previsualización<br>\n"
 "plantilla<br>"
 msgstr ""
 
-#: Form1.form:394
+#: Form1.form:395
 msgid "Hacer que la plantilla que se muestra sea la actual"
 msgstr ""
 
-#: Form1.form:395
+#: Form1.form:396
 msgid "Utilizar...."
 msgstr ""
 
-#: Form1.form:403
+#: Form1.form:404
 msgid "Plantilla actual:"
 msgstr ""
 
-#: Form1.form:413
+#: Form1.form:414
 msgid "Acceder a la Galeria En La Nube"
 msgstr ""
 
-#: Form1.form:418
+#: Form1.form:419
 msgid "Previsualizar"
 msgstr ""
 
-#: Form1.form:428
+#: Form1.form:429
 msgid "Plantilla:"
 msgstr ""
 
-#: Form1.form:459
+#: Form1.form:460
 msgid "Registro:"
 msgstr ""
 
-#: Form1.form:480
+#: Form1.form:481
 msgid "<h3>Faltan datos para mostar</h3>"
 msgstr ""
 
-#: Form1.form:492
+#: Form1.form:493
 msgid "Crear Pdf para imprimir"
 msgstr ""
 
-#: Form1.form:497
+#: Form1.form:498
 msgid "Generar Pdf"
 msgstr ""
 
-#: Form1.form:504
+#: Form1.form:505
 msgid "Numeros de Carnet"
 msgstr ""
 
-#: Form1.form:508
+#: Form1.form:509
 msgid "Usar los definidos"
 msgstr ""
 
-#: Form1.form:514
+#: Form1.form:515
 msgid "Numerarlos desde el "
 msgstr ""
 
-#: Form1.form:519
+#: Form1.form:520
 msgid "ValueBox2"
 msgstr ""
 
-#: Form1.form:526
+#: Form1.form:527
 msgid "Imprimir"
 msgstr ""
 
-#: Form1.form:530
+#: Form1.form:531
 msgid "Todos los carnet"
 msgstr ""
 
-#: Form1.form:536
+#: Form1.form:537
 msgid "El registro número"
 msgstr ""
 
-#: Form1.form:541 FormAnadirEditar.form:119
+#: Form1.form:542 FormAnadirEditar.form:119
 msgid "ValueBox1"
 msgstr ""
 
-#: Form1.form:547
+#: Form1.form:548
 msgid "Desde el número"
 msgstr ""
 
-#: Form1.form:558
+#: Form1.form:559
 msgid "al número"
 msgstr ""
 
-#: Form1.form:571
+#: Form1.form:572
 msgid "Parámetros Avanzados"
 msgstr ""
 
-#: Form1.form:575
+#: Form1.form:576
 msgid "Tamaño del papel (geomtría)"
 msgstr ""
 
-#: Form1.form:581
+#: Form1.form:582
 msgid "1052x744+10+10"
 msgstr ""
 
-#: Form1.form:586
+#: Form1.form:587
 msgid "Carnets Horizontales"
 msgstr ""
 
-#: Form1.form:592
+#: Form1.form:593
 msgid "4"
 msgstr ""
 
-#: Form1.form:597
+#: Form1.form:598
 msgid "Carnets Verticales"
 msgstr ""
 
-#: Form1.form:603
+#: Form1.form:604
 msgid "2"
 msgstr ""
 
-#: Form1.form:608
+#: Form1.form:609
 msgid "Por página que se cree:"
 msgstr ""
 
-#: Form1.form:613
+#: Form1.form:614
 msgid "Por defecto tamaño A4 y 10 px alrededor"
 msgstr ""
 
-#: Form1.form:619
+#: Form1.form:620
 msgid "Tamaño de los carnets"
 msgstr ""
 
-#: Form1.form:623
+#: Form1.form:624
 msgid "px"
 msgstr ""
 
-#: Form1.form:635
+#: Form1.form:636
 msgid "ValueBoxCarnetLargo"
 msgstr ""
 
-#: Form1.form:641
+#: Form1.form:642
 msgid "ValueBoxAnchoCarnet"
 msgstr ""
 
-#: Form1.form:647
+#: Form1.form:648
 msgid "ancho:"
 msgstr ""
 
-#: Form1.form:653
+#: Form1.form:654
 msgid "largo:"
 msgstr ""
 
-#: Form1.form:660
+#: Form1.form:661
 msgid "Prioridad ancho"
 msgstr ""
 
-#: Form1.form:667
+#: Form1.form:668
 msgid "Prioridad largo"
 msgstr ""
 
-#: Form1.form:674
+#: Form1.form:675
 msgid "Fecha:"
 msgstr ""
 
-#: Form1.form:678
+#: Form1.form:679
 msgid "Formato:"
 msgstr ""
 
-#: Form1.form:683
+#: Form1.form:684
 msgid "dd mmm yyyy"
 msgstr ""
 
-#: Form1.form:698
+#: Form1.form:699
 msgid "Convirtiendo fotografias"
 msgstr ""
 
-#: Form1.form:708
+#: Form1.form:709
 msgid "Creando Páginas"
 msgstr ""
 
-#: Form1.form:717
+#: Form1.form:718
 msgid "Unir todos los pdf en uno"
 msgstr ""
 
-#: Form1.form:724
+#: Form1.form:725
 msgid "Generando Imagenes"
 msgstr ""
 
-#: Form1.form:731
+#: Form1.form:732
 msgid "Generando Paginas"
 msgstr ""
 
-#: Form1.form:735 FormError.form:24
+#: Form1.form:736 FormError.form:24
 msgid "Salir"
 msgstr ""
 
-#: Form1.form:738
+#: Form1.form:739
 msgid "Ayuda"
 msgstr ""
 
-#: Form1.form:743
+#: Form1.form:744
 msgid ""
 "<b>Estructura de una plantilla:</b><br>\n"
 "Si usted quiere hacer sus propias plantillas, puede usar como base un "
@@ -432,11 +432,15 @@ msgid ""
 "las plantillas."
 msgstr ""
 
-#: Form1.form:747
+#: Form1.form:750
+msgid "Visite la página del proyecto para más ayuda"
+msgstr ""
+
+#: Form1.form:755
 msgid "Buscar Actualizaciones"
 msgstr ""
 
-#: Form1.form:752
+#: Form1.form:760
 msgid "<h2>Espere por favor, estoy buscando actualizaciones</h2>"
 msgstr ""
 
