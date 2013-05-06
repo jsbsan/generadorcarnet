@@ -681,3 +681,9 @@ Public Sub PictureBox3_MouseDown()
   Desktop.Open("http://generadorcarnets.blogspot.com.es/p/presentacion.html")
   
 End
+
+Public Sub ToolButtonAccesoPaginaWeb_Click()
+  
+  Desktop.Open("http://generadorcarnets.blogspot.com.es/p/presentacion.html")
+  
+End

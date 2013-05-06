@@ -79,13 +79,13 @@ File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:32.2"
 File[4]=".src/ModuleIntermedio.module:123.0"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:680.77"
+Active=6
+File[6]=".src/Form1.class:687.0"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
 File[10]=".src/ModulePrincipal.module:498.2"
 File[11]=".src/FormAnadirEditar.form"
-Active=12
 File[12]=".src/FormAnadirEditar.class:161.49"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
@@ -117,7 +117,8 @@ File[39]=".src/ModuleUnicaVez.module:21.20"
 File[40]="icoLoading.gif"
 File[41]=".src/FormPensando.form"
 File[42]=".src/ClassSuperGridview.class:68.0"
-Count=42
+File[43]="icono_web.jpg"
+Count=43
 
 [VersionControl]
 RememberPassword=0
