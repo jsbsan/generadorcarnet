@@ -1,8 +1,8 @@
 ' Gambas module file
 
-Public RutaPrograma As String = User.home & "/GeneradorCarnets/"
+Public RutaPrograma As String = User.home & "/.GeneradorCarnets/"
 
-Public plantillaUsada As String = User.home & "/GeneradorCarnets/plantillas/plantilla.svg"
+Public plantillaUsada As String = User.home & "/.GeneradorCarnets/plantillas/plantilla.svg"
 Public Lista As New ClassListaRegistro
 Public Guardado As Boolean = True ''true: se ha guardado... false no se ha guardado las ultimas modificaciones
 Public EstadoDelTrabajo As Float 'fotos convertidas...
@@ -13,8 +13,8 @@ Public RutaCarnet As String 'ruta donde se guardaran las fotos, rejillas de dato
 
 Public Sub CrearGrupo(ruta As String) As Boolean ''crear grupo dado una ruta, devuelve true si todo ha ido bien
   
-  vaciarDirectorio(User.Home & "/GeneradorCarnets/temporales/fotos", "*.*")
-  vaciarDirectorio(User.Home & "/GeneradorCarnets/temporales/plantillas", "*.*")
+  vaciarDirectorio(User.Home & "/.GeneradorCarnets/temporales/fotos", "*.*")
+  vaciarDirectorio(User.Home & "/.GeneradorCarnets/temporales/plantillas", "*.*")
   'limpio datos contenidos en el Lista
   Lista.registros.Clear()
   
@@ -122,24 +122,24 @@ Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, 
   Dim opcion As String
   Dim numeroImagen As Integer
   '  Form1.longitudTrabajo = 1
-  If Exist(User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
-    Kill User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
+  If Exist(User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
+    Kill User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
   Endif
   
-  Try Copy ModulePrincipal.plantillaUsada To User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
+  Try Copy ModulePrincipal.plantillaUsada To User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
   If Error Then 
     'problema al intentar copiar fichero
     Return False
   Endif
-  ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", formato, numerar, valorinicialNumeroCarnet + a)
+  ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", formato, numerar, valorinicialNumeroCarnet + a)
   
   numeroImagen = (a + 1) - Int((a + 1) / 8) * 8
   If numeroImagen = 0 Then numeroImagen = 8
-  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"] 
+  proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"] 
   EsperarProceso(proceso, a)
   
-  '  nombreinicio = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"
-  ' nombrefin = User.home & "/GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png" 
+  '  nombreinicio = User.home & "/.GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"
+  ' nombrefin = User.home & "/.GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png" 
   
   ' If dimensionPrioritariaAncho = True Then 
   '   opcion = Str$(ancho) & "x"
@@ -165,9 +165,9 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   Dim regtmp As ClassRegistro
   Dim paginas As Integer
   'borro plantilla anterior
-  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp")
-  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/pdf")
-  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
+  vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp")
+  vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/pdf")
+  vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
   
   EstadoDelTrabajo = 0
   EstadoDelTrabajoPaginas = 0
@@ -187,7 +187,7 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
       montarPlantilla2x4(paginas)
       'montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
       contadorEnUnaPagina = 0
-      vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png")
+      vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/", "*.png")
     Endif
     
   Next
@@ -196,21 +196,21 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   Paginas += 1
   montarPlantilla2x4(paginas)
   '  montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
-  vaciarDirectorio(User.home & "/GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
+  vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
   EstadoDelTrabajo = -1 'trabajo completado
   EstadoDelTrabajoPaginas = -1 'paginas
   
   'unir todos los pdf en uno...
   Wait 0.1
   If unir = True Then 
-    comando = "pdftk " & User.home & "/GeneradorCarnets/trabajoTmp/pdf/* cat output \"" & User.home & "/GeneradorCarnets/trabajoTmp/pdf/0 Todas las páginas.pdf\""
+    comando = "pdftk " & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/* cat output \"" & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/0 Todas las páginas.pdf\""
     Shell comando Wait
   Endif
   
   'usar pcmanfm para ver archivos...
-  Exec ["pcmanfm", User.home & "/GeneradorCarnets/trabajoTmp/pdf/"]
+  Exec ["pcmanfm", User.home & "/.GeneradorCarnets/trabajoTmp/pdf/"]
   
-  'Desktop.Open(User.home & "/GeneradorCarnets/trabajoTmp/pdf/")
+  'Desktop.Open(User.home & "/.GeneradorCarnets/trabajoTmp/pdf/")
   
 End
 
@@ -237,13 +237,13 @@ Public Sub montaje(geometriaArgumento As String, tileArgumentoV As String, tileA
   
   Dim proceso As Process
   
-  proceso = Exec ["montage", User.home & "/GeneradorCarnets/trabajoTmp/*.png", "-geometry", geometriaArgumento, "-tile", tileArgumentoV & "x" & tileArgumentoH, User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png"] 
+  proceso = Exec ["montage", User.home & "/.GeneradorCarnets/trabajoTmp/*.png", "-geometry", geometriaArgumento, "-tile", tileArgumentoV & "x" & tileArgumentoH, User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png"] 
   'sin geometria
-  '  proceso = Exec ["montage", User.home & "/GeneradorCarnets/trabajoTmp/*.png", "-tile", tileArgumentoV & "x" & tileArgumentoH, User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png"] 
+  '  proceso = Exec ["montage", User.home & "/.GeneradorCarnets/trabajoTmp/*.png", "-tile", tileArgumentoV & "x" & tileArgumentoH, User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png"] 
   
   EsperarProceso(proceso)
   
-  proceso = Exec ["convert", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png", User.home & "/GeneradorCarnets/trabajoTmp/pdf/pagina" & numeropagina & ".pdf"]
+  proceso = Exec ["convert", User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & numeropagina & ".png", User.home & "/.GeneradorCarnets/trabajoTmp/pdf/pagina" & numeropagina & ".pdf"]
   EsperarProceso(proceso, numeropagina, 1)
   
 End
@@ -268,7 +268,7 @@ Public Sub guardarDatos() As Boolean
   
   Dim resultado As Boolean
   'creo fichero de datos...
-  File.Save(User.home & "/GeneradorCarnets/temporales/datos.txt", "version 1" & "\n" & ModulePrincipal.Lista.contenido())
+  File.Save(User.home & "/.GeneradorCarnets/temporales/datos.txt", "version 1" & "\n" & ModulePrincipal.Lista.contenido())
   'copia de plantillas...
   resultado = copiarplantillas()
   If resultado = False Then Message.Error(("Problemas al copiar las plantillas"))
@@ -282,8 +282,8 @@ Public Sub copiarplantillas() As Boolean
   
   Dim file As String
   
-  For Each File In Dir(User.home & "/GeneradorCarnets/plantillas", "*.svg")
-    Try Exec ["cp", User.home & "/GeneradorCarnets/plantillas/" & file, User.home & "/GeneradorCarnets/temporales/plantillas/"] Wait
+  For Each File In Dir(User.home & "/.GeneradorCarnets/plantillas", "*.svg")
+    Try Exec ["cp", User.home & "/.GeneradorCarnets/plantillas/" & file, User.home & "/.GeneradorCarnets/temporales/plantillas/"] Wait
   Next
   
   If Error Then 
@@ -299,13 +299,13 @@ Public Sub comprimirDatos() As Boolean
   
   If Exist(User.home & "/temporal.zip") Then Kill User.home & "/temporal.zip"
   
-  Shell "zip " & User.home & "/temporal.zip " & User.home & "/GeneradorCarnets/temporales/*" Wait
-  Shell "zip " & User.home & "/temporal.zip " & User.home & "/GeneradorCarnets/temporales/fotos/*" Wait
-  Shell "zip " & User.home & "/temporal.zip " & User.home & "/GeneradorCarnets/temporales/plantillas/*" Wait
+  Shell "zip /tmp/temporal.zip " & User.home & "/.GeneradorCarnets/temporales/*" Wait
+  Shell "zip /tmp/temporal.zip " & User.home & "/.GeneradorCarnets/temporales/fotos/*" Wait
+  Shell "zip /tmp/temporal.zip " & User.home & "/.GeneradorCarnets/temporales/plantillas/*" Wait
   
-  If Exist(RutaCarnet & ".GeneradorCarnets") Then 
+  If Exist(RutaCarnet & "/.GeneradorCarnets") Then 
     'existe, lo borro para actualizarlo
-    Try Kill RutaCarnet & ".GeneradorCarnets"
+    Try Kill RutaCarnet & "/.GeneradorCarnets"
   Endif
   If RutaCarnet = "" Then
     Message.Error(("Nombre de archivo incorrecto:") & gb.CrLf & RutaCarnet)
@@ -335,7 +335,7 @@ Public Sub extraeRutaZip(nombre As String) As String
   
   Dim a As Integer
   Dim pos As Integer 'posicion de la fila donde empieza el nombre
-  Dim pos2 As Integer 'posicion de la fila donde empieza /GeneradorCarnets
+  Dim pos2 As Integer 'posicion de la fila donde empieza /.GeneradorCarnets
   Dim ContenidoComprimido As String
   Dim cadena As New String[]
   Dim nombreUsuarioAntiguo As String
@@ -359,7 +359,7 @@ Public Sub extraeRutaZip(nombre As String) As String
   nombreCompleto = Mid$(cadena[3], pos, Len(cadena[3]))
   
   Print "Cadena completa: "; nombreCompleto
-  pos2 = InStr(cadena[3], "/GeneradorCarnets/")
+  pos2 = InStr(cadena[3], "/.GeneradorCarnets/")
   
   nombreUsuarioAntiguo = Mid$(cadena[3], pos + 1, pos2 - pos - 1)
   
@@ -383,25 +383,25 @@ Public Sub AbrirFichero(nombre As String) As Boolean
   If nombreRutaAntinua = "" Then 
     Return False ' a fallado la extracion de informacion del fichero
   Endif
-  Shell "rm -r " & User.Home & "/GeneradorCarnets/trabajoTmp/home/" Wait
+  Shell "rm -r " & User.Home & "/.GeneradorCarnets/trabajoTmp/home/" Wait
   ' extraer en algun lugar temporal...
-  Shell "cd " & User.Home & "/GeneradorCarnets/trabajoTmp/" & " && unzip " & nombre Wait
+  Shell "cd " & User.Home & "/.GeneradorCarnets/trabajoTmp/" & " && unzip " & nombre Wait
   'borro los datos temporales que haya
-  vaciarDirectorio(User.home & "/GeneradorCarnets/temporales/")
-  vaciarDirectorio(User.home & "/GeneradorCarnets/temporales/fotos/")
-  vaciarDirectorio(User.home & "/GeneradorCarnets/temporales/plantillas/")
-  Rmdir User.home & "/GeneradorCarnets/temporales/fotos"
-  Rmdir User.home & "/GeneradorCarnets/temporales/plantillas"
+  vaciarDirectorio(User.home & "/.GeneradorCarnets/temporales/")
+  vaciarDirectorio(User.home & "/.GeneradorCarnets/temporales/fotos/")
+  vaciarDirectorio(User.home & "/.GeneradorCarnets/temporales/plantillas/")
+  Rmdir User.home & "/.GeneradorCarnets/temporales/fotos"
+  Rmdir User.home & "/.GeneradorCarnets/temporales/plantillas"
   
   Wait 0.5
-  rutaDescomprimida = User.Home & "/GeneradorCarnets/trabajoTmp/" & nombreRutaAntinua & "/GeneradorCarnets/temporales/"
+  rutaDescomprimida = User.Home & "/.GeneradorCarnets/trabajoTmp/" & nombreRutaAntinua & "/.GeneradorCarnets/temporales/"
   ' copiar ficheros desde ruta descomprimida hasta la ruta relativa
-  MoverFicheros(rutaDescomprimida, User.Home & "/GeneradorCarnets/temporales/")
-  MoverFicheros(rutaDescomprimida & "fotos/", User.Home & "/GeneradorCarnets/temporales/")
-  MoverFicheros(User.Home & "/GeneradorCarnets/temporales/fotos/", User.Home & "/GeneradorCarnets/temporales/fotos/")
+  MoverFicheros(rutaDescomprimida, User.Home & "/.GeneradorCarnets/temporales/")
+  MoverFicheros(rutaDescomprimida & "fotos/", User.Home & "/.GeneradorCarnets/temporales/")
+  MoverFicheros(User.Home & "/.GeneradorCarnets/temporales/fotos/", User.Home & "/.GeneradorCarnets/temporales/fotos/")
   
-  MoverFicheros(rutaDescomprimida & "plantillas/", User.Home & "/GeneradorCarnets/temporales/")
-  MoverFicheros(User.Home & "/GeneradorCarnets/temporales/plantillas/", User.Home & "/GeneradorCarnets/temporales/plantillas/")
+  MoverFicheros(rutaDescomprimida & "plantillas/", User.Home & "/.GeneradorCarnets/temporales/")
+  MoverFicheros(User.Home & "/.GeneradorCarnets/temporales/plantillas/", User.Home & "/.GeneradorCarnets/temporales/plantillas/")
   Wait 2 'doy tiempo a que se muevan los archivos...
   
   Rmdir rutaDescomprimida 
@@ -424,7 +424,7 @@ Public Sub AbrirFichero(nombre As String) As Boolean
   ' ************************************************************************
   'TODO: lectura de datos del fichero de datos y cargar al gridview...
   ' ************************************************************************
-  If Exist(User.home & "/GeneradorCarnets/temporales/datos.txt") Then 
+  If Exist(User.home & "/.GeneradorCarnets/temporales/datos.txt") Then 
     resultado = CargarDatos()
     ModulePrincipal.RutaCarnet = nombre
     
@@ -464,7 +464,7 @@ Public Sub CargarDatos() As Boolean
   Dim contenido As String
   Dim cadenas As New String[]
   
-  contenido = file.Load(User.home & "/GeneradorCarnets/temporales/datos.txt")
+  contenido = file.Load(User.home & "/.GeneradorCarnets/temporales/datos.txt")
   cadenas = Split(contenido, "\n")
   
   If cadenas[0] = "version 1" Then
@@ -484,18 +484,18 @@ Public Sub montarPlantilla2x4(numeropagina As Integer)
   Dim a As Integer
   Dim proceso As Process
   'copio el archivo  plantillaA3_2x4.svg al directorio de trabajo
-  Try Copy "plantillaA4_2x4.svg" To User.home & "/GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg"
+  Try Copy "plantillaA4_2x4.svg" To User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg"
   'copio imagenes transparentes si no existe la imagen png
   For a = 1 To 8
-    If Not Exist(User.home & "/GeneradorCarnets/trabajoTmp/imagen0" & Str$(a) & ".png") Then Copy "transparente.png" To User.home & "/GeneradorCarnets/trabajoTmp/imagen0" & Str$(a) & ".png"
+    If Not Exist(User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(a) & ".png") Then Copy "transparente.png" To User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(a) & ".png"
   Next
   
   'genero plantilla rellena...
-  proceso = Exec ["inkscape", User.home & "/GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-png", User.home & "/GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"] 
+  proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"] 
   
   EsperarProceso(proceso)
-  nombredestino = "\"" & User.home & "/GeneradorCarnets/trabajoTmp/pdf/Página " & Right$("00" & numeropagina, 2) & ".pdf\""
-  proceso = Shell ("convert " & User.home & "/GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png " & nombredestino)
+  nombredestino = "\"" & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/Página " & Right$("00" & numeropagina, 2) & ".pdf\""
+  proceso = Shell ("convert " & User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png " & nombredestino)
   EsperarProceso(proceso, numeropagina, 1)
   
 End

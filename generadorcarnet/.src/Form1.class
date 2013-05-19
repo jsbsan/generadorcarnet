@@ -430,7 +430,7 @@ Public Sub ToolButtonEditaPlantilla_Click()
   
   fespere.Show()
   Wait 0.1
-  comando = "inkscape " & User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.text
+  comando = "inkscape " & User.home & "/.GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.text
   Shell comando Wait
   fespere.parar = True
   fespere.Delete()
@@ -503,7 +503,7 @@ End
 
 Public Sub ToolButtonActual_Click()
   
-  ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[ListBoxListaPlantillas.Index]
+  ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[ListBoxListaPlantillas.Index]
   Labelactual.text = ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
   
 End
@@ -527,7 +527,7 @@ Public Sub ButtonPlantillaPrimera_Click()
   Dim operacion As Boolean
   
   contadorVistaPreliminarPlantilla = 0
-  ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
+  ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
   LabelPlantilla.text = "Plantilla: " & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
   operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   
@@ -539,7 +539,7 @@ Public Sub ButtonPlantillaSiguiente_Click()
   
   If contadorVistaPreliminarPlantilla < (ListBoxListaPlantillas.List.count - 1) Then 
     contadorVistaPreliminarPlantilla = contadorVistaPreliminarPlantilla + 1
-    ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
+    ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
     LabelPlantilla.text = "Plantilla: " & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
     operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   Endif
@@ -552,7 +552,7 @@ Public Sub ButtonPlantillaAnterior_Click()
   
   If contadorVistaPreliminarPlantilla > 0 Then
     contadorVistaPreliminarPlantilla = contadorVistaPreliminarPlantilla - 1
-    ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
+    ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
     LabelPlantilla.text = ("Plantilla: ") & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
     operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   Endif
@@ -564,7 +564,7 @@ Public Sub ButtonPlantillaUltima_Click()
   Dim operacion As Boolean
   
   contadorVistaPreliminarPlantilla = ListBoxListaPlantillas.List.count - 1
-  ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
+  ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[contadorVistaPreliminarPlantilla]
   LabelPlantilla.text = ("Plantilla: ") & ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
   operacion = ModuleIntermedio.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, gridviewContenido)
   
