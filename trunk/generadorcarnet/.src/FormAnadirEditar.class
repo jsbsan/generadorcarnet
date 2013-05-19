@@ -44,19 +44,19 @@ End
 Public Sub Form_Open()
   'recargar datos...
   
-  LabelPlantillaActual.text = Replace(ModulePrincipal.plantillaUsada, User.Home & "/GeneradorCarnets/plantillas/", "")
+  LabelPlantillaActual.text = Replace(ModulePrincipal.plantillaUsada, User.Home & "/.GeneradorCarnets/plantillas/", "")
   
   sistemadeocultacion(ModulePrincipal.plantillaUsada)
   
-  If reg.foto <> "" And Exist(User.home & "/GeneradorCarnets/temporales/fotos/" & reg.foto) Then 
+  If reg.foto <> "" And Exist(User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto) Then 
     PictureBox1.Tag = Replace$(reg.foto, " ", "_")
     
-    PictureBox1.Picture = Picture[User.home & "/GeneradorCarnets/temporales/fotos/" & reg.foto]
+    PictureBox1.Picture = Picture[User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto]
   Else
-    If Not Exist(User.home & "/GeneradorCarnets/temporales/fotos/icono_fotos_personas.png") Then 
-      Copy "icono_fotos_personas.png" To User.home & "/GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"
+    If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos/icono_fotos_personas.png") Then 
+      Copy "icono_fotos_personas.png" To User.home & "/.GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"
     Endif
-    PictureBox1.Picture = Picture[User.home & "/GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"]
+    PictureBox1.Picture = Picture[User.home & "/.GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"]
     PictureBox1.Tag = "icono_fotos_personas.png"
   Endif
   
@@ -141,8 +141,8 @@ Public Sub PictureBox1_MouseDown()
   '    PictureBox1.Picture = Picture[Dialog.Path]
   '    PictureBox1.tag = Dialog.Path
   
-  'Exec ["cp", PictureBox1.tag, User.home & "/GeneradorCarnets/temporales/fotos/" & Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_")] Wait
-  'reg.foto = Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_") ' User.home & "/GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
+  'Exec ["cp", PictureBox1.tag, User.home & "/.GeneradorCarnets/temporales/fotos/" & Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_")] Wait
+  'reg.foto = Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_") ' User.home & "/.GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
   'Endif
   
 End
@@ -150,14 +150,14 @@ End
 Public Sub ToolButtonTomaFoto_Click()
   
   Dim nombrefinal As String
-  Dim comando As String = User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas"
+  Dim comando As String = User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas"
   
   Exec [comando] Wait
   '  User.home & "/webcam_carnet.png"
-  nombrefinal = User.home & "/GeneradorCarnets/temporales/fotos/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
+  nombrefinal = User.home & "/.GeneradorCarnets/temporales/fotos/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
   
   Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
-  reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal) ' User.home & "/GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
+  reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal) ' User.home & "/.GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
   PictureBox1.tag = reg.foto
   PictureBox1.picture = Picture.Load(nombrefinal)
   

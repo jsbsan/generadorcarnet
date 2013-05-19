@@ -140,7 +140,7 @@ Public Sub rellenarPlantillaConValores(reg As ClassRegistro, fichero As String, 
   
   'intercambio valores...
   
-  contenido = Replace$(contenido, "FOTOPLANTILLA.JPG", User.home & "/GeneradorCarnets/temporales/fotos/" & reg.foto)
+  contenido = Replace$(contenido, "FOTOPLANTILLA.JPG", User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto)
   contenido = Replace$(contenido, "CAMPO01", reg.NOMBRE)
   contenido = Replace$(contenido, "CAMPO02", reg.APELLIDOS)
   contenido = Replace$(contenido, "CAMPO03", cadenasub)
@@ -183,16 +183,16 @@ Public Sub PrevisualizarRegistro(numero As Integer, Areadibujo As DrawingArea, r
     regtmp.NumeroCarnet = ModulePrincipal.Lista.registros[indice].NumeroCarnet
     regtmp.tag = ModulePrincipal.Lista.registros[indice].tag
     'hacer una copia de la plantilla actual
-    If Exist(User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
-      Kill User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
+    If Exist(User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
+      Kill User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
     Endif
-    Try Copy ModulePrincipal.plantillaUsada To User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
+    Try Copy ModulePrincipal.plantillaUsada To User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
     If Error Then 
       'problema al intentar copiar fichero
       Return False
     Endif
-    ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg")
-    ModuleIntermedio.dibujarSVG(User.home & "/GeneradorCarnets/trabajoTmp/plantillaTmp.svg", Areadibujo)
+    ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg")
+    ModuleIntermedio.dibujarSVG(User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", Areadibujo)
   Else
     Return False 'no se ha podido ver la ficha
   Endif
@@ -203,30 +203,30 @@ End
 Public Sub IniciarLaPrimeraVez()
   
   'TODO: comprueba si existe, y si no lo crea...
-  If Not Exist(User.home & "/GeneradorCarnets/") Then Mkdir User.home & "/GeneradorCarnets/"
-  If Not Exist(User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam" To User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas"
-  Chmod User.home & "/GeneradorCarnets/FotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
+  If Not Exist(User.home & "/.GeneradorCarnets/") Then Mkdir User.home & "/.GeneradorCarnets/"
+  If Not Exist(User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam" To User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas"
+  Chmod User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
   
-  If Not Exist(User.home & "/GeneradorCarnets/temporales") Then Mkdir User.home & "/GeneradorCarnets/temporales"
-  If Not Exist(User.home & "/GeneradorCarnets/temporales/fotos") Then Mkdir User.home & "/GeneradorCarnets/temporales/fotos"
+  If Not Exist(User.home & "/.GeneradorCarnets/temporales") Then Mkdir User.home & "/.GeneradorCarnets/temporales"
+  If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos") Then Mkdir User.home & "/.GeneradorCarnets/temporales/fotos"
   
-  If Not Exist(User.home & "/GeneradorCarnets/temporales/plantillas") Then Mkdir User.home & "/GeneradorCarnets/temporales/plantillas"
-  If Not Exist(User.home & "/GeneradorCarnets/trabajoTmp/") Then Mkdir User.home & "/GeneradorCarnets/trabajoTmp/"
-  If Not Exist(User.home & "/GeneradorCarnets/trabajoTmp/pdf") Then Mkdir User.home & "/GeneradorCarnets/trabajoTmp/pdf"
-  If Not Exist(User.home & "/GeneradorCarnets/plantillas") Then Mkdir User.home & "/GeneradorCarnets/plantillas"
+  If Not Exist(User.home & "/.GeneradorCarnets/temporales/plantillas") Then Mkdir User.home & "/.GeneradorCarnets/temporales/plantillas"
+  If Not Exist(User.home & "/.GeneradorCarnets/trabajoTmp/") Then Mkdir User.home & "/.GeneradorCarnets/trabajoTmp/"
+  If Not Exist(User.home & "/.GeneradorCarnets/trabajoTmp/pdf") Then Mkdir User.home & "/.GeneradorCarnets/trabajoTmp/pdf"
+  If Not Exist(User.home & "/.GeneradorCarnets/plantillas") Then Mkdir User.home & "/.GeneradorCarnets/plantillas"
   'If Not Exist(Application.path & "/FOTOPLANTILLA.JPG") Then Copy "FOTOPLANTILLA.JPG" To Application.path & "/FOTOPLANTILLA.JPG"
-  If Not Exist(User.home & "/GeneradorCarnets/plantillas/plantilla.svg") Then Copy "plantilla/plantilla.svg" To User.home & "/GeneradorCarnets/plantillas/plantilla.svg"
+  If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla.svg") Then Copy "plantilla/plantilla.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla.svg"
   
-  If Not Exist(User.home & "/GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg") Then Copy "plantilla/plantilla-seguridad-vial.svg" To User.home & "/GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg"
-  If Not Exist(User.home & "/GeneradorCarnets/plantillas/plantilla-deporte-escolar.svg") Then Copy "plantilla/plantilla-deporte-escolar.svg" To User.home & "/GeneradorCarnets/plantillas/plantilla-deporte-escolar.svg"
-  If Not Exist(User.home & "/GeneradorCarnets/plantillas/plantilla-ciencias-club.svg") Then Copy "plantilla/plantilla-ciencias-club.svg" To User.home & "/GeneradorCarnets/plantillas/plantilla-ciencias-club.svg"
-  If Not Exist(User.home & "/GeneradorCarnets/plantillas/plantillaComedor.svg") Then Copy "plantilla/plantillaComedor.svg" To User.home & "/GeneradorCarnets/plantillas/plantillaComedor.svg"
+  If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg") Then Copy "plantilla/plantilla-seguridad-vial.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg"
+  If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla-deporte-escolar.svg") Then Copy "plantilla/plantilla-deporte-escolar.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla-deporte-escolar.svg"
+  If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla-ciencias-club.svg") Then Copy "plantilla/plantilla-ciencias-club.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla-ciencias-club.svg"
+  If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantillaComedor.svg") Then Copy "plantilla/plantillaComedor.svg" To User.home & "/.GeneradorCarnets/plantillas/plantillaComedor.svg"
   
   'borrado de forma recursiva de los archivos contenido en las carpetas temporales...
-  borradoIterativo(User.home & "/GeneradorCarnets/temporales")
+  borradoIterativo(User.home & "/.GeneradorCarnets/temporales")
   
-  borradoIterativo(User.home & "/GeneradorCarnets/temporales/plantillas")
-  borradoIterativo(User.home & "/GeneradorCarnets/trabajoTmp")
+  borradoIterativo(User.home & "/.GeneradorCarnets/temporales/plantillas")
+  borradoIterativo(User.home & "/.GeneradorCarnets/trabajoTmp")
 Catch
   ModuleMensajeError.SistemaDescripcionError() 
   
@@ -271,7 +271,7 @@ Public Sub CARGALISTA(lbox As ListBox)
   Dim file As String
   
   lbox.Clear()
-  ruta = User.home & "/GeneradorCarnets/plantillas/"
+  ruta = User.home & "/.GeneradorCarnets/plantillas/"
   If Exist(ruta) Then 
     'borrado si existe la ruta
     For Each File In Dir(ruta, "*.svg").Sort()
@@ -285,10 +285,10 @@ End
 'ModuleIntermedio.CargaPrevisualizacion(ListBoxListaPlantillas, DrawingAreaPlantilla)
 Public Sub cargaprevisualizacion(lbox As ListBox, area As DrawingArea)
   
-  If Exist(User.home & "/GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]) Then 
-    dibujarSVG(User.home & "/GeneradorCarnets/plantillas/" & lbox.List[lbox.Index], area)
+  If Exist(User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]) Then 
+    dibujarSVG(User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index], area)
     If ModulePrincipal.plantillaUsada = "" Then 
-      ModulePrincipal.plantillaUsada = User.home & "/GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
+      ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
     Endif
   Endif
   
@@ -297,7 +297,7 @@ End
 Public Sub borradoElementoLista(lbox As ListBox)
   'borro fichero de la lista
   
-  Try Kill User.home & "/GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
+  Try Kill User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
   'cargo otra vez la lista
   CARGALISTA(lbox)
   
@@ -306,17 +306,17 @@ End
 'añadir una nuevo plantilla al directorio de plantillas:
 Public Sub anadirPlantilla()
   
-  Dialog.path = User.home & "/GeneradorCarnets/temporales/plantillas/"
+  Dialog.path = User.home & "/.GeneradorCarnets/temporales/plantillas/"
   Dialog.Title = ("Elige la plantilla en formato .svg (inkscape)")
   Dialog.Filter = ["*.svg", "Archivos .svg"]
   If Not Dialog.OpenFile() Then 
     'copio el archivo elegido al directorio donde se guardan las plantillas...     
     '
-    If Exist(User.home & "/GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)) Then 
+    If Exist(User.home & "/.GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)) Then 
       Message.Info(("Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la plantilla a añadir"))
     Else
       
-      Copy Dialog.path To User.home & "/GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)
+      Copy Dialog.path To User.home & "/.GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)
     Endif
   Endif
 Catch
