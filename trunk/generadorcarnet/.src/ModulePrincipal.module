@@ -294,16 +294,17 @@ Public Sub comprimirDatos() As Boolean
   Shell "zip /tmp/temporal.zip " & User.home & "/.GeneradorCarnets/temporales/fotos/*" Wait
   Shell "zip /tmp/temporal.zip " & User.home & "/.GeneradorCarnets/temporales/plantillas/*" Wait
   
-  If Exist(RutaCarnet & "/.GeneradorCarnets") Then 
+  If Exist(Replace$(RutaCarnet, ".GeneradorCarnets", "") & ".GeneradorCarnets") Then 
     'existe, lo borro para actualizarlo
-    Try Kill RutaCarnet & "/.GeneradorCarnets"
+    Try Kill Replace$(RutaCarnet, ".GeneradorCarnets", "") & ".GeneradorCarnets"
   Endif
   If RutaCarnet = "" Then
     Message.Error(("Nombre de archivo incorrecto:") & gb.CrLf & RutaCarnet)
     Return False
   Else  
     
-    Copy "/tmp/temporal.zip" To RutaCarnet & ".GeneradorCarnets"
+    '   Try Kill Replace$(RutaCarnet, ".GeneradorCarnets", "") & ".GeneradorCarnets"
+    Copy "/tmp/temporal.zip" To Replace$(RutaCarnet, ".GeneradorCarnets", "") & ".GeneradorCarnets"
   Endif
   'Try Kill User.home & "/temporal.zip"
   Guardado = True 'todo guardado

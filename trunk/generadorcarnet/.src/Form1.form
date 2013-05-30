@@ -121,6 +121,11 @@
     Index = 3
     Text = ("Introducir Datos")
     Picture = Picture["icon:/22/people"]
+    { PictureBox4 PictureBox
+      MoveScaled(4,73,6,7)
+      Picture = Picture["drop.png"]
+      Stretch = True
+    }
     { HBox1 HBox
       MoveScaled(0,0,77,5)
       { ToolButtonAnadir ToolButton
@@ -172,6 +177,14 @@
       MoveScaled(10,16,33,23)
       Text = ("<h2>Nota:</h2><br>\nNecesita abrir o crear un grupo para poder introducir los datos de las personas")
       Alignment = Align.Center
+    }
+    { TextLabelSoltarDatos TextLabel
+      MoveScaled(1,64,76,17)
+      Font = Font["Bitstream Charter,-1"]
+      Drop = True
+      Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre del fichero debe de tener <br>una coma para separar los apellidos y el nombre de la persona.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
+      Alignment = Align.Center
+      Border = Border.Plain
     }
     Index = 4
     Text = ("Guardar Grupo")

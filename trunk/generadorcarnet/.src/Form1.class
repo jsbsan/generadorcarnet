@@ -26,7 +26,7 @@ Public Sub Form_Open()
     observador = New Observer(gridviewContenido) As "ObservadorGridviewContenido" 'observo al gridviewContenido
     ModuleIntermedio.InicargridviewContenido(gridviewContenido)
     desactivarIntroduccionDeDatos()
-    
+    Try Copy "transparente.png" To "/tmp/transparente.png"
     gridviewContenido.visible = False
     fpensando.parar = True
     fpensando.Delete()
@@ -198,13 +198,14 @@ Public Sub desactivarIntroduccionDeDatos()
   
   gridviewContenido.visible = False
   HBox1.Enabled = False
+  TextLabelSoltarDatos.enabled = False
   
 End
 
 Public Sub activarIntroduccionDeDatos()
   
   HBox1.Enabled = True
-  
+  TextLabelSoltarDatos.enabled = True
   gridviewContenido.visible = True 
   
 End
@@ -245,7 +246,7 @@ Public Sub ToolButtonEditar_Click()
   
   If gridviewContenido.indice.count > gridviewContenido.row And gridviewContenido.row > -1 Then 
     feditar.modo = ModulePrincipal.Lista.buscar(Val(gridviewContenido[gridviewContenido.row, 9].text))
-    feditar.reg.foto = gridviewContenido[gridviewContenido.row, 0].text
+    feditar.reg.foto = ModulePrincipal.Lista.registros[feditar.modo].foto
     feditar.reg.nombre = gridviewContenido[gridviewContenido.row, 1].text
     feditar.reg.Apellidos = gridviewContenido[gridviewContenido.row, 2].text
     feditar.reg.FechaNacimiento = ModulePrincipal.Lista.registros[feditar.modo].FechaNacimiento 'gridviewContenido[gridviewContenido.row, 3].text
@@ -271,7 +272,7 @@ Public Sub ToolButtonBorrar_Click()
   
   Dim res As Integer
   Dim indiceRegistro As Integer
-
+  
   If gridviewContenido.indice.count > gridviewContenido.row Then 
     res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
@@ -687,5 +688,20 @@ End
 Public Sub ToolButtonAccesoPaginaWeb_Click()
   
   Desktop.Open("http://generadorcarnets.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub TextLabelSoltarDatos_Drop()
+  
+  Dim resultado As Boolean
+  
+  resultado = ModuleArrastrarYSoltarFicheros.InsertarDatosSoltados(drag, ModulePrincipal.Lista)
+  
+  If resultado = False Then
+    Message.Info(("Ha habido un problema al añadir los datos soltados"))
+  Else
+    
+    ModuleIntermedio.rellenarGridviews(gridviewContenido, ModulePrincipal.Lista)
+  Endif
   
 End
