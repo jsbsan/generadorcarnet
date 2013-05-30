@@ -44,7 +44,7 @@ Public Sub InicargridviewContenido(grid As ClassSuperGridview, Optional titulos 
     .font.name = "Sans" 
     .font.size = 9 
     .w = 490
-    .h = 532
+    .h = 400
     .x = 10
     .y = 42
     .mode = 1
@@ -123,7 +123,7 @@ Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaR
     rejilla.indice.add(regtmp.id)
     contadorPosicionFilaGrid += 1
   Next
-  
+  rejilla[contadorPosicionFilaGrid, 0].picture = Picture["/tmp/transparente.png"]
   rejilla[contadorPosicionFilaGrid, 0].text = ""
   rejilla[contadorPosicionFilaGrid, 1].text = ""
   rejilla[contadorPosicionFilaGrid, 2].text = "" 

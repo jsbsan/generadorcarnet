@@ -1,5 +1,5 @@
 [Breakpoints]
-Breakpoint[1]="ModulePrincipal.290"
+Breakpoint[1]="ModulePrincipal.296"
 Count=1
 
 [DebugWindow]
@@ -36,7 +36,10 @@ Geometry=[239,559,550,210]
 Geometry=[14,388,296,210]
 
 [DebugWindow/Lista.registros[0]]
-Geometry=[849,482,322,377]
+Geometry=[28,402,395,309]
+
+[DebugWindow/ModulePrincipal]
+Geometry=[-7,-8,210,210]
 
 [DebugWindow/ModulePrincipal.Lista.registros[maximo]]
 Geometry=[952,212,210,591]
@@ -66,7 +69,10 @@ Geometry=[-7,-8,522,257]
 Geometry=[169,79,634,251]
 
 [DebugWindow/reg]
-Geometry=[-7,3,210,645]
+Geometry=[-7,3,433,645]
+
+[DebugWindow/registro]
+Geometry=[461,409,693,253]
 
 [DebugWindow/rejilla.indice]
 Geometry=[-7,3,210,210]
@@ -78,16 +84,15 @@ LastCommit="Mejora en el filtro de ficheros de imágenes\n---- Esta línea y las
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:32.2"
-Active=4
-File[4]=".src/ModuleIntermedio.module:34.28"
+File[4]=".src/ModuleIntermedio.module:44.19"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:106.22"
+File[6]=".src/Form1.class:44.2"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
-File[10]=".src/ModulePrincipal.module:290.18"
+File[10]=".src/ModulePrincipal.module:311.4"
 File[11]=".src/FormAnadirEditar.form"
-File[12]=".src/FormAnadirEditar.class:156.164"
+File[12]=".src/FormAnadirEditar.class:50.13"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
 File[15]="inkscape-icono.png"
@@ -120,7 +125,11 @@ File[41]=".src/FormPensando.form"
 File[42]=".src/ClassSuperGridview.class:80.46"
 File[43]="icono_web.jpg"
 File[44]="logoGambas.png"
-Count=44
+File[45]="transparente1.png"
+File[46]="drop.png"
+Active=47
+File[47]=".src/ModuleArrastrarYSoltarFicheros.module:49.62"
+Count=47
 
 [VersionControl]
 RememberPassword=0
