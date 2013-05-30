@@ -244,7 +244,7 @@ Public Sub ToolButtonEditar_Click()
   Dim feditar As New FormAnadirEditar
   
   If gridviewContenido.indice.count > gridviewContenido.row And gridviewContenido.row > -1 Then 
-    feditar.modo = gridviewContenido.indice[gridviewContenido.row]
+    feditar.modo = ModulePrincipal.Lista.buscar(Val(gridviewContenido[gridviewContenido.row, 9].text))
     feditar.reg.foto = gridviewContenido[gridviewContenido.row, 0].text
     feditar.reg.nombre = gridviewContenido[gridviewContenido.row, 1].text
     feditar.reg.Apellidos = gridviewContenido[gridviewContenido.row, 2].text
@@ -270,11 +270,13 @@ End
 Public Sub ToolButtonBorrar_Click()
   
   Dim res As Integer
-  
+  Dim indiceRegistro As Integer
+
   If gridviewContenido.indice.count > gridviewContenido.row Then 
     res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
-      ModulePrincipal.BorrarRegistro(gridviewContenido.indice[gridviewContenido.row])
+      indiceRegistro = ModulePrincipal.Lista.buscar(Val(gridviewContenido[gridviewContenido.row, 9].text))
+      ModulePrincipal.BorrarRegistro(indiceRegistro)
       'refrescar el gridviews
       ModuleIntermedio.rellenarGridviews(gridviewContenido, ModulePrincipal.Lista)
     Endif

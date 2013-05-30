@@ -14,27 +14,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModulePrincipal.module:83
+#: ModulePrincipal.module:74
 msgid "error al leer datos del portapapeles"
 msgstr ""
 
-#: ModulePrincipal.module:274
+#: ModulePrincipal.module:265
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:276
+#: ModulePrincipal.module:267
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:311
+#: ModulePrincipal.module:302
 msgid "Nombre de archivo incorrecto:"
 msgstr ""
 
-#: ModulePrincipal.module:432
+#: ModulePrincipal.module:423
 msgid "No encuentro fichero de datos.txt"
 msgstr ""
 
-#: ModulePrincipal.module:475
+#: ModulePrincipal.module:466
 msgid "El fichero no lo puedo leer.\n Versión Desconocida."
 msgstr ""
 

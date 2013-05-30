@@ -3,7 +3,7 @@
 Title=Generador De Carnets
 Startup=Form1
 Icon=carnet.png
-Version=0.0.36
+Version=0.0.38
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -21,7 +21,7 @@ Maintainer=jsbsan
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es/
 License=General Public License
-PackageName=generadorcarnet-0.0.36
+PackageName=generadorcarnet-0.0.38
 CreateEachDirectory=1
 Packager=1
 Systems=debian
