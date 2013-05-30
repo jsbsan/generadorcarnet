@@ -33,31 +33,22 @@ Public Sub anadirRegistro(registro As ClassRegistro)
   
 End
 
-Public Sub EditarRegistro(reg As ClassRegistro, id As Integer)
+Public Sub EditarRegistro(reg As ClassRegistro, indice As Integer)
   
   Dim listaArrayReg As New ClassRegistro[]
-  Dim indice As Integer
   
-  indice = Lista.buscar(id)
-  If indice <> -1 Then 
-    reg.id = indice 'añadido en version 0.0.22, faltaba en las anteriores dando errores en la edicion de registros.
-    listaArrayReg.add(reg)
-    Lista.registros.Delete(indice)
-    Lista.registros.Insert(listaArrayReg, indice)
-    guardado = False
-  Endif
+  reg.id = indice 'añadido en version 0.0.22, faltaba en las anteriores dando errores en la edicion de registros.
+  listaArrayReg.add(reg)
+  Lista.registros.Delete(indice)
+  Lista.registros.Insert(listaArrayReg, indice)
+  guardado = False
   
 End
 
-Public Sub BorrarRegistro(id As Integer)
+Public Sub BorrarRegistro(indice As Integer)
   
-  Dim indice As Integer
-  
-  indice = Lista.buscar(id)
-  If indice <> -1 Then 
-    Lista.registros.Delete(indice)
-    guardado = False
-  Endif
+  Lista.registros.Delete(indice)
+  guardado = False
   
 End
 
@@ -312,9 +303,9 @@ Public Sub comprimirDatos() As Boolean
     Return False
   Else  
     
-    Try Copy User.home & "/temporal.zip" To RutaCarnet & ".GeneradorCarnets"
+    Copy "/tmp/temporal.zip" To RutaCarnet & ".GeneradorCarnets"
   Endif
-  Try Kill User.home & "/temporal.zip"
+  'Try Kill User.home & "/temporal.zip"
   Guardado = True 'todo guardado
   
   If Error Then 

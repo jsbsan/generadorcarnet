@@ -30,8 +30,9 @@
       Alignment = Align.Center
     }
     { PictureBox2 PictureBox
-      MoveScaled(63,33,9,7)
-      Picture = Picture["gambas360.png"]
+      MoveScaled(66,18,11,20)
+      Picture = Picture["logoGambas.png"]
+      Stretch = True
     }
     { PictureBox3 PictureBox
       MoveScaled(14,9,9,7)

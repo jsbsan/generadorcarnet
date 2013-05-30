@@ -6,7 +6,7 @@ Public Sub InicargridviewContenido(grid As ClassSuperGridview, Optional titulos 
     .header = 3 
     .rows.count = 1000
     
-    .columns.count = 9
+    .columns.count = 10
     
     If titulos Then 
       .Columns[0].title = "FOTOPLANTILLA.JPG" 
@@ -31,7 +31,7 @@ Public Sub InicargridviewContenido(grid As ClassSuperGridview, Optional titulos 
       
     Endif
     
-    .Columns[0].width = 75
+    .Columns[0].width = 50
     .Columns[1].width = 100 
     .Columns[2].width = 150
     .Columns[3].width = 120
@@ -40,6 +40,7 @@ Public Sub InicargridviewContenido(grid As ClassSuperGridview, Optional titulos 
     .Columns[6].width = 150
     .Columns[7].width = 100
     .Columns[8].width = 80 
+    .Columns[9].width = 0
     .font.name = "Sans" 
     .font.size = 9 
     .w = 490
@@ -88,7 +89,20 @@ Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaR
   rejilla.rows.count = Lista.registros.count + 1
   For Each regtmp In Lista.registros
     
-    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    'rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    
+    If regtmp.foto <> "" Then 
+      If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos/mini_" & regtmp.foto) Then 
+        rejilla[contadorPosicionFilaGrid, 0].picture = reduce(User.home & "/.GeneradorCarnets/temporales/fotos/" & regtmp.foto, User.home & "/.GeneradorCarnets/temporales/fotos/mini_" & regtmp.foto)
+        
+      Else
+        
+        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load(User.home & "/.GeneradorCarnets/temporales/fotos/mini_" & regtmp.foto)
+      Endif
+      rejilla.rows[contadorPosicionFilaGrid].height = 35
+      
+    Endif
+    
     rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
     rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
     Try fechanumero = Format(Val(regtmp.FechaNacimiento), "dd mmm yyyy")
@@ -105,6 +119,7 @@ Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaR
     rejilla[contadorPosicionFilaGrid, 6].text = regtmp.localidad
     rejilla[contadorPosicionFilaGrid, 7].text = regtmp.NumeroCarnet
     rejilla[contadorPosicionFilaGrid, 8].text = regtmp.tag
+    rejilla[contadorPosicionFilaGrid, 9].text = regtmp.id
     rejilla.indice.add(regtmp.id)
     contadorPosicionFilaGrid += 1
   Next
@@ -118,7 +133,7 @@ Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaR
   rejilla[contadorPosicionFilaGrid, 6].text = ""
   rejilla[contadorPosicionFilaGrid, 7].text = ""
   rejilla[contadorPosicionFilaGrid, 8].text = ""
-  
+  rejilla[contadorPosicionFilaGrid, 9].text = ""
   rejilla.Refresh()
   
 End
@@ -321,5 +336,20 @@ Public Sub anadirPlantilla()
   Endif
 Catch
   ModuleMensajeError.SistemaDescripcionError() 
+  
+End
+'--------------------------------------------
+
+Private Function reduce(ruta As String, rutafin As String) As Picture
+  
+  Dim dibujo As New Picture
+  Dim comando As String 
+  'crea una minuatura de la imagen dada y la pasa al Fotos...Mini
+  comando = "convert " & ruta & " -resize 30x40  " & rutafin
+  Shell comando Wait
+  
+  dibujo = Picture[rutafin]
+  
+  Return dibujo
   
 End

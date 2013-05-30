@@ -78,7 +78,7 @@ Public Sub observador1_Select()
   
   'marcar fila
   For a = 0 To Me.Columns.Count - 1
-    Me[Me.row, a].Background = Color.green
+    Try Me[Me.row, a].Background = Color.green
     
   Next
   filaseleccionada = Me.row
