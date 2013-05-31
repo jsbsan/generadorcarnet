@@ -700,11 +700,11 @@ msgstr ""
 msgid "Ya existe ese nombre:"
 msgstr ""
 
-#: ModuleIntermedio.module:325
+#: ModuleIntermedio.module:332
 msgid "Elige la plantilla en formato .svg (inkscape)"
 msgstr ""
 
-#: ModuleIntermedio.module:331
+#: ModuleIntermedio.module:338
 msgid ""
 "Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la "
 "plantilla a añadir"

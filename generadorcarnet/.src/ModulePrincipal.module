@@ -245,7 +245,7 @@ End
 Public Sub EsperarProceso(proceso As Process, Optional a As Integer, Optional pagina As Integer)
   
   Do While proceso.state = Process.Running
-    Wait 0.1
+    Wait 0.2
   Loop
   If pagina = 0 Then 
     If a <> 0 Then EstadoDelTrabajo = a  'tiempo de proceso
