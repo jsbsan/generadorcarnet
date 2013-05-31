@@ -1,3 +1,6 @@
+* Fri May 31 2013 jsbsan <jusabejusabe@gmail.com> 0.0.40
+- Bug: se quedaba pillado cuando la imagen de la persona no estaba definida.
+
 * Thu May 30 2013 jsbsan <jusabejusabe@gmail.com> 0.0.39
 - Añadido Soltar ficheros de imagen para aprovechar nombre y apellidos
 

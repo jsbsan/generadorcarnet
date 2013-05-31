@@ -155,7 +155,14 @@ Public Sub rellenarPlantillaConValores(reg As ClassRegistro, fichero As String, 
   
   'intercambio valores...
   
-  contenido = Replace$(contenido, "FOTOPLANTILLA.JPG", User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto)
+  If reg.foto = "" Then
+    reg.foto = "/tmp/transparente.png"
+  Endif
+  If Exist(User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto) Then 
+    contenido = Replace$(contenido, "FOTOPLANTILLA.JPG", User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto)
+  Else
+    contenido = Replace$(contenido, "FOTOPLANTILLA.JPG", "/tmp/transparente.png")
+  Endif
   contenido = Replace$(contenido, "CAMPO01", reg.NOMBRE)
   contenido = Replace$(contenido, "CAMPO02", reg.APELLIDOS)
   contenido = Replace$(contenido, "CAMPO03", cadenasub)
