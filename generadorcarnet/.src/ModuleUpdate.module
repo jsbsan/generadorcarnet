@@ -7,16 +7,17 @@ Public Sub comprobar(nombreprograma As String, actualversion As String, rutaUrl 
   Dim a As Integer
   Dim Buffer, programa, VersionEnInternet, mensaje, mejoras, direccion, comando As String
   Dim res As Integer
+  Dim tiempoespera As Integer = 4
   
   MiHttp.url = rutaUrl
   MiHttp.Get()
   
-  While (Lof(MiHttp) = False And a < 10)
-    'espero 1 segundo o que llegue a>10
+  While (Lof(MiHttp) = False And a < tiempoespera)
+    'espero 1 segundo o que llegue a>tiempoespera
     a = a + 1
     Wait 1
   Wend
-  If a = 10 Or Lof(MiHttp) = False Then
+  If a = tiempoespera Or Lof(MiHttp) = False Then
     If texto = "" Then message(("No ha sido posible conectarse al servidor") & "\n" & ("No puedo comprobar si hay nueva versión"))
     Return
   Endif

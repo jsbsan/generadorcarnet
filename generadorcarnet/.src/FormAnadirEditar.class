@@ -156,10 +156,12 @@ Public Sub ToolButtonTomaFoto_Click()
   '  User.home & "/webcam_carnet.png"
   nombrefinal = User.home & "/.GeneradorCarnets/temporales/fotos/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
   
-  Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
-  reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal) ' User.home & "/.GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
-  PictureBox1.tag = reg.foto
-  PictureBox1.picture = Picture.Load(nombrefinal)
+  If Exist(User.home & "/webcam_carnet.png") Then
+    Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
+    reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal) ' User.home & "/.GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
+    PictureBox1.tag = reg.foto
+    PictureBox1.picture = Picture.Load(nombrefinal)
+  Endif
   
 End
 
