@@ -14,15 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormError.form:13
+#: FormError.form:14
 msgid "Mensaje de Error:"
 msgstr ""
 
-#: FormError.form:19
+#: FormError.form:20
 msgid "Copiar Al portapapeles"
 msgstr ""
 
-#: FormError.form:24
+#: FormError.form:25
 msgid "Salir"
+msgstr ""
+
+#: FormError.form:30
+msgid "TextLabel1"
 msgstr ""
 

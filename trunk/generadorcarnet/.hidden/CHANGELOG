@@ -1,3 +1,9 @@
+* Thu Jul 04 2013 jsbsan <jusabejusabe@gmail.com> 0.0.41
+-pensando solo icono
+-da mas informacion de un error (programa, version,fecha,descripcion error)
+-si no se captura imagen, no se asigna nada
+-reducido tiempo de update a 4 segundos
+
 * Fri May 31 2013 jsbsan <jusabejusabe@gmail.com> 0.0.40
 - Bug: se quedaba pillado cuando la imagen de la persona no estaba definida.
 

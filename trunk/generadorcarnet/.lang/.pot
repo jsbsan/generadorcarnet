@@ -407,7 +407,7 @@ msgstr ""
 msgid "Generando Paginas"
 msgstr ""
 
-#: Form1.form:754 FormError.form:24
+#: Form1.form:754 FormError.form:25
 msgid "Salir"
 msgstr ""
 
@@ -651,20 +651,20 @@ msgstr ""
 msgid "Plantilla Actual de Carnet:"
 msgstr ""
 
-#: FormAnadirEditar.class:175
+#: FormAnadirEditar.class:177
 msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: FormAnadirEditar.class:231
+#: FormAnadirEditar.class:233
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormAnadirEditar.class:232
+#: FormAnadirEditar.class:234
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FormAnadirEditar.class:251
+#: FormAnadirEditar.class:253
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
@@ -680,16 +680,16 @@ msgstr ""
 msgid "Pegar (Url)"
 msgstr ""
 
-#: FormError.form:13
+#: FormError.form:14
 msgid "Mensaje de Error:"
 msgstr ""
 
-#: FormError.form:19
+#: FormError.form:20
 msgid "Copiar Al portapapeles"
 msgstr ""
 
-#: FormPensando.form:21
-msgid "Pensando..."
+#: FormError.form:30
+msgid "TextLabel1"
 msgstr ""
 
 #: FormPensando.class:7
@@ -740,55 +740,55 @@ msgstr ""
 msgid "Ya se esta ejecutando este programa"
 msgstr ""
 
-#: ModuleUpdate.module:20
+#: ModuleUpdate.module:21
 msgid "No ha sido posible conectarse al servidor"
 msgstr ""
 
-#: ModuleUpdate.module:20
+#: ModuleUpdate.module:21
 msgid "No puedo comprobar si hay nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:33
+#: ModuleUpdate.module:34
 msgid "El archivo de versión no es para este programa"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:37
 msgid "Existe una nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:37
 msgid "Programa:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:37
 msgid "Versión encontrada:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:37
 msgid "Mejoras:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:37
 msgid "Dirección Url de descarga:"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:38
 msgid "Ir a la página de descarga"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:38
 msgid "No actualización"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:46
 msgid "La versión actual:"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:46
 msgid "es igual o superior que la que hay en el servidor"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:46
 msgid "No necesita actualizarla"
 msgstr ""
 

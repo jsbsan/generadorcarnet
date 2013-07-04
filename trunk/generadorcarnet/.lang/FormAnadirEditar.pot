@@ -122,19 +122,19 @@ msgstr ""
 msgid "Plantilla Actual de Carnet:"
 msgstr ""
 
-#: FormAnadirEditar.class:175
+#: FormAnadirEditar.class:177
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: FormAnadirEditar.class:231
+#: FormAnadirEditar.class:233
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormAnadirEditar.class:232
+#: FormAnadirEditar.class:234
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FormAnadirEditar.class:251
+#: FormAnadirEditar.class:253
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
