@@ -202,7 +202,9 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   Exec ["pcmanfm", User.home & "/.GeneradorCarnets/trabajoTmp/pdf/"]
   
   'Desktop.Open(User.home & "/.GeneradorCarnets/trabajoTmp/pdf/")
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 '-------------------------------------------------------------
@@ -357,7 +359,9 @@ Public Sub extraeRutaZip(nombre As String) As String
   
   Print "Nombre de usuario: "; nombreUsuarioAntiguo
   Return nombreUsuarioAntiguo
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub AbrirFichero(nombre As String) As Boolean
@@ -489,5 +493,6 @@ Public Sub montarPlantilla2x4(numeropagina As Integer)
   nombredestino = "\"" & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/Página " & Right$("00" & numeropagina, 2) & ".pdf\""
   proceso = Shell ("convert " & User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png " & nombredestino)
   EsperarProceso(proceso, numeropagina, 1)
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
 End

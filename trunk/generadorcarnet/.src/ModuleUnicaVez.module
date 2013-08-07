@@ -27,5 +27,7 @@ Public Function ejecutandoUnicaCopia(nombre As String) As Boolean
   Endif
   
   Return False
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End

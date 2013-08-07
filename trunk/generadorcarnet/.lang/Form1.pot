@@ -466,7 +466,7 @@ msgstr ""
 msgid "Cerrar"
 msgstr ""
 
-#: Form1.class:701
+#: Form1.class:703
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 

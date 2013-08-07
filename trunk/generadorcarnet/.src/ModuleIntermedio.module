@@ -358,5 +358,7 @@ Private Function reduce(ruta As String, rutafin As String) As Picture
   dibujo = Picture[rutafin]
   
   Return dibujo
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
