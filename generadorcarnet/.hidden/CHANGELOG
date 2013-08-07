@@ -1,3 +1,7 @@
+* Wed Aug 07 2013 jsbsan <jusabejusabe@gmail.com> 0.0.42
+- Traduccion a Ingles y Galleno.
+- Anadido comprobaciones en subrutinas shell
+
 * Thu Jul 04 2013 jsbsan <jusabejusabe@gmail.com> 0.0.41
 -pensando solo icono
 -da mas informacion de un error (programa, version,fecha,descripcion error)

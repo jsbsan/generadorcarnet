@@ -1,6 +1,5 @@
 [Breakpoints]
-Breakpoint[1]="ModulePrincipal.162"
-Count=1
+Count=0
 
 [DebugWindow]
 Count=0
@@ -86,14 +85,13 @@ File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:32.2"
 File[4]=".src/ModuleIntermedio.module:157.23"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:577.2"
+File[6]=".src/Form1.class:448.2"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
-Active=10
-File[10]=".src/ModulePrincipal.module:190.2"
+File[10]=".src/ModulePrincipal.module:162.20"
 File[11]=".src/FormAnadirEditar.form"
-File[12]=".src/FormAnadirEditar.class:50.13"
+File[12]=".src/FormAnadirEditar.class:434.2"
 File[13]="icono_fotos_personas.png"
 File[14]="FOTOPLANTILLA.JPG"
 File[15]="inkscape-icono.png"
@@ -113,10 +111,11 @@ File[28]="googledriveacceso.png"
 File[29]="plantillaA4_2x4.svg:122.0"
 File[30]="transparente.png"
 File[31]="rayo.png"
-File[32]=".src/ModuleUpdate.module:3.0"
+File[32]=".src/ModuleUpdate.module:10.2"
 File[33]=".src/FormElegirFichero.form"
 File[34]=".src/FormError.form"
 File[35]=".src/FormElegirFichero.class:23.0"
+Active=36
 File[36]=".src/ClassDato.class:0.19"
 File[37]=".src/ModuleUtilidadesDisco.module:6.0"
 File[38]=".src/ModuleMensajeError.module:0.20"
@@ -129,7 +128,8 @@ File[44]="logoGambas.png"
 File[45]="transparente1.png"
 File[46]="drop.png"
 File[47]=".src/ModuleArrastrarYSoltarFicheros.module:49.62"
-Count=47
+File[48]=".src/FormError.class:18.121"
+Count=48
 
 [VersionControl]
 RememberPassword=0
