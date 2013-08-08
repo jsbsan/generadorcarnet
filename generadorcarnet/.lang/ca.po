@@ -1,0 +1,744 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-11-01 04:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "Generador De Carnets"
+msgstr "Generador de carnets"
+
+#: .project:2
+msgid "Genera facilmente carnets para tus alumnos, empleados, etc. Usando plantillas que puedes personalizar con inkscape.\nAñadido sistema de busqueda de actualizacion."
+msgstr "Genere fácilmente carnets para sus alumnos, empleados, etc. Usando plantillas que puede personalizar con inkscape.\nAñadido sistema de busqueda de actualización."
+
+#: ClassListaRegistro.class:38
+msgid "se ha producido un error al buscar el indice"
+msgstr "se ha producido un error al buscar el indice"
+
+#: ClassSuperGridview.class:46
+msgid "Copiado contenido al portapapeles"
+msgstr "Copiado el contenido al portapapeles"
+
+#: Form1.form:120
+msgid "Generador de Carnets"
+msgstr "Generador de carnets"
+
+#: Form1.form:126
+msgid "<h1>Generador de Carnets</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n"
+msgstr "<h1>Generador de carnets</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Software Libre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instale:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tiene que «Crear un grupo» o «Abrir un grupo».\n\n"
+
+#: Form1.form:139
+msgid "Crea tus propias plantillas con:"
+msgstr "Cree sus propias plantillas con:"
+
+#: Form1.form:159
+msgid "http://www.jsbsan.blogspot.com.es/"
+msgstr "http://www.jsbsan.blogspot.com.es/"
+
+#: Form1.form:168 comun.module:9
+msgid "inkscape"
+msgstr "inkscape"
+
+#: Form1.form:174
+msgid "Creado especialmente para:"
+msgstr "Creado especialmente para:"
+
+#: Form1.form:188
+msgid "minino.galpon.org"
+msgstr "minino.galpon.org"
+
+#: Form1.form:196
+msgid "Versión:"
+msgstr "Versión:"
+
+#: Form1.form:205
+msgid "Enlace Web del Proyecto"
+msgstr "Página web del proyecto"
+
+#: Form1.form:209
+msgid "Crear Grupo"
+msgstr "Crear un grupo"
+
+#: Form1.form:214
+msgid "Crear"
+msgstr "Crear"
+
+#: Form1.form:225 FormAnadirEditar.form:58
+msgid "Nombre:"
+msgstr "Nombre:"
+
+#: Form1.form:235
+msgid ".GeneradorCarnets"
+msgstr ""
+
+#: Form1.form:238
+msgid "Abrir Grupo"
+msgstr "Abrir un grupo"
+
+#: Form1.form:243
+msgid "<h2>Espere por favor, estoy leyendo los datos</h2>"
+msgstr "<h2>Espere, se están leyendo los datos</h2>"
+
+#: Form1.form:247
+msgid "Introducir Datos"
+msgstr "Introducir datos"
+
+#: Form1.form:262
+msgid "Añadir"
+msgstr "Añadir"
+
+#: Form1.form:270
+msgid "Pega los datos contenidos en el portapapeles,\n deben de estar separados por un tabulador \n(o en distintas columnas si lo pegas desde hoja de calculo)\ny empiezo a pegar por la columna nombre"
+msgstr "Pegue los datos contenidos en el portapapeles, \ndeben estar separados por un tabulador \n(o en distintas columnas si lo pega desde una hoja de calculo).\nEmpiece a pegar por la columna Nombre"
+
+#: Form1.form:271
+msgid "Editar"
+msgstr "Editar"
+
+#: Form1.form:279
+msgid "Borrar"
+msgstr "Borrar"
+
+#: Form1.form:287
+msgid "Pegar el contenido del Portapapeles a la rejilla.\nLos datos deben de estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nEmpiezo a pegar los datos desde la columna Nombre"
+msgstr "Pegar el contenido del portapapeles a la rejilla.\nLos datos deben estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nLos datos empiezan a pegarse desde la columna Nombre"
+
+#: Form1.form:288
+msgid "Pegar"
+msgstr "Pegar"
+
+#: Form1.form:296
+msgid "Copiar todo la rejilla de datos  actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)"
+msgstr "Copiar toda la rejilla de datos actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)"
+
+#: Form1.form:297
+msgid "Copiar Todo"
+msgstr "Copiar todo"
+
+#: Form1.form:305
+msgid "Titulos"
+msgstr "Títulos"
+
+#: Form1.form:312
+msgid "<h2>Nota:</h2><br>\nNecesita abrir o crear un grupo para poder introducir los datos de las personas"
+msgstr "<h2>Nota:</h2><br>\nEs necesario abrir o crear un grupo para poder introducir los datos de las personas"
+
+#: Form1.form:320
+msgid "<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre del fichero debe de tener <br>una coma para separar los apellidos y el nombre de la persona.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png"
+msgstr "<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos.<br>\nEl nombre del fichero debe tener una coma para separar los apellidos y el nombre de la persona.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png"
+
+#: Form1.form:325
+msgid "Guardar Grupo"
+msgstr "Guardar el grupo"
+
+#: Form1.form:331
+msgid "Nombre fichero de Datos:"
+msgstr "Nombre del fichero de datos:"
+
+#: Form1.form:340
+msgid "<h2>Espere por favor, estoy guardando <br>los datos</h2>"
+msgstr "<h2>Espere, se están guardando <br>los datos</h2>"
+
+#: Form1.form:344
+msgid "Guardar como...."
+msgstr "Guardar como..."
+
+#: Form1.form:349
+msgid "<h2>Espere por favor, estoy guardando <br> los datos</h2>"
+msgstr "<h2>Espere, se están guardando <br>los datos</h2>"
+
+#: Form1.form:353
+msgid "Plantillas"
+msgstr "Plantillas"
+
+#: Form1.form:358
+msgid "Añadir Plantilla"
+msgstr "Añadir plantilla"
+
+#: Form1.form:370
+msgid "Quitar Plantilla"
+msgstr "Retirar plantilla"
+
+#: Form1.form:385
+msgid "Plantillas Disponibles:"
+msgstr "Plantillas disponibles:"
+
+#: Form1.form:391
+msgid "Editar Plantilla"
+msgstr "Editar la plantilla"
+
+#: Form1.form:399
+msgid "Pulse en este botón y se iniciará inkscape. donde podrá editar la plantilla actual."
+msgstr "Pulse en este botón y se iniciará inkscape. Con el que podrá editar la plantilla actual."
+
+#: Form1.form:406
+msgid "Previsualización<br>\nplantilla<br>"
+msgstr "Vista previa<br>\nplantilla<br>"
+
+#: Form1.form:413
+msgid "Hacer que la plantilla que se muestra sea la actual"
+msgstr "Hacer que la plantilla que se muestra sea la actual"
+
+#: Form1.form:414
+msgid "Utilizar...."
+msgstr "Utilizar..."
+
+#: Form1.form:422
+msgid "Plantilla actual:"
+msgstr "Plantilla actual:"
+
+#: Form1.form:432
+msgid "Acceder a la Galeria En La Nube"
+msgstr "Acceder a la galería en la «nube»"
+
+#: Form1.form:437
+msgid "Previsualizar"
+msgstr "Vista previa"
+
+#: Form1.form:447
+msgid "Plantilla:"
+msgstr "Plantilla:"
+
+#: Form1.form:478
+msgid "Registro:"
+msgstr "Registro:"
+
+#: Form1.form:499
+msgid "<h3>Faltan datos para mostar</h3>"
+msgstr "<h3>No hay datos para mostar</h3>"
+
+#: Form1.form:511
+msgid "Crear Pdf para imprimir"
+msgstr "Crear PDF para imprimir"
+
+#: Form1.form:516
+msgid "Generar Pdf"
+msgstr "Generar un PDF"
+
+#: Form1.form:523
+msgid "Numeros de Carnet"
+msgstr "Números de carnet"
+
+#: Form1.form:527
+msgid "Usar los definidos"
+msgstr "Usar los definidos"
+
+#: Form1.form:533
+msgid "Numerarlos desde el "
+msgstr "Numerarlos desde el "
+
+#: Form1.form:538
+msgid "ValueBox2"
+msgstr ""
+
+#: Form1.form:545
+msgid "Imprimir"
+msgstr "Imprimir"
+
+#: Form1.form:549
+msgid "Todos los carnet"
+msgstr "Todos los carnets"
+
+#: Form1.form:555
+msgid "El registro número"
+msgstr "El registro número"
+
+#: Form1.form:560 FormAnadirEditar.form:119
+msgid "ValueBox1"
+msgstr ""
+
+#: Form1.form:566
+msgid "Desde el número"
+msgstr "Desde el número"
+
+#: Form1.form:577
+msgid "al número"
+msgstr "al número"
+
+#: Form1.form:590
+msgid "Parámetros Avanzados"
+msgstr "Ajustes avanzados"
+
+#: Form1.form:594
+msgid "Tamaño del papel (geomtría)"
+msgstr "Tamaño del papel (geometría)"
+
+#: Form1.form:600
+msgid "1052x744+10+10"
+msgstr "1052x744+10+10"
+
+#: Form1.form:605
+msgid "Carnets Horizontales"
+msgstr "Carnets horizontales"
+
+#: Form1.form:611
+msgid "4"
+msgstr ""
+
+#: Form1.form:616
+msgid "Carnets Verticales"
+msgstr "Carnets verticales"
+
+#: Form1.form:622
+msgid "2"
+msgstr ""
+
+#: Form1.form:627
+msgid "Por página que se cree:"
+msgstr "Por cada página que se cree:"
+
+#: Form1.form:632
+msgid "Por defecto tamaño A4 y 10 px alrededor"
+msgstr "El tamaño predeterminado es A4 con 10 px alrededor"
+
+#: Form1.form:638
+msgid "Tamaño de los carnets"
+msgstr "Tamaño de los carnets"
+
+#: Form1.form:642
+msgid "px"
+msgstr "px"
+
+#: Form1.form:654
+msgid "ValueBoxCarnetLargo"
+msgstr ""
+
+#: Form1.form:660
+msgid "ValueBoxAnchoCarnet"
+msgstr ""
+
+#: Form1.form:666
+msgid "ancho:"
+msgstr "ancho:"
+
+#: Form1.form:672
+msgid "largo:"
+msgstr "largo:"
+
+#: Form1.form:679
+msgid "Prioridad ancho"
+msgstr "Prioridad ancho"
+
+#: Form1.form:686
+msgid "Prioridad largo"
+msgstr "Prioridad largo"
+
+#: Form1.form:693
+msgid "Fecha:"
+msgstr "Fecha:"
+
+#: Form1.form:697
+msgid "Formato:"
+msgstr "Formato:"
+
+#: Form1.form:702
+msgid "dd mmm yyyy"
+msgstr "dd mmm yyyy"
+
+#: Form1.form:717
+msgid "Convirtiendo fotografias"
+msgstr "Convirtiendo fotografías"
+
+#: Form1.form:727
+msgid "Creando Páginas"
+msgstr "Creando páginas"
+
+#: Form1.form:736
+msgid "Unir todos los pdf en uno"
+msgstr "Unir todos los PDF en uno"
+
+#: Form1.form:743
+msgid "Generando Imagenes"
+msgstr "Generando imágenes"
+
+#: Form1.form:750
+msgid "Generando Paginas"
+msgstr "Generando páginas"
+
+#: Form1.form:754 FormError.form:25
+msgid "Salir"
+msgstr "Salir"
+
+#: Form1.form:757
+msgid "Ayuda"
+msgstr "Ayuda"
+
+#: Form1.form:762
+msgid "<b>Estructura de una plantilla:</b><br>\nSi usted quiere hacer sus propias plantillas, puede usar como base un plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, luego la guarda con un nombre nuevo, y en el menú Plantillas , con el botón \"añadir\" la prodia  añadir para usarla.\n<br>\nTiene que tener en cuenta que, es necesario que los textos (nombre, apellidos, centro, etc..) \nse deben de usar estos nombres:<br>\n<br>\nCAMPO01.............................................nombre\nCAMPO02.............................................apellidos\nCAMPO03.............................................fecha\nCAMPO04.............................................curso\nCAMPO05.............................................centro\nCAMPO06.............................................localidad\nCAMPO07.............................................NumeroDeCarnet\nCAMPO08.............................................otrocampo\n<br><br>\ny para la fotografia, el nombre del archivo fotografico es:<br>\nFOTOPLANTILLA.JPG.............................fotografia<br>\n<br>\nDe esta manera el programa reconoce los campos que tiene que sustituir de las plantillas."
+msgstr "<b>Estructura de una plantilla:</b><br>\nSi usted quiere hacer sus propias plantillas, puede usar como base una plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, seguidamente guardela con un nombre nuevo, y en el menú «Plantillas», con el botón «Añadir» puede añadirla a la lista de plantillas disponibles.\n<br>\nDebe tener en cuenta que, es necesario que en los textos (nombre, apellidos, centro, etc..) \nse deben usar estos nombres:<br>\n<br>\nCAMPO01.............................................nombre\nCAMPO02.............................................apellidos\nCAMPO03.............................................fecha\nCAMPO04.............................................curso\nCAMPO05.............................................centro\nCAMPO06.............................................localidad\nCAMPO07.............................................NumeroDeCarnet\nCAMPO08.............................................otrocampo\n<br><br>\ny para la fotografia, el nombre del archivo fotográfico es:<br>\nFOTOPLANTILLA.JPG............................fotografia<br>\n<br>\nDe esta manera el programa reconoce los campos que tiene que sustituir de las plantillas."
+
+#: Form1.form:768
+msgid "Visite la página del proyecto para más ayuda"
+msgstr "Visite la página del proyecto para obtener más ayuda"
+
+#: Form1.form:773
+msgid "Buscar Actualizaciones"
+msgstr "Buscar actualizaciones"
+
+#: Form1.form:778
+msgid "<h2>Espere por favor, estoy buscando actualizaciones</h2>"
+msgstr "<h2>Espere, se están buscando actualizaciones</h2>"
+
+#: Form1.class:56
+msgid "Los datos anteriores no se guardaron,"
+msgstr "Los datos anteriores no se guardaron,"
+
+#: Form1.class:56
+msgid "si crea un Grupo nuevo, se borrarán!!"
+msgstr "si crea un grupo nuevo, se borrarán!!"
+
+#: Form1.class:65
+msgid "Indique archivo de datos para abrir..."
+msgstr "Indique un archivo de datos para abrir..."
+
+#: Form1.class:86
+msgid "Orden Cancelada:"
+msgstr "Orden cancelada:"
+
+#: Form1.class:86
+msgid "Guardar como..."
+msgstr "Guardar como..."
+
+#: Form1.class:90
+msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
+msgstr "Tiene que crear un grupo o abrir un grupo, para guardarlo"
+
+#: Form1.class:103
+msgid "Guardado correctamente"
+msgstr "Guardado correctamente"
+
+#: Form1.class:105
+msgid "No he podido guardar los datos"
+msgstr "No fué posible guardar los datos"
+
+#: Form1.class:146
+msgid "Generador De Carnets: "
+msgstr "Generador de carnets:"
+
+#: Form1.class:158
+msgid "Necesita poner un nombre"
+msgstr "Es necesarip poner un nombre"
+
+#: Form1.class:167
+msgid "Existe el fichero:"
+msgstr "Este fichero ya existe:"
+
+#: Form1.class:167
+msgid "¿que desea hacer?"
+msgstr "¿que desea hacer?"
+
+#: Form1.class:167
+msgid " SobreEscribir "
+msgstr " SobreEscribir "
+
+#: Form1.class:167
+msgid " Cancelar "
+msgstr " Cancelar "
+
+#: Form1.class:266
+msgid "No se puede editar un registro vacío"
+msgstr "No se puede editar un registro vacío"
+
+#: Form1.class:277
+msgid "Seguro que desea borrar.."
+msgstr "Seguro que desea borrar..."
+
+#: Form1.class:277
+msgid "Si"
+msgstr "Sí"
+
+#: Form1.class:277 FormElegirFichero.form:30
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: Form1.class:296
+msgid "Registro: "
+msgstr "Registro: "
+
+#: Form1.class:298
+msgid "Plantilla: "
+msgstr "Plantilla: "
+
+#: Form1.class:355
+msgid "¿Seguro que desea cerrar?"
+msgstr "¿Seguro que desea cerrar?"
+
+#: Form1.class:355
+msgid "Todos cambios no guardados se perderan"
+msgstr "Todos los cambios no guardados se perderan"
+
+#: Form1.class:355
+msgid "Cerrar"
+msgstr "Cerrar"
+
+#: Form1.class:703
+msgid "Ha habido un problema al añadir los datos soltados"
+msgstr "Ha habido un problema al añadir los datos soltados"
+
+#: FormAnadirEditar.form:50
+msgid "Haga click, para elegir una imagen en tu disco duro"
+msgstr "Haga clic, para elegir una imagen en su disco duro"
+
+#: FormAnadirEditar.form:63
+msgid "CAMPO01"
+msgstr ""
+
+#: FormAnadirEditar.form:68
+msgid "Apellidos:"
+msgstr "Apellidos:"
+
+#: FormAnadirEditar.form:73
+msgid "CAMPO02"
+msgstr ""
+
+#: FormAnadirEditar.form:78
+msgid "Fecha Nacimiento:"
+msgstr "Fecha de nacimiento:"
+
+#: FormAnadirEditar.form:83
+msgid "Curso"
+msgstr "Curso"
+
+#: FormAnadirEditar.form:88
+msgid "CAMPO04"
+msgstr ""
+
+#: FormAnadirEditar.form:93
+msgid "Centro"
+msgstr "Centro"
+
+#: FormAnadirEditar.form:98
+msgid "CAMPO05"
+msgstr ""
+
+#: FormAnadirEditar.form:103
+msgid "Localidad"
+msgstr "Localidad"
+
+#: FormAnadirEditar.form:108
+msgid "CAMPO06"
+msgstr ""
+
+#: FormAnadirEditar.form:113
+msgid "Numero de Carnet (opcional):"
+msgstr "Número de carnet (opcional):"
+
+#: FormAnadirEditar.form:118
+msgid "CAMPO07"
+msgstr ""
+
+#: FormAnadirEditar.form:124
+msgid "Otro Dato (opcional):"
+msgstr "Otro dato (opcional):"
+
+#: FormAnadirEditar.form:129
+msgid "CAMPO08"
+msgstr ""
+
+#: FormAnadirEditar.form:134
+msgid "&Aceptar"
+msgstr "&Aceptar"
+
+#: FormAnadirEditar.form:141
+msgid "&Cancelar"
+msgstr "&Cancelar"
+
+#: FormAnadirEditar.form:153
+msgid "(en plantilla)"
+msgstr "(en la plantilla)"
+
+#: FormAnadirEditar.form:174
+msgid "CAMPO03"
+msgstr ""
+
+#: FormAnadirEditar.form:216
+msgid " FOTOPLANTILLA.JPG"
+msgstr ""
+
+#: FormAnadirEditar.form:223
+msgid "Toma una foto con la webcam"
+msgstr "Toma una foto con la webcam"
+
+#: FormAnadirEditar.form:224
+msgid "Foto WebCam"
+msgstr "Foto WebCam"
+
+#: FormAnadirEditar.form:233
+msgid "Toma datos del anterior registro"
+msgstr "Toma los datos del anterior registro"
+
+#: FormAnadirEditar.form:234
+msgid "="
+msgstr "="
+
+#: FormAnadirEditar.form:279
+msgid "Plantilla Actual de Carnet:"
+msgstr "Plantilla actual del carnet:"
+
+#: FormAnadirEditar.class:177
+msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr "Se trata del primer dato que introduce, no puede igualarlo al anterior"
+
+#: FormAnadirEditar.class:233
+msgid "Elija el archivo gráfico"
+msgstr "Elija el archivo gráfico"
+
+#: FormAnadirEditar.class:234
+msgid "Ficheros de Imágenes"
+msgstr "Ficheros de imágenes"
+
+#: FormAnadirEditar.class:253
+msgid "No se ha podido descargarse el archivo"
+msgstr "No se ha podido descargar el archivo"
+
+#: FormElegirFichero.form:22
+msgid "Aceptar"
+msgstr "Aceptar"
+
+#: FormElegirFichero.form:43
+msgid "Pegar desde Portapapeles"
+msgstr "Pegar desde el portapapeles"
+
+#: FormElegirFichero.form:44
+msgid "Pegar (Url)"
+msgstr "Pegar (URL)"
+
+#: FormError.form:14
+msgid "Mensaje de Error:"
+msgstr "Mensaje de error:"
+
+#: FormError.form:20
+msgid "Copiar Al portapapeles"
+msgstr "Copiar al portapapeles"
+
+#: FormError.form:30
+msgid "TextLabel1"
+msgstr ""
+
+#: FormPensando.class:7
+msgid "Espere por favor..."
+msgstr "Espere..."
+
+#: ModuleArrastrarYSoltarFicheros.module:50
+msgid "Ya existe ese nombre:"
+msgstr "Ya existe ese nombre:"
+
+#: ModuleIntermedio.module:332
+msgid "Elige la plantilla en formato .svg (inkscape)"
+msgstr "Elija la plantilla en formato .svg (inkscape)"
+
+#: ModuleIntermedio.module:338
+msgid "Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la plantilla a añadir"
+msgstr "Ya existe una plantilla con el mismo nombre, debe utilizar otro nombre para la plantilla a añadir"
+
+#: ModulePrincipal.module:74
+msgid "error al leer datos del portapapeles"
+msgstr "error al leer datos del portapapeles"
+
+#: ModulePrincipal.module:267
+msgid "Problemas al copiar las plantillas"
+msgstr "Problemas al copiar las plantillas"
+
+#: ModulePrincipal.module:269
+msgid "Problemas al comprimir datos"
+msgstr "Problemas al comprimir datos"
+
+#: ModulePrincipal.module:304
+msgid "Nombre de archivo incorrecto:"
+msgstr "Nombre de archivo incorrecto:"
+
+#: ModulePrincipal.module:428
+msgid "No encuentro fichero de datos.txt"
+msgstr "No encuentro fichero de datos.txt"
+
+#: ModulePrincipal.module:471
+msgid "El fichero no lo puedo leer.\n Versión Desconocida."
+msgstr "No se puede leer el fichero.\n Versión desconocida."
+
+#: ModuleUnicaVez.module:24
+msgid "Ya se esta ejecutando este programa"
+msgstr "Ya se esta ejecutando este programa"
+
+#: ModuleUpdate.module:21
+msgid "No ha sido posible conectarse al servidor"
+msgstr "No ha sido posible conectar con el servidor"
+
+#: ModuleUpdate.module:21
+msgid "No puedo comprobar si hay nueva versión"
+msgstr "No fué posible comprobar si hay una nueva versión"
+
+#: ModuleUpdate.module:34
+msgid "El archivo de versión no es para este programa"
+msgstr "El archivo de versión no es para este programa"
+
+#: ModuleUpdate.module:37
+msgid "Existe una nueva versión"
+msgstr "Existe una nueva versión"
+
+#: ModuleUpdate.module:37
+msgid "Programa:"
+msgstr "Programa:"
+
+#: ModuleUpdate.module:37
+msgid "Versión encontrada:"
+msgstr "Versión encontrada:"
+
+#: ModuleUpdate.module:37
+msgid "Mejoras:"
+msgstr "Mejoras:"
+
+#: ModuleUpdate.module:37
+msgid "Dirección Url de descarga:"
+msgstr "Dirección URL de descarga:"
+
+#: ModuleUpdate.module:38
+msgid "Ir a la página de descarga"
+msgstr "Ir a la página de descarga"
+
+#: ModuleUpdate.module:38
+msgid "No actualización"
+msgstr "No actualizar"
+
+#: ModuleUpdate.module:46
+msgid "La versión actual:"
+msgstr "La versión actual:"
+
+#: ModuleUpdate.module:46
+msgid "es igual o superior que la que hay en el servidor"
+msgstr "es igual o superior que la que hay en el servidor"
+
+#: ModuleUpdate.module:46
+msgid "No necesita actualizarla"
+msgstr "No necesita actualizarla"
+
+#: comun.module:14
+msgid "zip"
+msgstr "zip"
+
+#: comun.module:19
+msgid "pdftk"
+msgstr "pdftk"
+
+#: comun.module:24
+msgid "imagemagick"
+msgstr "imagemagick"
+
+#: comun.module:29
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:34
+msgid "Falta los siguientes programas por instarlar:"
+msgstr "Faltan los siguientes programas por instarlar:"
+
+#: comun.module:34
+msgid "Instalelos para poder ejecutar el programa correctamente"
+msgstr "Instalelos para poder ejecutar el programa correctamente"
+
