@@ -31,10 +31,14 @@ msgid "imagemagick"
 msgstr ""
 
 #: comun.module:29
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:34
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: comun.module:29
+#: comun.module:34
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
