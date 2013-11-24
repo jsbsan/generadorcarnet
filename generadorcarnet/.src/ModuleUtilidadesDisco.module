@@ -22,6 +22,7 @@ End
 
 Public Sub MoverFicheros(origen As String, destino As String) As Boolean
   
+  Dim comando As String
   Dim file As String
   
   ' Print "Moviendo..............."
@@ -30,7 +31,9 @@ Public Sub MoverFicheros(origen As String, destino As String) As Boolean
   If Exist(origen) Then 
     For Each File In Dir(origen)
       '  Print file
-      Try Shell "mv " & origen & "/" & file & " " & destino & "/" & file Wait
+      
+      comando = "mv \"" & origen & "/" & file & "\" \"" & destino & "/" & file & "\""
+      Try Shell comando Wait
     Next
   Endif
   
