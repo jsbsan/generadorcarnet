@@ -198,13 +198,14 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     Shell comando Wait
   Endif
   
+  ModuleAbrirResultados.abrir(User.home & "/.GeneradorCarnets/trabajoTmp/pdf/")
   'usar pcmanfm para ver archivos...
-  Exec ["pcmanfm", User.home & "/.GeneradorCarnets/trabajoTmp/pdf/"]
+  'Exec ["pcmanfm", User.home & "/.GeneradorCarnets/trabajoTmp/pdf/"]
   
   'Desktop.Open(User.home & "/.GeneradorCarnets/trabajoTmp/pdf/")
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 '-------------------------------------------------------------
@@ -361,7 +362,7 @@ Public Sub extraeRutaZip(nombre As String) As String
   Return nombreUsuarioAntiguo
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 Public Sub AbrirFichero(nombre As String) As Boolean
@@ -495,4 +496,5 @@ Public Sub montarPlantilla2x4(numeropagina As Integer)
   EsperarProceso(proceso, numeropagina, 1)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
+  
 End

@@ -668,7 +668,7 @@ msgstr ""
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FormElegirFichero.form:22
+#: FormElegirFichero.form:22 FormRutaResultados.form:19
 msgid "Aceptar"
 msgstr ""
 
@@ -696,6 +696,16 @@ msgstr ""
 msgid "Espere por favor..."
 msgstr ""
 
+#: FormRutaResultados.form:13
+msgid "haga doble click en la ruta que desee guardar los datos"
+msgstr ""
+
+#: FormRutaResultados.form:25
+msgid ""
+"Elija ruta donde se guardarán los carnet, también puede crear un directorio "
+"nuevo (pulsando el botón derecho)"
+msgstr ""
+
 #: ModuleArrastrarYSoltarFicheros.module:50
 msgid "Ya existe ese nombre:"
 msgstr ""
@@ -714,23 +724,23 @@ msgstr ""
 msgid "error al leer datos del portapapeles"
 msgstr ""
 
-#: ModulePrincipal.module:267
+#: ModulePrincipal.module:268
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:269
+#: ModulePrincipal.module:270
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:304
+#: ModulePrincipal.module:305
 msgid "Nombre de archivo incorrecto:"
 msgstr ""
 
-#: ModulePrincipal.module:428
+#: ModulePrincipal.module:429
 msgid "No encuentro fichero de datos.txt"
 msgstr ""
 
-#: ModulePrincipal.module:471
+#: ModulePrincipal.module:472
 msgid ""
 "El fichero no lo puedo leer.\n"
 " Versión Desconocida."
