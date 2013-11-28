@@ -230,7 +230,7 @@
       Border = True
     }
     { DrawingAreaPlantilla DrawingArea
-      MoveScaled(42,20,27,23)
+      MoveScaled(37,20,34,23)
       Font = Font["-1"]
       Border = Border.Plain
       Cached = True
