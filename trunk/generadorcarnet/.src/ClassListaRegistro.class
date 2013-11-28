@@ -76,6 +76,9 @@ Public Sub LecturaDatos(cadenas As String[]) As Boolean
     a += 1
     If cadenas[a] = "" Then cadenas[a] = "0"
     regtmp.NumeroCarnet = Val(cadenas[a])
+    If Error Then 
+      regtmp.NumeroCarnet = 0
+    Endif
     a += 1
     regtmp.tag = cadenas[a]
     a += 1
@@ -85,5 +88,7 @@ Public Sub LecturaDatos(cadenas As String[]) As Boolean
     regtmp = New ClassRegistro
   Next
   Return True 'lectura correcta  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
