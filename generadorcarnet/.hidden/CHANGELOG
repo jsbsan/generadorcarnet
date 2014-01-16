@@ -1,3 +1,9 @@
+* Thu Jan 16 2014 jsbsan <jusabejusabe@gmail.com> 0.0.47
+- Mejora: Usuario puede elegir la calidad de impresion en dpi (90,150,300, o personalizada)
+
+* Thu Nov 28 2013 jsbsan <jusabejusabe@gmail.com> 0.0.46
+- Catch en leer archivo
+
 * Sat Nov 23 2013 jsbsan <jusabejusabe@gmail.com> 0.0.45
 - Abre resultados en un directorio elegido o creado  por el usuario
 

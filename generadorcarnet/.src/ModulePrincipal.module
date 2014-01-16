@@ -9,6 +9,8 @@ Public EstadoDelTrabajo As Float 'fotos convertidas...
 Public EstadoDelTrabajoPaginas As Float 'que pagina llevo realizada
 Public RutaCarnet As String 'ruta donde se guardaran las fotos, rejillas de datos
 
+Public dpi As Integer = 90 'define la calidad de la imagenes a crear 
+
 'Módulo donde trabajaremos con un objeto de la clase ClassListaRegistro
 
 Public Sub CrearGrupo(ruta As String) As Boolean ''crear grupo dado una ruta, devuelve true si todo ha ido bien
@@ -126,7 +128,10 @@ Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, 
   
   numeroImagen = (a + 1) - Int((a + 1) / 8) * 8
   If numeroImagen = 0 Then numeroImagen = 8
-  proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"] 
+  
+  'sin dpi
+  proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-dpi=" & Str$(dpi), "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"] 
+  
   EsperarProceso(proceso, a)
   
   '  nombreinicio = User.home & "/.GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"
@@ -488,11 +493,13 @@ Public Sub montarPlantilla2x4(numeropagina As Integer)
   Next
   
   'genero plantilla rellena...
-  proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"] 
+  proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-dpi=" & Str$(dpi), "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"] 
   
   EsperarProceso(proceso)
+  
   nombredestino = "\"" & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/Página " & Right$("00" & numeropagina, 2) & ".pdf\""
   proceso = Shell ("convert " & User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png " & nombredestino)
+  ' Copy User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg" To User.home & "/.GeneradorCarnets/trabajoTmp/pdf/Página " & Right$("00" & numeropagina, 2) & ".svg"
   EsperarProceso(proceso, numeropagina, 1)
 Catch
   ModuleMensajeError.SistemaDescripcionError()

@@ -5,7 +5,7 @@
   Icon = Picture["carnet.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(1,0,110,83)
+    MoveScaled(0,0,110,83)
     AutoResize = True
     Count = 12
     Border = True
@@ -371,37 +371,37 @@
       }
     }
     { FrameImprimir Frame
-      MoveScaled(7,15,52,17)
+      MoveScaled(2,15,51,19)
       Text = ("Imprimir")
       { RadioButtonTodo RadioButton
-        MoveScaled(7,4,27,3)
+        MoveScaled(2,4,27,3)
         Text = ("Todos los carnet")
         Value = True
       }
       { RadioButtonUnRegistro RadioButton
-        MoveScaled(7,8,23,3)
+        MoveScaled(2,8,23,3)
         Text = ("El registro número")
       }
       { ValueBoxNumeroRegistroImprimir ValueBox
-        MoveScaled(29,8,5,3)
+        MoveScaled(24,8,5,3)
         Text = ("ValueBox1")
         Value = "1"
       }
       { RadioButtonDesdeHasta RadioButton
-        MoveScaled(7,12,21,3)
+        MoveScaled(2,12,21,3)
         Text = ("Desde el número")
       }
       { ValueBoxDesde ValueBox
-        MoveScaled(29,12,5,3)
+        MoveScaled(24,12,5,3)
         Text = ("ValueBox1")
         Value = "1"
       }
       { Label2 Label
-        MoveScaled(35,12,11,3)
+        MoveScaled(30,12,11,3)
         Text = ("al número")
       }
       { ValueBoxHasta ValueBox
-        MoveScaled(45,12,6,3)
+        MoveScaled(40,12,6,3)
         Text = ("ValueBox2")
       }
     }
@@ -544,6 +544,36 @@
       Visible = False
       Text = ("Generando Paginas")
       Alignment = Align.Center
+    }
+    { Frame3 Frame
+      MoveScaled(55,15,25,19)
+      Text = ("Calidad")
+      { RadioButtondpi90 RadioButton
+        MoveScaled(2,2,17,4)
+        Text = ("90 dpi")
+        Value = True
+      }
+      { RadioButtondpi150 RadioButton
+        MoveScaled(2,5,17,4)
+        Text = ("150 dpi")
+      }
+      { RadioButtondpi300 RadioButton
+        MoveScaled(2,8,17,4)
+        Text = ("300 dpi")
+      }
+      { RadioButtondpipersonalizado RadioButton
+        MoveScaled(2,11,17,4)
+        Text = ("Personalizado:")
+      }
+      { ValueBoxdpi ValueBox
+        MoveScaled(14,15,10,3)
+        Value = "600"
+      }
+      { Label14 Label
+        MoveScaled(8,15,5,3)
+        Text = ("dpi:")
+        Alignment = Align.Right
+      }
     }
     Index = 9
     Text = ("Salir")
