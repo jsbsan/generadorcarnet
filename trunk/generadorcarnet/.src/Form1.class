@@ -439,7 +439,7 @@ Public Sub ToolButtonEditaPlantilla_Click()
   fespere.Delete()
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 Public Sub TextLabel4_MouseDown()
@@ -491,6 +491,14 @@ Public Sub ToolButtonGenerar_Click()
     
   Endif
   
+  '-----------------------------
+  'calidad....
+  '-----------------------------
+  If RadioButtondpi90.value = True Then ModulePrincipal.dpi = 90
+  If RadioButtondpi150.value = True Then ModulePrincipal.dpi = 150
+  If RadioButtondpi300.value = True Then ModulePrincipal.dpi = 300
+  If RadioButtondpipersonalizado.value = True Then ModulePrincipal.dpi = ValueBoxdpi.value
+  
   'opcional numerar As Boolean, opcional inicionumerar As Integer, opcional formato As String
   ' registroInicio As Integer, registrofin As Integer, geometria As String, tile As String
   longitudTrabajo = registrofin - registroinicio
@@ -498,6 +506,7 @@ Public Sub ToolButtonGenerar_Click()
   'relojes para controlar el estado de las barras...
   Timer1.Start()
   TimerPaginas.Start() 'control de barras
+  
   ModulePrincipal.generarPdf(RadioButtonNumerarDesde.value, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, ValueBoxCarnetAncho.value, valueboxcarnetlargo.value, RadioButtonPriW.value)
   
   ProgressBarBarraEstado.Visible = False
