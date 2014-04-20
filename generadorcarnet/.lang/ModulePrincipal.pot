@@ -18,23 +18,23 @@ msgstr ""
 msgid "error al leer datos del portapapeles"
 msgstr ""
 
-#: ModulePrincipal.module:273
+#: ModulePrincipal.module:280
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:275
+#: ModulePrincipal.module:282
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:310
+#: ModulePrincipal.module:317
 msgid "Nombre de archivo incorrecto:"
 msgstr ""
 
-#: ModulePrincipal.module:434
+#: ModulePrincipal.module:441
 msgid "No encuentro fichero de datos.txt"
 msgstr ""
 
-#: ModulePrincipal.module:477
+#: ModulePrincipal.module:484
 msgid "El fichero no lo puedo leer.\n Versión Desconocida."
 msgstr ""
 

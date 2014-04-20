@@ -316,6 +316,20 @@ Public Sub cargaprevisualizacion(lbox As ListBox, area As DrawingArea)
   
 End
 
+'Carga Previsualizacion Plantilla actual:
+Public Sub cargaprevisualizacionPlantillaActual(lbox As ListBox, area As DrawingArea)
+  
+  If ModulePrincipal.plantillaUsada = "" Then 
+    ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
+  Endif
+  
+  If Exist(ModulePrincipal.plantillaUsada) Then 
+    dibujarSVG(ModulePrincipal.plantillaUsada, area)
+    
+  Endif
+  
+End
+
 Public Sub borradoElementoLista(lbox As ListBox)
   'borro fichero de la lista
   
@@ -360,5 +374,5 @@ Private Function reduce(ruta As String, rutafin As String) As Picture
   Return dibujo
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
