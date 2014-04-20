@@ -5,7 +5,7 @@
   Icon = Picture["carnet.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,0,110,83)
+    MoveScaled(0,1,110,83)
     AutoResize = True
     Count = 12
     Border = True
@@ -214,73 +214,77 @@
     Text = ("Plantillas")
     Picture = Picture["plantilla2.png"]
     { ToolButtonAnadirPlantilla ToolButton
-      MoveScaled(7,3,20,5)
+      MoveScaled(56,61,20,5)
       Text = ("Añadir Plantilla")
       Picture = Picture["icon:/22/add"]
       Border = True
     }
     { ListBoxListaPlantillas ListBox
-      MoveScaled(3,14,29,51)
+      MoveScaled(1,34,30,41)
       Font = Font["-1"]
     }
     { ToolButtonBorrarPlantilla ToolButton
-      MoveScaled(38,3,20,5)
+      MoveScaled(56,68,20,5)
       Text = ("Quitar Plantilla")
       Picture = Picture["icon:/22/trash"]
       Border = True
     }
     { DrawingAreaPlantilla DrawingArea
-      MoveScaled(37,20,34,23)
+      MoveScaled(39,37,34,23)
       Font = Font["-1"]
       Border = Border.Plain
       Cached = True
     }
     { Label3 Label
-      MoveScaled(3,10,28,3)
+      MoveScaled(1,30,28,3)
       Font = Font["-1"]
       Text = ("Plantillas Disponibles:")
     }
     { ToolButtonEditaPlantilla ToolButton
-      MoveScaled(60,14,18,5)
+      MoveScaled(32,68,20,5)
       Font = Font["-1"]
+      ToolTip = ("Pulse en este botón y se iniciará inkscape. donde podrá editar la plantilla actual.")
       Text = ("Editar Plantilla")
       Picture = Picture["icon:/22/pen"]
       Border = True
     }
-    { TextLabel3 TextLabel
-      MoveScaled(34,61,40,9)
-      Font = Font["-1"]
-      Text = ("Pulse en este botón y se iniciará inkscape. donde podrá editar la plantilla actual.")
-      Alignment = Align.Justify
-    }
     { TextLabel4 TextLabel
-      MoveScaled(35,13,27,6)
+      MoveScaled(42,31,27,6)
       Font = Font["-1"]
       Text = ("Previsualización<br>\nplantilla<br>")
       Alignment = Align.Center
     }
     { ToolButtonActual ToolButton
-      MoveScaled(45,45,20,5)
+      MoveScaled(32,61,20,5)
       Font = Font["-1"]
       ToolTip = ("Hacer que la plantilla que se muestra sea la actual")
       Text = ("Utilizar....")
       Picture = Picture["icon:/22/attach"]
       Border = True
     }
-    { Label8 Label
-      MoveScaled(47,50,17,4)
-      Font = Font["Bold,-1"]
-      Text = ("Plantilla actual:")
-    }
-    { Labelactual Label
-      MoveScaled(48,55,40,4)
-      Font = Font["-1"]
-    }
     { ToolButtonGaleriaEnLaNube ToolButton
-      MoveScaled(20,72,47,7)
+      MoveScaled(19,75,47,7)
       Text = ("Acceder a la Galeria En La Nube")
       Picture = Picture["googledriveacceso.png"]
       Border = True
+    }
+    { Frame4 Frame
+      MoveScaled(0,0,78,29)
+      Text = ("Plantilla Actual")
+      { Label8 Label
+        MoveScaled(42,1,9,4)
+        Text = ("Nombre:")
+      }
+      { Labelactual TextBox
+        MoveScaled(40,5,37,4)
+        Background = &HBFBFBF&
+        Text = ("TextBox1")
+        ReadOnly = True
+      }
+      { DrawingAreaPlantillaActual DrawingArea
+        MoveScaled(1,2,38,26)
+        Cached = True
+      }
     }
     Index = 7
     Text = ("Previsualizar")
@@ -529,7 +533,7 @@
       Delay = 20
     }
     { CheckBoxUnir CheckBox
-      MoveScaled(22,34,29,6)
+      MoveScaled(2,34,29,6)
       Text = ("Unir todos los pdf en uno")
       Value = CheckBox.True
     }
@@ -574,6 +578,10 @@
         Text = ("dpi:")
         Alignment = Align.Right
       }
+    }
+    { CheckBoxCR80 CheckBox
+      MoveScaled(32,34,47,6)
+      Text = ("Experimental: CR-80 (TARJETAS PLASTICAS)")
     }
     Index = 9
     Text = ("Salir")

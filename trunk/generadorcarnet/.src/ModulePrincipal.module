@@ -151,7 +151,7 @@ Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, 
   
 End
 
-Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, unir As Boolean, Carnetancho As Integer, Carnetlargo As Integer, dimensionPrioritariaAncho As Boolean) As Boolean
+Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, unir As Boolean, Carnetancho As Integer, Carnetlargo As Integer, dimensionPrioritariaAncho As Boolean, CR80 As Boolean) As Boolean
   
   Dim comando As String
   Dim contador As Integer 'contador para llevar el numero de carnet que se estan creando
@@ -167,6 +167,13 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   
   EstadoDelTrabajo = 0
   EstadoDelTrabajoPaginas = 0
+  
+  If CR80 = True Then 
+    Message.Info("activado sistema cr-80.... sin codificar aun")
+    'se crea el archivo PNG,normal
+    'el archivo png se iconcorpora a una plantilla 1x1CR80
+    'unir en pdf: tambien se puede hacer (habria que probarlo si admite varias paginas en pdf la impresora
+  Endif
   
   For a = (inicioRegistro) To inicioFin
     regtmp = New ClassRegistro

@@ -129,6 +129,7 @@ Public Sub IconPanel1_Click()
     Labelactual.text = ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
     ModuleIntermedio.CargaLista(ListBoxListaPlantillas)
     ModuleIntermedio.CargaPrevisualizacion(ListBoxListaPlantillas, DrawingAreaPlantilla)
+    actualizaDibujoPlantillaActual()
   Endif
   
   'Hago click en cerrar aplicación.
@@ -507,7 +508,7 @@ Public Sub ToolButtonGenerar_Click()
   Timer1.Start()
   TimerPaginas.Start() 'control de barras
   
-  ModulePrincipal.generarPdf(RadioButtonNumerarDesde.value, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, ValueBoxCarnetAncho.value, valueboxcarnetlargo.value, RadioButtonPriW.value)
+  ModulePrincipal.generarPdf(RadioButtonNumerarDesde.value, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, ValueBoxCarnetAncho.value, valueboxcarnetlargo.value, RadioButtonPriW.value, CheckBoxCR80.VALUE)
   
   ProgressBarBarraEstado.Visible = False
   TextLabelImagenes.Visible = False
@@ -519,6 +520,7 @@ Public Sub ToolButtonActual_Click()
   
   ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & ListBoxListaPlantillas.List[ListBoxListaPlantillas.Index]
   Labelactual.text = ModuleIntermedio.extraedesdebarra(ModulePrincipal.plantillaUsada)
+  actualizaDibujoPlantillaActual()
   
 End
 
@@ -714,5 +716,12 @@ Public Sub TextLabelSoltarDatos_Drop()
     
     ModuleIntermedio.rellenarGridviews(gridviewContenido, ModulePrincipal.Lista)
   Endif
+  
+End
+
+Public Sub actualizaDibujoPlantillaActual()
+  'previsualiza la plantilla actual..
+  
+  ModuleIntermedio.cargaprevisualizacionPlantillaActual(ListBoxListaPlantillas, DrawingAreaPlantillaActual)
   
 End

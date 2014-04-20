@@ -19,6 +19,6 @@ msgid "Generador De Carnets"
 msgstr ""
 
 #: .project:2
-msgid "Genera facilmente carnets para tus alumnos, empleados, etc. Usando plantillas que puedes personalizar con inkscape.\nAñadido sistema de busqueda de actualizacion.\nMejora calidad"
+msgid "Genera facilmente carnets para tus alumnos, empleados, etc. Usando plantillas que puedes personalizar con inkscape.\nAñadido sistema de busqueda de actualizacion.\nMejora calidad. Mejora en pestaña Plantilla"
 msgstr ""
 
