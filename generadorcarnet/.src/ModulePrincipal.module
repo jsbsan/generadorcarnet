@@ -106,7 +106,7 @@ End
 '--------------------------------------------
 'numerar: true , los numeros empiezan por un valor indicado en el cuadro de dialog
 
-Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer, ancho As Integer, largo As Integer, dimensionPrioritariaAncho As Boolean) As Boolean
+Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer, ancho As Integer, largo As Integer, dimensionPrioritariaAncho As Boolean, Optional tarjetaCR80 As Boolean) As Boolean
   
   Dim proceso As Process
   Dim comando As String
@@ -126,8 +126,13 @@ Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, 
   Endif
   ModuleIntermedio.rellenarPlantillaConValores(regtmp, User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", formato, numerar, valorinicialNumeroCarnet + a)
   
-  numeroImagen = (a + 1) - Int((a + 1) / 8) * 8
-  If numeroImagen = 0 Then numeroImagen = 8
+  If tarjetaCR80 = True Then
+    numeroImagen = a + 1
+  Else
+    numeroImagen = (a + 1) - Int((a + 1) / 8) * 8
+    If numeroImagen = 0 Then numeroImagen = 8
+    
+  Endif
   
   'sin dpi
   proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-dpi=" & Str$(dpi), "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"] 
@@ -169,7 +174,8 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   EstadoDelTrabajoPaginas = 0
   
   If CR80 = True Then 
-    Message.Info("activado sistema cr-80.... sin codificar aun")
+    Print "activado sistema cr-80.... sin codificar aun"
+    If dpi < 300 Then dpi = 300 'calidad minima exigida por CR-80
     'se crea el archivo PNG,normal
     'el archivo png se iconcorpora a una plantilla 1x1CR80
     'unir en pdf: tambien se puede hacer (habria que probarlo si admite varias paginas en pdf la impresora
@@ -179,35 +185,50 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     regtmp = New ClassRegistro
     regtmp = Lista.registros[a]
     
-    creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet, carnetancho, Carnetlargo, dimensionPrioritariaAncho)
+    creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet, carnetancho, Carnetlargo, dimensionPrioritariaAncho, cr80)
     
     contador += 1
     
-    contadorEnUnaPagina += 1
-    If (Val(tileArgumentoV) * Val(tileArgumentoH)) = contadorEnUnaPagina Then
-      'genero montaje...
-      Paginas += 1
-      montarPlantilla2x4(paginas)
-      'montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
-      contadorEnUnaPagina = 0
-      vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/", "*.png")
+    If CR80 = True Then 
+      If inicioRegistro = inicioFin Then 
+        montarPlantilla1x1CR80(a + 1)
+      Else
+        montarPlantilla1x1CR80(contador)
+      Endif
+      
+    Else
+      
+      contadorEnUnaPagina += 1
+      If (Val(tileArgumentoV) * Val(tileArgumentoH)) = contadorEnUnaPagina Then
+        'genero montaje...
+        Paginas += 1
+        montarPlantilla2x4(paginas)
+        'montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
+        contadorEnUnaPagina = 0
+        vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/", "*.png")
+      Endif
     Endif
     
   Next
   
-  'creando ultimo bloque de fotos...
-  Paginas += 1
-  montarPlantilla2x4(paginas)
-  '  montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
-  vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
-  EstadoDelTrabajo = -1 'trabajo completado
-  EstadoDelTrabajoPaginas = -1 'paginas
-  
-  'unir todos los pdf en uno...
-  Wait 0.1
-  If unir = True Then 
-    comando = "pdftk " & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/* cat output \"" & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/0 Todas las páginas.pdf\""
-    Shell comando Wait
+  If cr80 = False Then 
+    'solamente para los carnet normales...
+    'creando ultimo bloque de fotos...
+    Paginas += 1
+    montarPlantilla2x4(paginas)
+    '  montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, paginas)
+    vaciarDirectorio(User.home & "/.GeneradorCarnets/trabajoTmp/", "*.png") 'borro ultimos ficheros
+    EstadoDelTrabajo = -1 'trabajo completado
+    EstadoDelTrabajoPaginas = -1 'paginas
+    
+    'unir todos los pdf en uno...
+    Wait 0.1
+    If unir = True Then 
+      comando = "pdftk " & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/* cat output \"" & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/0 Todas las páginas.pdf\""
+      Shell comando Wait
+    Endif
+  Else
+    
   Endif
   
   ModuleAbrirResultados.abrir(User.home & "/.GeneradorCarnets/trabajoTmp/pdf/")
@@ -510,5 +531,34 @@ Public Sub montarPlantilla2x4(numeropagina As Integer)
   EsperarProceso(proceso, numeropagina, 1)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub montarPlantilla1x1CR80(numeroCarnet As Integer)
+  
+  Dim proceso As Process
+  'copio el archivo  plantillacr-80.svg al directorio de trabajo
+  Try Copy "cr-80.svg" To User.home & "/.GeneradorCarnets/trabajoTmp/cr-80.svg"
+  
+  If NumeroCarnet <> 1 Then 
+    Try Kill User.home & "/.GeneradorCarnets/trabajoTmp/imagen01.png"
+    Move User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroCarnet) & ".png" To User.home & "/.GeneradorCarnets/trabajoTmp/imagen01.png"
+  Endif
+  
+  If Not Exist(User.home & "/.GeneradorCarnets/trabajoTmp/imagen01.png") Then Copy "transparente.png" To User.home & "/.GeneradorCarnets/trabajoTmp/imagen01.png"
+  
+  'genero plantilla rellena...
+  proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/cr-80.svg", "--export-dpi=" & Str$(dpi), "--export-pdf", User.home & "/.GeneradorCarnets/trabajoTmp/Tarjeta-RGB-" & Str$(numeroCarnet) & ".pdf"] 
+  
+  EsperarProceso(proceso)
+  
+  'conversion de RGB A CMYK
+  proceso = Exec ["gs", "-dSAFER", "-dBATCH", "-dNOPAUSE", "-dNOCACHE", "-sDEVICE=pdfwrite", "-sColorConversionStrategy=CMYK", "-dProcessColorModel=/DeviceCMYK", "-sOutputFile=" & User.home & "/.GeneradorCarnets/trabajoTmp/Tarjeta-CMYK-" & Str$(numeroCarnet) & ".pdf", User.home & "/.GeneradorCarnets/trabajoTmp/Tarjeta-RGB-" & Str$(numeroCarnet) & ".pdf"]
+  
+  EsperarProceso(proceso)
+  'mover todos los carnet generados a la carpeta pdf...
+  Move User.home & "/.GeneradorCarnets/trabajoTmp/Tarjeta-CMYK-" & Str$(numeroCarnet) & ".pdf" To User.home & "/.GeneradorCarnets/trabajoTmp/pdf/Tarjeta-CMYK-" & Str$(numeroCarnet) & ".pdf"
+Catch
+  ModuleMensajeError.SistemaDescripcionError()  
   
 End

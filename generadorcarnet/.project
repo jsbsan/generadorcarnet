@@ -3,7 +3,7 @@
 Title=Generador De Carnets
 Startup=Form1
 Icon=carnet.png
-Version=0.0.48
+Version=0.0.49
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -12,7 +12,7 @@ Component=gb.settings
 Component=gb.net
 Component=gb.net.curl
 Component=gb.qt4.ext
-Description="Genera facilmente carnets para tus alumnos, empleados, etc. Usando plantillas que puedes personalizar con inkscape.\nAñadido sistema de busqueda de actualizacion.\nMejora calidad. Mejora en pestaña Plantilla"
+Description="Genera facilmente carnets para tus alumnos, empleados, etc. Usando plantillas que puedes personalizar con inkscape.\nAñadido sistema de busqueda de actualizacion.\nMejora calidad. Mejora en pestaña Plantilla. Impresion Rapida desde Editor"
 Authors="Julio Sánchez Berro (programa)\nAntonio Sánchez (plantillas)"
 TabSize=2
 Translate=1
