@@ -3,14 +3,16 @@
 Public valor As New String[]
 
 Public Sub Form_Open()
-  
+
+  Application.busy = 0
   Me.center
   
 End
 
 Public Sub ButtonAceptar_Click()
-
+  
   valor.Add(DirChooser1.SelectedPath)
+  Application.busy = 1
   Me.close
   
 End
