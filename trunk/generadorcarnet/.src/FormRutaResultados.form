@@ -1,0 +1,20 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,64)
+  { DirChooser1 DirChooser
+    MoveScaled(4,6,56,53)
+    ToolTip = ("haga doble click en la ruta que desee guardar los datos")
+    ShowSplitter = False
+  }
+  { ButtonAceptar Button
+    MoveScaled(42,60,17,4)
+    Text = ("Aceptar")
+    Picture = Picture["icon:/16/apply"]
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(1,0,62,6)
+    Text = ("Elija ruta donde se guardarán los carnet, también puede crear un directorio nuevo (pulsando el botón derecho)")
+    Alignment = Align.Center
+  }
+}

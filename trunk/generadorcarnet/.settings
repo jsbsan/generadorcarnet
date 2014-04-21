@@ -35,10 +35,13 @@ Geometry=[0,10,210,210]
 Geometry=[239,559,550,210]
 
 [DebugWindow/Lista.registros]
-Geometry=[14,388,296,210]
+Geometry=[253,573,550,210]
 
 [DebugWindow/Lista.registros[0]]
 Geometry=[28,402,395,309]
+
+[DebugWindow/Lista.registros[2]]
+Geometry=[639,121,550,210]
 
 [DebugWindow/ModulePrincipal]
 Geometry=[-7,-8,210,210]
@@ -48,6 +51,9 @@ Geometry=[952,212,210,591]
 
 [DebugWindow/ProgressBarBarraEstadoPaginas]
 Geometry=[-7,-8,210,210]
+
+[DebugWindow/area]
+Geometry=[-1,26,210,210]
 
 [DebugWindow/cadenas]
 Geometry=[-7,149,340,591]
@@ -83,20 +89,20 @@ Geometry=[-7,3,210,210]
 Geometry=[761,490,423,210]
 
 [FCommit]
-LastCommit="Mejora en el filtro de ficheros de imágenes\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .project\nM       .hidden/CHANGELOG\nM       .settings\nM       .startup\nM       generadorcarnet.gambas\nM       .lang/FormAnadirEditar.pot\nM       .lang/.pot\nM       .src/FormAnadirEditar.form\nM       .src/FormAnadirEditar.class"
+LastCommit="mejoras cr-80\n---- Esta línea y las siguientes serán ignoradas ----\n\nD     C .gambas\n      >   local no-versionado, incoming añadir upon actualizar\nD       .gambas/CLASSLISTAREGISTRO\nD       .gambas/CLASSREGISTRO\nD       .gambas/CLASSSUPERGRIDVIEW\nD       .gambas/COMUN\nD       .gambas/FORM1\nD       .gambas/FORMANADIREDITAR\nD       .gambas/MODULEINTERMEDIO\nD       .gambas/MODULEPRINCIPAL\nD       .gambas/MODULEUPDATE\nM       .lang/#project.pot\nD       .lang/.pot\nM       .lang/Form1.pot\nM       .lang/ModulePrincipal.pot\nM       .project\nM       .settings\nM       .src/Form1.class\nM       .src/Form1.form\nM       .src/ModulePrincipal.module\nM       .startup\nA       cr-80.svg\nD     C generadorcarnet.gambas\n      >   local no-versionado, incoming añadir upon actualizar\nA       ico-white-magnetica.png\nD       plantilla/cr-80.svg"
 
 [OpenFile]
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:169.0"
 File[3]=".src/ClassListaRegistro.class:77.12"
-File[4]=".src/ModuleIntermedio.module:361.46"
-Active=5
+File[4]=".src/ModuleIntermedio.module:321.46"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:499.90"
+Active=6
+File[6]=".src/Form1.class:747.68"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
-File[10]=".src/ModulePrincipal.module:11.69"
+File[10]=".src/ModulePrincipal.module:238.5"
 File[11]=".src/FormAnadirEditar.form"
 File[12]=".src/FormAnadirEditar.class:301.46"
 File[13]="icono_fotos_personas.png"
@@ -115,7 +121,7 @@ File[25]="nube.png"
 File[26]="camara_icono.png"
 File[27]=".src/comun.module:31.2"
 File[28]="googledriveacceso.png"
-File[29]="plantillaA4_2x4.svg:122.0"
+File[29]="plantillaA4_2x4.svg:56.10"
 File[30]="transparente.png"
 File[31]="rayo.png"
 File[32]=".src/ModuleUpdate.module:10.2"
@@ -137,10 +143,13 @@ File[47]=".src/ModuleArrastrarYSoltarFicheros.module:49.62"
 File[48]=".src/FormError.class:18.121"
 File[49]=".src/ModuleAbrirResultados.module:14.32"
 File[50]=".src/FormRutaResultados.form"
-Count=50
+File[51]="cr-80.svg:0.0"
+File[52]="ico-white-magnetica.png"
+Count=52
 
 [VersionControl]
-RememberPassword=0
+RememberPassword=1
+User="torredelaquila@gmail.com"
 
 [Watches]
 Count=0

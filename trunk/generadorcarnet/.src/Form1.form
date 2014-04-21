@@ -15,7 +15,7 @@
     { TextLabelPantallaPresentacion3 TextLabel
       MoveScaled(11,2,52,54)
       Background = Color.Background
-      Text = ("<h1>Generador de Carnets</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
+      Text = ("<h1>Generador de Carnets</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4.2 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
       Alignment = Align.Center
       Border = Border.Sunken
     }
@@ -127,50 +127,64 @@
       Stretch = True
     }
     { HBox1 HBox
-      MoveScaled(0,0,77,5)
+      MoveScaled(0,0,80,5)
       { ToolButtonAnadir ToolButton
-        MoveScaled(1,1,11,3)
+        MoveScaled(0,1,11,3)
         Font = Font["Bitstream Charter,-1"]
+        AutoResize = True
         Text = ("Añadir")
         Picture = Picture["icon:/22/add"]
         Border = True
       }
       { ToolButtonEditar ToolButton
-        MoveScaled(12,1,11,3)
+        MoveScaled(11,1,10,3)
         Font = Font["Bitstream Charter,-1"]
         ToolTip = ("Pega los datos contenidos en el portapapeles,\n deben de estar separados por un tabulador \n(o en distintas columnas si lo pegas desde hoja de calculo)\ny empiezo a pegar por la columna nombre")
+        AutoResize = True
         Text = ("Editar")
         Picture = Picture["icon:/22/edit"]
         Border = True
       }
       { ToolButtonBorrar ToolButton
-        MoveScaled(24,1,12,3)
+        MoveScaled(22,1,10,3)
         Font = Font["Bitstream Charter,-1"]
+        AutoResize = True
         Text = ("Borrar")
         Picture = Picture["icon:/22/erase"]
         Border = True
       }
       { ToolButtonPegar ToolButton
-        MoveScaled(36,1,11,3)
+        MoveScaled(34,1,11,3)
         Font = Font["Bitstream Charter,-1"]
         ToolTip = ("Pegar el contenido del Portapapeles a la rejilla.\nLos datos deben de estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nEmpiezo a pegar los datos desde la columna Nombre")
+        AutoResize = True
         Text = ("Pegar")
         Picture = Picture["icon:/22/paste"]
         Border = True
       }
       { ToolButtonPegar2 ToolButton
-        MoveScaled(48,1,16,3)
+        MoveScaled(45,1,16,3)
         Font = Font["Bitstream Charter,-1"]
         ToolTip = ("Copiar todo la rejilla de datos  actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)")
+        AutoResize = True
         Text = ("Copiar Todo")
         Picture = Picture["icon:/22/copy"]
         Border = True
       }
       { CheckBoxTitulos CheckBox
-        MoveScaled(66,1,10,2)
+        MoveScaled(61,1,10,3)
         Font = Font["Bitstream Charter,-1"]
         Text = ("Titulos")
         Value = CheckBox.True
+      }
+      { ToolButtonImprimirCR80Rapidamente ToolButton
+        MoveScaled(71,1,10,3)
+        Font = Font["Bitstream Charter,-1"]
+        ToolTip = ("Imprimir Tarjetas CR-80 rápidamente")
+        AutoResize = True
+        Text = ("Imprimir CR-80")
+        Picture = Picture["ico-white-magnetica.png"]
+        Border = True
       }
     }
     { TextLabel1 TextLabel

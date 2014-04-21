@@ -1,0 +1,16 @@
+' Gambas class file
+
+Public valor As New String[]
+
+Public Sub Form_Open()
+  
+  Me.center
+  
+End
+
+Public Sub ButtonAceptar_Click()
+
+  valor.Add(DirChooser1.SelectedPath)
+  Me.close
+  
+End

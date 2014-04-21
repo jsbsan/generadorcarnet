@@ -454,11 +454,13 @@ Public Sub ToolButtonGenerar_Click()
   Dim valorInicialNumero As Integer
   
   TextLabelImagenes.Visible = True
-  TextLabelGenerandoPaginas.Visible = True
+  
+  If CheckBoxCR80.value = False Then TextLabelGenerandoPaginas.Visible = True
+  
   ProgressBarBarraEstado.Visible = True
   ProgressBarBarraEstado.Value = 0
   ''TODO: Barra de creación de páginas
-  ProgressBarBarraEstadoPaginas.Visible = True
+  If CheckBoxCR80.value = False Then ProgressBarBarraEstadoPaginas.Visible = True
   ProgressBarBarraEstadoPaginas.Value = 0
   ProgressBarBarraEstadoPaginas.Refresh()
   ProgressBarBarraEstado.Refresh()
@@ -500,6 +502,9 @@ Public Sub ToolButtonGenerar_Click()
   If RadioButtondpi300.value = True Then ModulePrincipal.dpi = 300
   If RadioButtondpipersonalizado.value = True Then ModulePrincipal.dpi = ValueBoxdpi.value
   
+  '------------------- cr-80 necesita una calidad minima de 300 ------------------------------
+  If CheckBoxCR80.value = True And ModulePrincipal.dpi < 300 Then ModulePrincipal.dpi = 300
+  
   'opcional numerar As Boolean, opcional inicionumerar As Integer, opcional formato As String
   ' registroInicio As Integer, registrofin As Integer, geometria As String, tile As String
   longitudTrabajo = registrofin - registroinicio
@@ -508,8 +513,13 @@ Public Sub ToolButtonGenerar_Click()
   Timer1.Start()
   TimerPaginas.Start() 'control de barras
   
+  'la aplicacion empieza a generar los carnet
+  Application.busy = 1
+  
   ModulePrincipal.generarPdf(RadioButtonNumerarDesde.value, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, ValueBoxCarnetAncho.value, valueboxcarnetlargo.value, RadioButtonPriW.value, CheckBoxCR80.VALUE)
   
+  'termina de la generación de carnets
+  Application.busy = 0
   ProgressBarBarraEstado.Visible = False
   TextLabelImagenes.Visible = False
   TextLabelGenerandoPaginas.Visible = False 
@@ -723,5 +733,22 @@ Public Sub actualizaDibujoPlantillaActual()
   'previsualiza la plantilla actual..
   
   ModuleIntermedio.cargaprevisualizacionPlantillaActual(ListBoxListaPlantillas, DrawingAreaPlantillaActual)
+  
+End
+
+'--------------------------------------------------------------------
+'añadido de boton de impresion rápida en el formulario de editar
+'--------------------------------------------------------------------
+Public Sub ToolButtonImprimirCR80Rapidamente_Click()
+  
+  If gridviewContenido.indice.count > gridviewContenido.row And gridviewContenido.row > -1 Then 
+    'imprimir rápidamente el registro: gridviewContenido.row
+    CheckBoxCR80.value = True 
+    RadioButtonUnRegistro.value = True
+    ValueBoxNumeroRegistroImprimir.value = gridviewContenido.row + 1
+    
+    ToolButtonGenerar_Click()
+    
+  Endif
   
 End
