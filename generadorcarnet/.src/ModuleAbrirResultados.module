@@ -23,10 +23,11 @@ Public Sub abrir(direccion As String)
   '
   If comprobarInstalacion("caja") Then 
     'esta instalado caja
-    Exec ["caja", "--no-desktop", RutaParaAbrir]
+    Exec ["caja", "--no-desktop", RutaParaAbrir, "&"]
   Else
     'si caja no esta instalado
-    Exec ["pcmanfm", RutaParaAbrir]
+    'Exec ["pcmanfm", RutaParaAbrir, "&"]
+    Exec [ListaNavegadoresDisponibles(), RutaParaAbrir, "&"]
   Endif
   
 End
@@ -43,5 +44,41 @@ Private Function comprobarInstalacion(comando As String) As Boolean
     Return True
     
   Endif
+  
+End
+
+'------------- lista de exploradores de archivos disponibles ---------------
+
+Public Function ListaNavegadoresDisponibles() As String
+  
+  Dim lista As New String[]
+  Dim navegador As String
+  Dim valor As String
+  
+  'caja
+  lista.Add("caja")
+  'pcmanfm
+  lista.Add("pcmanfm")
+  'nautilus
+  lista.Add("nautilus")
+  '  dolphin
+  lista.Add("dolphin")
+  'konqueror
+  lista.Add("konqueror")
+  'thunar
+  lista.Add("thunar")
+  'rox - filer
+  lista.Add("rox-filer")
+  'xfe
+  lista.Add("xfe")
+  'krusader
+  lista.Add("krusader")
+  
+  For Each navegador In lista
+    Shell "which " & navegador To valor
+    If valor <> "" Then Return navegador
+  Next
+  
+  Return ""
   
 End
