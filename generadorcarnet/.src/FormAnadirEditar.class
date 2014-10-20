@@ -300,7 +300,7 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 '---------------------------------------------

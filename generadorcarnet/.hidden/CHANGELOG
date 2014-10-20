@@ -1,3 +1,9 @@
+* Mon Oct 20 2014 jsbsan <jusabejusabe@gmail.com> 0.0.50
+- Corregido bug de nombre con espacios y puesto foto con silueta por defecto
+
+* Tue Apr 22 2014 jsbsan <jusabejusabe@gmail.com> 0.0.49
+- Mejora añado formato cr-80
+
 * Thu Jan 16 2014 jsbsan <jusabejusabe@gmail.com> 0.0.47
 - Mejora: Usuario puede elegir la calidad de impresion en dpi (90,150,300, o personalizada)
 
