@@ -89,7 +89,7 @@ Geometry=[-7,3,210,210]
 Geometry=[761,490,423,210]
 
 [FCommit]
-LastCommit="mejoras cr-80\n---- Esta línea y las siguientes serán ignoradas ----\n\nD     C .gambas\n      >   local no-versionado, incoming añadir upon actualizar\nD       .gambas/CLASSLISTAREGISTRO\nD       .gambas/CLASSREGISTRO\nD       .gambas/CLASSSUPERGRIDVIEW\nD       .gambas/COMUN\nD       .gambas/FORM1\nD       .gambas/FORMANADIREDITAR\nD       .gambas/MODULEINTERMEDIO\nD       .gambas/MODULEPRINCIPAL\nD       .gambas/MODULEUPDATE\nM       .lang/#project.pot\nD       .lang/.pot\nM       .lang/Form1.pot\nM       .lang/ModulePrincipal.pot\nM       .project\nM       .settings\nM       .src/Form1.class\nM       .src/Form1.form\nM       .src/ModulePrincipal.module\nM       .startup\nA       cr-80.svg\nD     C generadorcarnet.gambas\n      >   local no-versionado, incoming añadir upon actualizar\nA       ico-white-magnetica.png\nD       plantilla/cr-80.svg"
+LastCommit="Aplicacion ocupada cuando crear archivos de salida. \n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .src/FormRutaResultados.class"
 
 [OpenFile]
 File[1]="carnet.png"
@@ -98,11 +98,11 @@ File[3]=".src/ClassListaRegistro.class:77.12"
 File[4]=".src/ModuleIntermedio.module:321.46"
 File[5]=".src/Form1.form"
 Active=6
-File[6]=".src/Form1.class:747.68"
+File[6]=".src/Form1.class:18.8"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
-File[10]=".src/ModulePrincipal.module:238.5"
+File[10]=".src/ModulePrincipal.module:5.5"
 File[11]=".src/FormAnadirEditar.form"
 File[12]=".src/FormAnadirEditar.class:301.46"
 File[13]="icono_fotos_personas.png"
@@ -124,7 +124,7 @@ File[28]="googledriveacceso.png"
 File[29]="plantillaA4_2x4.svg:56.10"
 File[30]="transparente.png"
 File[31]="rayo.png"
-File[32]=".src/ModuleUpdate.module:10.2"
+File[32]=".src/ModuleUpdate.module:51.3"
 File[33]=".src/FormElegirFichero.form"
 File[34]=".src/FormError.form"
 File[35]=".src/FormElegirFichero.class:23.0"
@@ -141,11 +141,12 @@ File[45]="transparente1.png"
 File[46]="drop.png"
 File[47]=".src/ModuleArrastrarYSoltarFicheros.module:49.62"
 File[48]=".src/FormError.class:18.121"
-File[49]=".src/ModuleAbrirResultados.module:14.32"
+File[49]=".src/ModuleAbrirResultados.module:36.2"
 File[50]=".src/FormRutaResultados.form"
 File[51]="cr-80.svg:0.0"
 File[52]="ico-white-magnetica.png"
-Count=52
+File[53]=".src/FormRutaResultados.class:14.22"
+Count=53
 
 [VersionControl]
 RememberPassword=1

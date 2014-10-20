@@ -370,7 +370,7 @@ Public Sub extraeRutaZip(nombre As String) As String
   Dim letra As String
   Dim nombreCompleto As String
   
-  Shell "unzip -v " & nombre To ContenidoComprimido
+  Shell "unzip -v \"" & nombre & "\"" To ContenidoComprimido
   Print "Contenido del Fichero:"
   Print ContenidoComprimido
   cadena = Split(ContenidoComprimido, "\n")
@@ -415,7 +415,7 @@ Public Sub AbrirFichero(nombre As String) As Boolean
   Endif
   Shell "rm -r " & User.Home & "/.GeneradorCarnets/trabajoTmp/home/" Wait
   ' extraer en algun lugar temporal...
-  Shell "cd " & User.Home & "/.GeneradorCarnets/trabajoTmp/" & " && unzip " & nombre Wait
+  Shell "cd " & User.Home & "/.GeneradorCarnets/trabajoTmp/" & " && unzip \"" & nombre & "\"" Wait
   'borro los datos temporales que haya
   vaciarDirectorio(User.home & "/.GeneradorCarnets/temporales/")
   vaciarDirectorio(User.home & "/.GeneradorCarnets/temporales/fotos/")
@@ -478,7 +478,7 @@ Public Sub MoverFicheros(origen As String, destino As String) As Boolean
   If Exist(origen) Then 
     For Each File In Dir(origen)
       Print file
-      Shell "mv " & origen & "/" & file & " " & destino & "/" & file Wait
+      Shell "mv \"" & origen & "/" & file & "\" \"" & destino & "/" & file & "\"" Wait
     Next
   Endif
   
