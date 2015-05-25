@@ -1,85 +1,85 @@
 ' Gambas module file
 
-Public Sub InicargridviewContenido(grid As ClassSuperGridview, Optional titulos As Boolean) 
-  
+Public Sub InicargridviewContenido(grid As ClassSuperGridview, Optional titulos As Boolean)
+
   With grid
-    .header = 3 
+    .header = 3
     .rows.count = 1000
-    
+
     .columns.count = 10
-    
-    If titulos Then 
-      .Columns[0].title = "FOTOPLANTILLA.JPG" 
-      .Columns[1].title = "CAMPO01" 
-      .Columns[2].title = "CAMPO02" 
-      .Columns[3].title = "CAMPO03" 
+
+    If titulos Then
+      .Columns[0].title = "FOTOPLANTILLA.JPG"
+      .Columns[1].title = "CAMPO01"
+      .Columns[2].title = "CAMPO02"
+      .Columns[3].title = "CAMPO03"
       .Columns[4].title = "CAMPO04"
-      .Columns[5].title = "CAMPO05" 
-      .Columns[6].title = "CAMPO06" 
-      .Columns[7].title = "CAMPO07" 
-      .Columns[8].title = "CAMPO08" 
+      .Columns[5].title = "CAMPO05"
+      .Columns[6].title = "CAMPO06"
+      .Columns[7].title = "CAMPO07"
+      .Columns[8].title = "CAMPO08"
     Else
-      .Columns[0].title = "Foto" 
-      .Columns[1].title = "Nombre" 
-      .Columns[2].title = "Apellidos" 
-      .Columns[3].title = "Fecha Nacimiento" 
+      .Columns[0].title = "Foto"
+      .Columns[1].title = "Nombre"
+      .Columns[2].title = "Apellidos"
+      .Columns[3].title = "Fecha Nacimiento"
       .Columns[4].title = "Curso"
-      .Columns[5].title = "Centro" 
-      .Columns[6].title = "Localidad" 
-      .Columns[7].title = "Número Carnet" 
-      .Columns[8].title = "Otro" 
-      
+      .Columns[5].title = "Centro"
+      .Columns[6].title = "Localidad"
+      .Columns[7].title = "Número Carnet"
+      .Columns[8].title = "Otro"
+
     Endif
-    
+
     .Columns[0].width = 50
-    .Columns[1].width = 100 
+    .Columns[1].width = 100
     .Columns[2].width = 150
     .Columns[3].width = 120
-    .Columns[4].width = 150 
+    .Columns[4].width = 150
     .Columns[5].width = 150
     .Columns[6].width = 150
     .Columns[7].width = 100
-    .Columns[8].width = 80 
+    .Columns[8].width = 80
     .Columns[9].width = 0
-    .font.name = "Sans" 
-    .font.size = 9 
+    .font.name = "Sans"
+    .font.size = 9
     .w = 490
     .h = 400
     .x = 10
     .y = 42
     .mode = 1
     .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
-  End With 
-  
+  End With
+
 End
 
 Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
-  
+
   Dim escalax As Float
   Dim dra As SvgImage
-  
+
   dra = New SvgImage
   AreaDibujo.Cached = True
   AreaDibujo.Border = 1
-  
+
   'ya no es necesario en gambas3.4:
   ' AreaDibujo.Painted = True
-  
-  If Exist(fichero) Then 
+
+  If Exist(fichero) Then
     dra = dra.Load(fichero)
   Endif
-  
+
   Paint.Begin(AreaDibujo)
   escalax = AreaDibujo.W / dra.Width
-  
+
   paint.Scale(escalax, escalax)
   dra.Paint
   Paint.End
-  
+
 End
 
 Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaRegistro)
-  
+
   Dim regtmp As ClassRegistro
   Dim contadorPosicionFilaGrid As Integer
   Dim fechanumero As String
@@ -88,31 +88,31 @@ Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaR
   contadorPosicionFilaGrid = 0
   rejilla.rows.count = Lista.registros.count + 1
   For Each regtmp In Lista.registros
-    
+
     'rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
-    
-    If regtmp.foto <> "" Then 
-      If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos/mini_" & regtmp.foto) Then 
+
+    If regtmp.foto <> "" Then
+      If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos/mini_" & regtmp.foto) Then
         rejilla[contadorPosicionFilaGrid, 0].picture = reduce(User.home & "/.GeneradorCarnets/temporales/fotos/" & regtmp.foto, User.home & "/.GeneradorCarnets/temporales/fotos/mini_" & regtmp.foto)
-        
+
       Else
-        
+
         rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load(User.home & "/.GeneradorCarnets/temporales/fotos/mini_" & regtmp.foto)
       Endif
       rejilla.rows[contadorPosicionFilaGrid].height = 35
-      
+
     Endif
-    
+
     rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
     rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
     Try fechanumero = Format(Val(regtmp.FechaNacimiento), "dd mmm yyyy")
-    If Error Then 
-      
+    If Error Then
+
       rejilla[contadorPosicionFilaGrid, 3].text = "1 ene 2013 "
     Else
       rejilla[contadorPosicionFilaGrid, 3].text = Format(Val(regtmp.FechaNacimiento), "dd mmm yyyy")
     Endif
-    
+
     rejilla.tag = Val(regtmp.FechaNacimiento)
     rejilla[contadorPosicionFilaGrid, 4].text = regtmp.curso
     rejilla[contadorPosicionFilaGrid, 5].text = regtmp.centro
@@ -126,7 +126,7 @@ Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaR
   rejilla[contadorPosicionFilaGrid, 0].picture = Picture["/tmp/transparente.png"]
   rejilla[contadorPosicionFilaGrid, 0].text = ""
   rejilla[contadorPosicionFilaGrid, 1].text = ""
-  rejilla[contadorPosicionFilaGrid, 2].text = "" 
+  rejilla[contadorPosicionFilaGrid, 2].text = ""
   rejilla[contadorPosicionFilaGrid, 3].text = ""
   rejilla[contadorPosicionFilaGrid, 4].text = ""
   rejilla[contadorPosicionFilaGrid, 5].text = ""
@@ -135,30 +135,30 @@ Public Sub rellenarGridviews(rejilla As ClassSuperGridview, Lista As ClassListaR
   rejilla[contadorPosicionFilaGrid, 8].text = ""
   rejilla[contadorPosicionFilaGrid, 9].text = ""
   rejilla.Refresh()
-  
+
 End
 
 Public Sub rellenarPlantillaConValores(reg As ClassRegistro, fichero As String, Optional formatofecha As String, Optional numerar As Boolean, Optional valorinicialNumeroCarnet As Integer) As String 'devuelvo el contenido del fichero svg, cambiado...
-  
+
   Dim cadenasub As String
   Dim Contenido As String
-  
+
   If formatofecha = "" Then formatofecha = "dd mmm yyyy" 'formato predefinido
-  
+
   If reg.FechaNacimiento <> "" Then
-    
+
     Try cadenasub = Format(Val(reg.FechaNacimiento), "dd mmm yyyy") 'convierto formato de la fecha
-    
+
   Endif
-  
+
   contenido = File.Load(fichero)
-  
+
   'intercambio valores...
-  
+
   If reg.foto = "" Then
     reg.foto = "/tmp/transparente.png"
   Endif
-  If Exist(User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto) Then 
+  If Exist(User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto) Then
     contenido = Replace$(contenido, "FOTOPLANTILLA.JPG", User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto)
   Else
     contenido = Replace$(contenido, "FOTOPLANTILLA.JPG", "/tmp/transparente.png")
@@ -169,32 +169,32 @@ Public Sub rellenarPlantillaConValores(reg As ClassRegistro, fichero As String, 
   contenido = Replace$(contenido, "CAMPO04", reg.CURSO)
   contenido = Replace$(contenido, "CAMPO05", reg.CENTRO)
   contenido = Replace$(contenido, "CAMPO06", reg.LOCALIDAD)
-  
-  If numerar = True Then 
-    contenido = Replace$(contenido, "CAMPO07", Str$(valorinicialNumeroCarnet))    
-    
+
+  If numerar = True Then
+    contenido = Replace$(contenido, "CAMPO07", Str$(valorinicialNumeroCarnet))
+
   Else
-    contenido = Replace$(contenido, "CAMPO07", Str$(reg.NumeroCarnet))    
+    contenido = Replace$(contenido, "CAMPO07", Str$(reg.NumeroCarnet))
   Endif
-  
+
   contenido = Replace$(contenido, "CAMPO08", reg.TAG)
-  
+
   File.Save(fichero, contenido)
   Return contenido
-  
+
 End
 
 Public Sub PrevisualizarRegistro(numero As Integer, Areadibujo As DrawingArea, rejilla As ClassSuperGridview) As Boolean
-  
+
   Dim indice As Integer
   Dim regtmp As New ClassRegistro
-  Dim contadorPosicionFilaGrid As Integer  
+  Dim contadorPosicionFilaGrid As Integer
   'intenta cargar los datos de la primera fila del gridviews..
-  If ModulePrincipal.Lista.registros.count > 0 And numero > -1 And numero < (ModulePrincipal.Lista.registros.count) Then 
+  If ModulePrincipal.Lista.registros.count > 0 And numero > -1 And numero < (ModulePrincipal.Lista.registros.count) Then
     contadorPosicionFilaGrid = rejilla.row
-    
+
     indice = numero '
-    
+
     regtmp.foto = ModulePrincipal.Lista.registros[indice].foto
     regtmp.nombre = ModulePrincipal.Lista.registros[indice].nombre
     regtmp.Apellidos = ModulePrincipal.Lista.registros[indice].Apellidos
@@ -205,11 +205,11 @@ Public Sub PrevisualizarRegistro(numero As Integer, Areadibujo As DrawingArea, r
     regtmp.NumeroCarnet = ModulePrincipal.Lista.registros[indice].NumeroCarnet
     regtmp.tag = ModulePrincipal.Lista.registros[indice].tag
     'hacer una copia de la plantilla actual
-    If Exist(User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then 
+    If Exist(User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg") Then
       Kill User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
     Endif
     Try Copy ModulePrincipal.plantillaUsada To User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg"
-    If Error Then 
+    If Error Then
       'problema al intentar copiar fichero
       Return False
     Endif
@@ -219,160 +219,175 @@ Public Sub PrevisualizarRegistro(numero As Integer, Areadibujo As DrawingArea, r
     Return False 'no se ha podido ver la ficha
   Endif
   Return True
-  
+
 End
 
 Public Sub IniciarLaPrimeraVez()
-  
+
   'TODO: comprueba si existe, y si no lo crea...
   If Not Exist(User.home & "/.GeneradorCarnets/") Then Mkdir User.home & "/.GeneradorCarnets/"
   If Not Exist(User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam" To User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas"
   Chmod User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
-  
+
   If Not Exist(User.home & "/.GeneradorCarnets/temporales") Then Mkdir User.home & "/.GeneradorCarnets/temporales"
   If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos") Then Mkdir User.home & "/.GeneradorCarnets/temporales/fotos"
-  
+
   If Not Exist(User.home & "/.GeneradorCarnets/temporales/plantillas") Then Mkdir User.home & "/.GeneradorCarnets/temporales/plantillas"
   If Not Exist(User.home & "/.GeneradorCarnets/trabajoTmp/") Then Mkdir User.home & "/.GeneradorCarnets/trabajoTmp/"
   If Not Exist(User.home & "/.GeneradorCarnets/trabajoTmp/pdf") Then Mkdir User.home & "/.GeneradorCarnets/trabajoTmp/pdf"
   If Not Exist(User.home & "/.GeneradorCarnets/plantillas") Then Mkdir User.home & "/.GeneradorCarnets/plantillas"
   'If Not Exist(Application.path & "/FOTOPLANTILLA.JPG") Then Copy "FOTOPLANTILLA.JPG" To Application.path & "/FOTOPLANTILLA.JPG"
   If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla.svg") Then Copy "plantilla/plantilla.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla.svg"
-  
+
   If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg") Then Copy "plantilla/plantilla-seguridad-vial.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla-seguridad-vial.svg"
   If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla-deporte-escolar.svg") Then Copy "plantilla/plantilla-deporte-escolar.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla-deporte-escolar.svg"
   If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantilla-ciencias-club.svg") Then Copy "plantilla/plantilla-ciencias-club.svg" To User.home & "/.GeneradorCarnets/plantillas/plantilla-ciencias-club.svg"
   If Not Exist(User.home & "/.GeneradorCarnets/plantillas/plantillaComedor.svg") Then Copy "plantilla/plantillaComedor.svg" To User.home & "/.GeneradorCarnets/plantillas/plantillaComedor.svg"
-  
+
   'borrado de forma recursiva de los archivos contenido en las carpetas temporales...
   borradoIterativo(User.home & "/.GeneradorCarnets/temporales")
-  
+
   borradoIterativo(User.home & "/.GeneradorCarnets/temporales/plantillas")
   borradoIterativo(User.home & "/.GeneradorCarnets/trabajoTmp")
+
+  Try Copy "FOTOPLANTILLA.JPG" To Application.Path & "/FOTOPLANTILLA.JPG"
 Catch
-  ModuleMensajeError.SistemaDescripcionError() 
-  
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub borradoIterativo(ruta As String)
-  
+
   Dim File As String
-  
-  If Exist(ruta) Then 
+
+  If Exist(ruta) Then
     'borrado si existe la ruta
     For Each File In Dir(ruta, "*.*").Sort()
       Kill ruta & "/" & File
     Next
   Endif
-  
+
 End
 
 Public Sub extraedesdebarra(ruta As String) As String
-  
+
   Dim a As Integer
   Dim letra As String
   Dim cadena As String
-  
+
   For a = Len(ruta) To 1 Step -1
     letra = Mid$(ruta, a, 1)
-    If letra = "/" Then 
+    If letra = "/" Then
       Return cadena
     Else
       cadena = letra & cadena
     Endif
-    
+
   Next
-  
+
 End
 
 ' GESTION DE PLANTILLAS
 '  ModuleIntermedio.CargaLista(ListBoxListaPlantillas)
 Public Sub CARGALISTA(lbox As ListBox)
-  
+
   Dim ruta As String
   Dim file As String
-  
+
   lbox.Clear()
   ruta = User.home & "/.GeneradorCarnets/plantillas/"
-  If Exist(ruta) Then 
+  If Exist(ruta) Then
     'borrado si existe la ruta
     For Each File In Dir(ruta, "*.svg").Sort()
       lbox.Add(file)
     Next
     lbox.index = 0
   Endif
-  
+
 End
 
 'ModuleIntermedio.CargaPrevisualizacion(ListBoxListaPlantillas, DrawingAreaPlantilla)
 Public Sub cargaprevisualizacion(lbox As ListBox, area As DrawingArea)
-  
-  If Exist(User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]) Then 
+
+  If Exist(User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]) Then
     dibujarSVG(User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index], area)
-    If ModulePrincipal.plantillaUsada = "" Then 
+    If ModulePrincipal.plantillaUsada = "" Then
       ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
     Endif
   Endif
-  
+
 End
 
 'Carga Previsualizacion Plantilla actual:
 Public Sub cargaprevisualizacionPlantillaActual(lbox As ListBox, area As DrawingArea)
-  
-  If ModulePrincipal.plantillaUsada = "" Then 
+
+  If ModulePrincipal.plantillaUsada = "" Then
     ModulePrincipal.plantillaUsada = User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
   Endif
-  
-  If Exist(ModulePrincipal.plantillaUsada) Then 
+
+  If Exist(ModulePrincipal.plantillaUsada) Then
     dibujarSVG(ModulePrincipal.plantillaUsada, area)
-    
+
   Endif
-  
+
 End
 
 Public Sub borradoElementoLista(lbox As ListBox)
   'borro fichero de la lista
-  
+
   Try Kill User.home & "/.GeneradorCarnets/plantillas/" & lbox.List[lbox.Index]
   'cargo otra vez la lista
   CARGALISTA(lbox)
-  
+
 End
 
 'añadir una nuevo plantilla al directorio de plantillas:
 Public Sub anadirPlantilla()
-  
+
   Dialog.path = User.home & "/.GeneradorCarnets/temporales/plantillas/"
   Dialog.Title = ("Elige la plantilla en formato .svg (inkscape)")
   Dialog.Filter = ["*.svg", "Archivos .svg"]
-  If Not Dialog.OpenFile() Then 
-    'copio el archivo elegido al directorio donde se guardan las plantillas...     
+  If Not Dialog.OpenFile() Then
+    'copio el archivo elegido al directorio donde se guardan las plantillas...
     '
-    If Exist(User.home & "/.GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)) Then 
+    If Exist(User.home & "/.GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)) Then
       Message.Info(("Ya existe una plantilla con el mismo nombre, debe renombrar el nombre de la plantilla a añadir"))
     Else
-      
+
       Copy Dialog.path To User.home & "/.GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path)
+      Wait 0.5
+      'modificar ruta de imagen....
+      cambiarDireccioImagen(User.home & "/.GeneradorCarnets/plantillas/" & extraedesdebarra(Dialog.path))
     Endif
   Endif
 Catch
-  ModuleMensajeError.SistemaDescripcionError() 
-  
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 '--------------------------------------------
 
 Private Function reduce(ruta As String, rutafin As String) As Picture
-  
+
   Dim dibujo As New Picture
-  Dim comando As String 
+  Dim comando As String
   'crea una minuatura de la imagen dada y la pasa al Fotos...Mini
   comando = "convert " & ruta & " -resize 30x40  " & rutafin
   Shell comando Wait
-  
+
   dibujo = Picture[rutafin]
-  
+
   Return dibujo
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
+End
+
+Private Sub cambiarDireccioImagen(ruta As String)
+  'no hace falta...
+  ' Dim contenido As String
+  '
+  ' contenido = File.Load(ruta)
+
+  'leer todas las lineas y modificar solo la linea que tiene el texto de
+
 End

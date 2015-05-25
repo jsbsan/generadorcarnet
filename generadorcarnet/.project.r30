@@ -1,0 +1,35 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.4.2
+Title=Generador De Carnets
+Startup=Form1
+Icon=carnet.png
+Version=0.0.46
+Component=gb.image
+Component=gb.qt4
+Component=gb.form
+Component=gb.desktop
+Component=gb.settings
+Component=gb.net
+Component=gb.net.curl
+Component=gb.qt4.ext
+Description="Genera facilmente carnets para tus alumnos, empleados, etc. Usando plantillas que puedes personalizar con inkscape.\nAñadido sistema de busqueda de actualizacion."
+Authors="Julio Sánchez Berro (programa)\nAntonio Sánchez (plantillas)"
+TabSize=2
+Translate=1
+Language=es
+ExecPath=/home/uno/GeneradorCarnets.gambas
+Maintainer=jsbsan
+Address=jusabejusabe@gmail.com
+Url=http://jsbsan.blogspot.com.es/
+License=General Public License
+PackageName=generadorcarnet-0.0.45
+CreateEachDirectory=1
+Packager=1
+Systems=debian
+Menus=debian:"Applications/Education"
+Categories=debian:"Education"
+Groups=debian:"graphics"
+ExtraDependencies=debian:"zip\t\t\npdftk\t\t\nimagemagick\t\t\ninkscape\t\t\npcmanfm\t\t"
+Menus=ubuntu:"Applications/Office"
+Categories=ubuntu:"Office"
+Groups=ubuntu:"graphics"

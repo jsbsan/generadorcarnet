@@ -1,0 +1,627 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,111,84)
+  Icon = Picture["carnet.png"]
+  Resizable = False
+  { IconPanel1 IconPanel
+    MoveScaled(0,1,110,83)
+    AutoResize = True
+    Count = 12
+    Border = True
+    Index = 0
+    Text = ("Generador de Carnets")
+    Picture = Picture["icono inicial generador carnets.png"]
+    { TextLabelPantallaPresentacion3 TextLabel
+      MoveScaled(11,2,52,54)
+      Background = Color.Background
+      Text = ("<h1>Generador de Carnets</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4.2 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
+      Alignment = Align.Center
+      Border = Border.Sunken
+    }
+    { PictureBoxIconoInkscape PictureBox
+      MoveScaled(37,57,6.8571,6.8571)
+      Mouse = Mouse.Pointing
+      Picture = Picture["inkscape-icono.png"]
+    }
+    { Label1 Label
+      MoveScaled(2,58,33,6)
+      Text = ("Crea tus propias plantillas con:")
+      Alignment = Align.Center
+    }
+    { PictureBox2 PictureBox
+      MoveScaled(66,18,11,20)
+      Picture = Picture["logoGambas.png"]
+      Stretch = True
+    }
+    { PictureBox3 PictureBox
+      MoveScaled(14,9,9,7)
+      Picture = Picture["carnet.png"]
+    }
+    { Labeljsbsan Label
+      MoveScaled(18,21,37,3)
+      Font = Font["Bitstream Charter,Underline"]
+      Foreground = &H1F57FF&
+      Mouse = Mouse.Pointing
+      Text = ("http://www.jsbsan.blogspot.com.es/")
+      Alignment = Align.Center
+    }
+    { labelInkscape Label
+      MoveScaled(48,59,14,3)
+      Font = Font["Underline"]
+      Foreground = &H1F57FF&
+      Mouse = Mouse.Pointing
+      Text = ("inkscape")
+      Alignment = Align.Center
+    }
+    { Label13 Label
+      MoveScaled(4,72,31,4)
+      Text = ("Creado especialmente para:")
+    }
+    { PictureBox1 PictureBox
+      MoveScaled(34,64,18,18)
+      Picture = Picture["mininopicaros2012.png"]
+      Stretch = True
+    }
+    { labelInkscape2 Label
+      MoveScaled(49,72,24,3)
+      Font = Font["Underline"]
+      Foreground = &H1F57FF&
+      Mouse = Mouse.Pointing
+      Text = ("minino.galpon.org")
+      Alignment = Align.Center
+    }
+    { LabelVersion Label
+      MoveScaled(45,12,22,4)
+      Font = Font["Bitstream Charter,Bold,+1"]
+      AutoResize = True
+      Text = ("Versión:")
+      Alignment = Align.Center
+    }
+    { LabelProyectoWeb Label
+      MoveScaled(21,10,28,3)
+      Font = Font["Bitstream Charter,Underline"]
+      Foreground = &H1F57FF&
+      Mouse = Mouse.Pointing
+      Text = ("Enlace Web del Proyecto")
+      Alignment = Align.Center
+    }
+    Index = 1
+    Text = ("Crear Grupo")
+    Picture = Picture["icon:/22/new"]
+    { ToolButtonCrear ToolButton
+      MoveScaled(58,76,11,5)
+      Text = ("Crear")
+      Picture = Picture["icon:/22/wizard"]
+      Border = True
+    }
+    { DirChooserElegirDirectorioCrearGrupo DirChooser
+      MoveScaled(1,2,68,73)
+    }
+    { Label4 Label
+      MoveScaled(0,76,10,5)
+      Text = ("Nombre:")
+      Alignment = Align.Right
+    }
+    { TextBoxNombreFicheroNuevo TextBox
+      MoveScaled(11,76,27,5)
+    }
+    { Label11 Label
+      MoveScaled(39,76,20,5)
+      Text = (".GeneradorCarnets")
+    }
+    Index = 2
+    Text = ("Abrir Grupo")
+    Picture = Picture["icon:/22/open"]
+    { TextLabelEsperLeyendo TextLabel
+      MoveScaled(17,19,37,26)
+      Text = ("<h2>Espere por favor, estoy leyendo los datos</h2>")
+      Alignment = Align.Center
+    }
+    Index = 3
+    Text = ("Introducir Datos")
+    Picture = Picture["icon:/22/people"]
+    { PictureBox4 PictureBox
+      MoveScaled(4,73,6,7)
+      Picture = Picture["drop.png"]
+      Stretch = True
+    }
+    { HBox1 HBox
+      MoveScaled(0,0,80,5)
+      { ToolButtonAnadir ToolButton
+        MoveScaled(0,1,11,3)
+        Font = Font["Bitstream Charter,-1"]
+        AutoResize = True
+        Text = ("Añadir")
+        Picture = Picture["icon:/22/add"]
+        Border = True
+      }
+      { ToolButtonEditar ToolButton
+        MoveScaled(11,1,10,3)
+        Font = Font["Bitstream Charter,-1"]
+        ToolTip = ("Pega los datos contenidos en el portapapeles,\n deben de estar separados por un tabulador \n(o en distintas columnas si lo pegas desde hoja de calculo)\ny empiezo a pegar por la columna nombre")
+        AutoResize = True
+        Text = ("Editar")
+        Picture = Picture["icon:/22/edit"]
+        Border = True
+      }
+      { ToolButtonBorrar ToolButton
+        MoveScaled(22,1,10,3)
+        Font = Font["Bitstream Charter,-1"]
+        AutoResize = True
+        Text = ("Borrar")
+        Picture = Picture["icon:/22/erase"]
+        Border = True
+      }
+      { ToolButtonPegar ToolButton
+        MoveScaled(34,1,11,3)
+        Font = Font["Bitstream Charter,-1"]
+        ToolTip = ("Pegar el contenido del Portapapeles a la rejilla.\nLos datos deben de estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nEmpiezo a pegar los datos desde la columna Nombre")
+        AutoResize = True
+        Text = ("Pegar")
+        Picture = Picture["icon:/22/paste"]
+        Border = True
+      }
+      { ToolButtonPegar2 ToolButton
+        MoveScaled(45,1,16,3)
+        Font = Font["Bitstream Charter,-1"]
+        ToolTip = ("Copiar todo la rejilla de datos  actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)")
+        AutoResize = True
+        Text = ("Copiar Todo")
+        Picture = Picture["icon:/22/copy"]
+        Border = True
+      }
+      { CheckBoxTitulos CheckBox
+        MoveScaled(61,1,10,3)
+        Font = Font["Bitstream Charter,-1"]
+        Text = ("Titulos")
+        Value = CheckBox.True
+      }
+      { ToolButtonImprimirCR80Rapidamente ToolButton
+        MoveScaled(71,1,10,3)
+        Font = Font["Bitstream Charter,-1"]
+        ToolTip = ("Imprimir Tarjetas CR-80 rápidamente")
+        AutoResize = True
+        Text = ("Imprimir CR-80")
+        Picture = Picture["ico-white-magnetica.png"]
+        Border = True
+      }
+    }
+    { TextLabel1 TextLabel
+      MoveScaled(10,16,33,23)
+      Text = ("<h2>Nota:</h2><br>\nNecesita abrir o crear un grupo para poder introducir los datos de las personas")
+      Alignment = Align.Center
+    }
+    { TextLabelSoltarDatos TextLabel
+      MoveScaled(1,64,76,17)
+      Font = Font["Bitstream Charter,-1"]
+      Drop = True
+      Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre del fichero debe de tener <br>una coma para separar los apellidos y el nombre de la persona.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
+      Alignment = Align.Center
+      Border = Border.Plain
+    }
+    Index = 4
+    Text = ("Guardar Grupo")
+    Picture = Picture["icon:/22/save"]
+    { Label12 Label
+      MoveScaled(1,42,36,4)
+      Font = Font["Bitstream Charter,Bold,+1"]
+      Text = ("Nombre fichero de Datos:")
+    }
+    { LabelNombreFichero Label
+      MoveScaled(2,47,72,4)
+    }
+    { TextLabel2 TextLabel
+      MoveScaled(17,14,37,26)
+      Text = ("<h2>Espere por favor, estoy guardando <br>los datos</h2>")
+      Alignment = Align.Center
+    }
+    Index = 5
+    Text = ("Guardar como....")
+    Picture = Picture["icon:/22/save-as"]
+    { TextLabel5 TextLabel
+      MoveScaled(17,16,37,26)
+      Text = ("<h2>Espere por favor, estoy guardando <br> los datos</h2>")
+      Alignment = Align.Center
+    }
+    Index = 6
+    Text = ("Plantillas")
+    Picture = Picture["plantilla2.png"]
+    { ToolButtonAnadirPlantilla ToolButton
+      MoveScaled(56,61,20,5)
+      Text = ("Añadir Plantilla")
+      Picture = Picture["icon:/22/add"]
+      Border = True
+    }
+    { ListBoxListaPlantillas ListBox
+      MoveScaled(1,34,30,41)
+      Font = Font["-1"]
+    }
+    { ToolButtonBorrarPlantilla ToolButton
+      MoveScaled(56,68,20,5)
+      Text = ("Quitar Plantilla")
+      Picture = Picture["icon:/22/trash"]
+      Border = True
+    }
+    { DrawingAreaPlantilla DrawingArea
+      MoveScaled(39,37,34,23)
+      Font = Font["-1"]
+      Border = Border.Plain
+      Cached = True
+    }
+    { Label3 Label
+      MoveScaled(1,30,28,3)
+      Font = Font["-1"]
+      Text = ("Plantillas Disponibles:")
+    }
+    { ToolButtonEditaPlantilla ToolButton
+      MoveScaled(32,68,20,5)
+      Font = Font["-1"]
+      ToolTip = ("Pulse en este botón y se iniciará inkscape. donde podrá editar la plantilla actual.")
+      Text = ("Editar Plantilla")
+      Picture = Picture["icon:/22/pen"]
+      Border = True
+    }
+    { TextLabel4 TextLabel
+      MoveScaled(42,31,27,6)
+      Font = Font["-1"]
+      Text = ("Previsualización<br>\nplantilla<br>")
+      Alignment = Align.Center
+    }
+    { ToolButtonActual ToolButton
+      MoveScaled(32,61,20,5)
+      Font = Font["-1"]
+      ToolTip = ("Hacer que la plantilla que se muestra sea la actual")
+      Text = ("Utilizar....")
+      Picture = Picture["icon:/22/attach"]
+      Border = True
+    }
+    { ToolButtonGaleriaEnLaNube ToolButton
+      MoveScaled(19,75,47,7)
+      Text = ("Acceder a la Galeria En La Nube")
+      Picture = Picture["googledriveacceso.png"]
+      Border = True
+    }
+    { Frame4 Frame
+      MoveScaled(0,0,78,29)
+      Text = ("Plantilla Actual")
+      { Label8 Label
+        MoveScaled(42,1,9,4)
+        Text = ("Nombre:")
+      }
+      { Labelactual TextBox
+        MoveScaled(40,5,37,4)
+        Background = &HBFBFBF&
+        Text = ("TextBox1")
+        ReadOnly = True
+      }
+      { DrawingAreaPlantillaActual DrawingArea
+        MoveScaled(1,2,38,26)
+        Cached = True
+      }
+    }
+    Index = 7
+    Text = ("Previsualizar")
+    Picture = Picture["ojo22.png"]
+    { DrawingAreaPrevisualizar DrawingArea
+      MoveScaled(3,14,69,52)
+      Cached = True
+    }
+    { LabelPlantilla Label
+      MoveScaled(16,6,43,5)
+      Text = ("Plantilla:")
+      Alignment = Align.Center
+    }
+    { ButtonPlantillaPrimera Button
+      MoveScaled(3,6,7,5)
+      Picture = Picture["icon:/22/first"]
+    }
+    { ButtonPlantillaAnterior Button
+      MoveScaled(10,6,7,5)
+      Picture = Picture["icon:/22/previous"]
+    }
+    { ButtonPlantillaSiguiente Button
+      MoveScaled(58,6,7,5)
+      Picture = Picture["icon:/22/next"]
+    }
+    { ButtonPlantillaUltima Button
+      MoveScaled(65,6,7,5)
+      Picture = Picture["icon:/22/last"]
+    }
+    { ButtonPlantillaPrimeraReg Button
+      MoveScaled(14,68,7,5)
+      Picture = Picture["icon:/22/first"]
+    }
+    { LabelRegistro Label
+      MoveScaled(30,68,15,5)
+      Text = ("Registro:")
+      Alignment = Align.Center
+    }
+    { ButtonPlantillaAnteriorReg Button
+      MoveScaled(23,68,7,5)
+      Picture = Picture["icon:/22/previous"]
+    }
+    { ButtonPlantillaSiguienteReg Button
+      MoveScaled(45,68,7,5)
+      Picture = Picture["icon:/22/next"]
+    }
+    { ButtonPlantillaUltimaReg Button
+      MoveScaled(54,68,7,5)
+      Picture = Picture["icon:/22/last"]
+    }
+    { TextLabelFaltanDatos2 TextLabel
+      MoveScaled(5,29,65,8)
+      Text = ("<h3>Faltan datos para mostar</h3>")
+      Alignment = Align.Center
+      Border = Border.Plain
+    }
+    { ToolButtonEditaPlantilla2 ToolButton
+      MoveScaled(27,0,20,5)
+      Text = ("Editar Plantilla")
+      Picture = Picture["icon:/22/pen"]
+      Border = True
+    }
+    Index = 8
+    Text = ("Crear Pdf para imprimir")
+    Picture = Picture["icon:/22/print"]
+    { ToolButtonGenerar ToolButton
+      MoveScaled(28,41,20,7)
+      Text = ("Generar Pdf")
+      Picture = Picture["icon:/22/exec"]
+      Border = True
+    }
+    { FrameNumerosCarnet Frame
+      MoveScaled(2,1,38,13)
+      Text = ("Numeros de Carnet")
+      { RadioButtonUsarDefinidos RadioButton
+        MoveScaled(4,3,24,3)
+        Text = ("Usar los definidos")
+        Value = True
+      }
+      { RadioButtonNumerarDesde RadioButton
+        MoveScaled(4,7,25,4)
+        Text = ("Numerarlos desde el ")
+      }
+      { ValueBoxNumeroInicialCarnet ValueBox
+        MoveScaled(28,7,7,4)
+        Text = ("ValueBox2")
+        Value = "1"
+      }
+    }
+    { FrameImprimir Frame
+      MoveScaled(2,15,51,19)
+      Text = ("Imprimir")
+      { RadioButtonTodo RadioButton
+        MoveScaled(2,4,27,3)
+        Text = ("Todos los carnet")
+        Value = True
+      }
+      { RadioButtonUnRegistro RadioButton
+        MoveScaled(2,8,23,3)
+        Text = ("El registro número")
+      }
+      { ValueBoxNumeroRegistroImprimir ValueBox
+        MoveScaled(24,8,5,3)
+        Text = ("ValueBox1")
+        Value = "1"
+      }
+      { RadioButtonDesdeHasta RadioButton
+        MoveScaled(2,12,21,3)
+        Text = ("Desde el número")
+      }
+      { ValueBoxDesde ValueBox
+        MoveScaled(24,12,5,3)
+        Text = ("ValueBox1")
+        Value = "1"
+      }
+      { Label2 Label
+        MoveScaled(30,12,11,3)
+        Text = ("al número")
+      }
+      { ValueBoxHasta ValueBox
+        MoveScaled(40,12,6,3)
+        Text = ("ValueBox2")
+      }
+    }
+    { Expander1 Expander
+      MoveScaled(7,73,65,18)
+      Visible = False
+      Expand = True
+      Text = ("Parámetros Avanzados")
+      { Label5 Label
+        MoveScaled(3,21,29,4)
+        Text = ("Tamaño del papel (geomtría)")
+        Alignment = Align.Right
+      }
+      { TextBoxGeometria TextBox
+        MoveScaled(33,21,23,4)
+        Text = ("1052x744+10+10")
+      }
+      { Label6 Label
+        MoveScaled(12,16,21,3)
+        Text = ("Carnets Horizontales")
+        Alignment = Align.Right
+      }
+      { TextBoxTileH TextBox
+        MoveScaled(34,16,5,4)
+        Text = ("4")
+      }
+      { Label9 Label
+        MoveScaled(12,13,21,3)
+        Text = ("Carnets Verticales")
+        Alignment = Align.Right
+      }
+      { TextBoxTileV TextBox
+        MoveScaled(34,12,5,4)
+        Text = ("2")
+      }
+      { Label10 Label
+        MoveScaled(4,10,29,4)
+        Text = ("Por página que se cree:")
+      }
+      { Label15 Label
+        MoveScaled(5,24,48,5)
+        Text = ("Por defecto tamaño A4 y 10 px alrededor")
+        Alignment = Align.Center
+      }
+      { Frame2 Frame
+        MoveScaled(2,0,60,10)
+        Text = ("Tamaño de los carnets")
+        { Label18 Label
+          MoveScaled(37,2,4,3)
+          Text = ("px")
+          Alignment = Align.Left
+        }
+        { Label19 Label
+          MoveScaled(37,6,4,3)
+          Text = ("px")
+          Alignment = Align.Left
+        }
+        { ValueBoxCarnetLargo ValueBox
+          MoveScaled(29,6,7,3)
+          Text = ("ValueBoxCarnetLargo")
+          Value = "191"
+        }
+        { ValueBoxCarnetAncho ValueBox
+          MoveScaled(29,2,7,3)
+          Text = ("ValueBoxAnchoCarnet")
+          Value = "303"
+        }
+        { Label16 Label
+          MoveScaled(17,2,10,3)
+          Text = ("ancho:")
+          Alignment = Align.Right
+        }
+        { Label17 Label
+          MoveScaled(17.5714,5.5714,10,3)
+          Text = ("largo:")
+          Alignment = Align.Right
+        }
+        { RadioButtonPriW RadioButton
+          MoveScaled(40,2,24,3)
+          Font = Font["Bitstream Charter,-1"]
+          Text = ("Prioridad ancho")
+          Value = True
+        }
+        { RadioButtonPriH RadioButton
+          MoveScaled(40,6,24,3)
+          Font = Font["Bitstream Charter,-1"]
+          Text = ("Prioridad largo")
+        }
+      }
+    }
+    { Frame1 Frame
+      MoveScaled(42,1,22,13)
+      Text = ("Fecha:")
+      { Label7 Label
+        MoveScaled(1,3,12,3)
+        Text = ("Formato:")
+      }
+      { TextBoxFormato TextBox
+        MoveScaled(4,7,16,4)
+        Text = ("dd mmm yyyy")
+      }
+    }
+    { Separator1 Separator
+      MoveScaled(40,1,2,14)
+    }
+    { Separator2 Separator
+      MoveScaled(1,14,74,1)
+    }
+    { ProgressBarBarraEstado ProgressBar
+      MoveScaled(4,54,68,6)
+      Visible = False
+      ToolTip = ("Convirtiendo fotografias")
+    }
+    { Timer1 #Timer
+      #MoveScaled(1,73)
+      Delay = 20
+    }
+    { ProgressBarBarraEstadoPaginas ProgressBar
+      MoveScaled(4,65,68,6)
+      Visible = False
+      ToolTip = ("Creando Páginas")
+    }
+    { TimerPaginas #Timer
+      #MoveScaled(1,64)
+      Delay = 20
+    }
+    { CheckBoxUnir CheckBox
+      MoveScaled(2,34,29,6)
+      Text = ("Unir todos los pdf en uno")
+      Value = CheckBox.True
+    }
+    { TextLabelImagenes TextLabel
+      MoveScaled(27,51,26,3)
+      Visible = False
+      Text = ("Generando Imagenes")
+      Alignment = Align.Center
+    }
+    { TextLabelGenerandoPaginas TextLabel
+      MoveScaled(27,62,26,3)
+      Visible = False
+      Text = ("Generando Paginas")
+      Alignment = Align.Center
+    }
+    { Frame3 Frame
+      MoveScaled(55,15,25,19)
+      Text = ("Calidad")
+      { RadioButtondpi90 RadioButton
+        MoveScaled(2,2,17,4)
+        Text = ("90 dpi")
+        Value = True
+      }
+      { RadioButtondpi150 RadioButton
+        MoveScaled(2,5,17,4)
+        Text = ("150 dpi")
+      }
+      { RadioButtondpi300 RadioButton
+        MoveScaled(2,8,17,4)
+        Text = ("300 dpi")
+      }
+      { RadioButtondpipersonalizado RadioButton
+        MoveScaled(2,11,17,4)
+        Text = ("Personalizado:")
+      }
+      { ValueBoxdpi ValueBox
+        MoveScaled(14,15,10,3)
+        Value = "600"
+      }
+      { Label14 Label
+        MoveScaled(8,15,5,3)
+        Text = ("dpi:")
+        Alignment = Align.Right
+      }
+    }
+    { CheckBoxCR80 CheckBox
+      MoveScaled(32,34,47,6)
+      Text = ("Experimental: CR-80 (TARJETAS PLASTICAS)")
+    }
+    Index = 9
+    Text = ("Salir")
+    Picture = Picture["icon:/22/quit"]
+    Index = 10
+    Text = ("Ayuda")
+    Picture = Picture["icon:/22/info"]
+    { TextLabelAyuda TextLabel
+      MoveScaled(1,2,75,64)
+      Text = ("<b>Estructura de una plantilla:</b><br>\nSi usted quiere hacer sus propias plantillas, puede usar como base un plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, luego la guarda con un nombre nuevo, y en el menú Plantillas , con el botón \"añadir\" la prodia  añadir para usarla.\n<br>\nTiene que tener en cuenta que, es necesario que los textos (nombre, apellidos, centro, etc..) \nse deben de usar estos nombres:<br>\n<br>\nCAMPO01.............................................nombre\nCAMPO02.............................................apellidos\nCAMPO03.............................................fecha\nCAMPO04.............................................curso\nCAMPO05.............................................centro\nCAMPO06.............................................localidad\nCAMPO07.............................................NumeroDeCarnet\nCAMPO08.............................................otrocampo\n<br><br>\ny para la fotografia, el nombre del archivo fotografico es:<br>\nFOTOPLANTILLA.JPG.............................fotografia<br>\n<br>\nDe esta manera el programa reconoce los campos que tiene que sustituir de las plantillas.")
+      Alignment = Align.Normal
+    }
+    { ToolButtonAccesoPaginaWeb ToolButton
+      MoveScaled(13,68,57,12)
+      Text = ("Visite la página del proyecto para más ayuda")
+      Picture = Picture["icono_web.jpg"]
+      Border = True
+    }
+    Index = 11
+    Text = ("Buscar Actualizaciones")
+    Picture = Picture["rayo.png"]
+    { TextLabelEsperLeyendo2 TextLabel
+      MoveScaled(18,24,37,26)
+      Text = ("<h2>Espere por favor, estoy buscando actualizaciones</h2>")
+      Alignment = Align.Center
+    }
+    Index = 0
+  }
+}

@@ -283,7 +283,7 @@
       Border = True
     }
     { Frame4 Frame
-      MoveScaled(0,0,78,29)
+      MoveScaled(1,1,78,29)
       Text = ("Plantilla Actual")
       { Label8 Label
         MoveScaled(42,1,9,4)
@@ -296,7 +296,7 @@
         ReadOnly = True
       }
       { DrawingAreaPlantillaActual DrawingArea
-        MoveScaled(1,2,38,26)
+        MoveScaled(1,3,38,26)
         Cached = True
       }
     }
