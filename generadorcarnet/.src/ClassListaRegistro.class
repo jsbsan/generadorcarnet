@@ -84,7 +84,7 @@ Public Sub LecturaDatos(cadenas As String[]) As Boolean
     a += 1
     If cadenas[a] = "" Then cadenas[a] = "0"
     Try regtmp.id = Val(cadenas[a])
-    '   a += 1 'NOTE eliminar
+    '    a += 1 'NOTE eliminar ficheros de datos de Agustin
     hregistros.Add(regtmp)
     regtmp = New ClassRegistro
   Next

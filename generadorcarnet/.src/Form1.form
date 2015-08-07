@@ -1,11 +1,11 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,111,84)
+  MoveScaled(0,0,113,84)
   Icon = Picture["carnet.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,1,110,83)
+    MoveScaled(0,1,112,83)
     AutoResize = True
     Count = 12
     Border = True
@@ -72,7 +72,7 @@
       Alignment = Align.Center
     }
     { LabelVersion Label
-      MoveScaled(45,12,22,4)
+      MoveScaled(24,13,22,4)
       Font = Font["Bitstream Charter,Bold,+1"]
       AutoResize = True
       Text = ("Versión:")

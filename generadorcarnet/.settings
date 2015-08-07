@@ -2,7 +2,10 @@
 ModuleAbrirResultados=[12]
 
 [Breakpoints]
-Count=0
+Breakpoint[1]="ClassRegistro.170"
+Breakpoint[2]="ClassRegistro.177"
+Breakpoint[3]="ClassListaRegistro.62"
+Count=3
 
 [DebugWindow]
 Count=1
@@ -57,7 +60,7 @@ Geometry=[-7,-8,210,210]
 Geometry=[-1,26,210,210]
 
 [DebugWindow/cadenas]
-Geometry=[932,1,340,591]
+Geometry=[851,58,340,591]
 
 [DebugWindow/campo01]
 Geometry=[1282,64,210,210]
@@ -94,16 +97,16 @@ LastCommit="0.0.50\n---- Esta línea y las siguientes serán ignoradas ----\n\nD
 
 [OpenFile]
 File[1]="carnet.png"
-File[2]=".src/ClassRegistro.class:80.0"
+File[2]=".src/ClassRegistro.class:177.15"
 Active=3
-File[3]=".src/ClassListaRegistro.class:86.29"
+File[3]=".src/ClassListaRegistro.class:62.25"
 File[4]=".src/ModuleIntermedio.module:252.73"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:471.2"
+File[6]=".src/Form1.class:354.0"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
-File[10]=".src/ModulePrincipal.module:233.3"
+File[10]=".src/ModulePrincipal.module:458.3"
 File[11]=".src/FormAnadirEditar.form"
 File[12]=".src/FormAnadirEditar.class:301.46"
 File[13]="icono_fotos_personas.png"

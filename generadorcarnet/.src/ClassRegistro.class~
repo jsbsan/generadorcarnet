@@ -1,0 +1,184 @@
+' Gambas class file
+
+' 
+Property foto As String ''FotoPlantilla.jpg
+Private hfoto As String 
+
+Property nombre As String '' CAMPO01 
+Private hnombre As String 
+
+Property Apellidos As String  ''CAMPO02
+Private hApellidos As String 
+
+Property FechaNacimiento As String ''CAMPO03
+Private hFechaNacimiento As String 
+
+Property curso As String '' CAMPO04
+Private hcurso As String 
+
+Property centro As String '' CAMPO05 
+Private hcentro As String 
+
+Property localidad As String ''CAMPO06
+Private hlocalidad As String 
+
+Property NumeroCarnet As Integer  ''CAMPO07
+Private hNumeroCarnet As Integer 
+
+Property tag As String ''CAMPO08
+Private htag As String 
+
+Property id As Integer '' para control interno (eliminar, editar, etc..)
+Private hid As Integer 
+
+Public Sub vacio()
+  
+  hnombre = ""
+  hApellidos = ""
+  hFechaNacimiento = ""
+  hcurso = ""
+  hcentro = ""
+  hlocalidad = ""
+  hNumeroCarnet = 0
+  htag = ""
+  
+End
+
+Private Function Apellidos_read() As String 
+  
+  Return hApellidos 
+  
+End  
+
+Private Sub Apellidos_write(Valor As String)
+  
+  hApellidos = Valor 
+  
+End
+
+Private Function id_read() As Integer 
+  
+  Return hid 
+  
+End  
+
+Private Sub id_write(Valor As Integer)
+  
+  hid = Valor 
+  
+End
+
+Private Function curso_read() As String 
+  
+  Return hcurso 
+  
+End  
+
+Private Sub curso_write(Valor As String)
+  
+  hcurso = Valor 
+  
+End
+
+Private Function tag_read() As String 
+  
+  Return htag 
+  
+End  
+
+Private Sub tag_write(Valor As String)
+  
+  htag = Valor 
+  
+End
+
+Private Function NumeroCarnet_read() As Integer 
+  
+  Return hNumeroCarnet 
+  
+End  
+
+Private Sub NumeroCarnet_write(Valor As Integer)
+  
+  hNumeroCarnet = Valor 
+  
+End
+
+Private Function localidad_read() As String 
+  
+  Return hlocalidad 
+  
+End  
+
+Private Sub localidad_write(Valor As String)
+  
+  hlocalidad = Valor 
+  
+End
+
+Private Function centro_read() As String 
+  
+  Return hcentro 
+  
+End  
+
+Private Sub centro_write(Valor As String)
+  
+  hcentro = Valor 
+  
+End
+
+Private Function FechaNacimiento_read() As String 
+  
+  Return hFechaNacimiento 
+  
+End  
+
+Private Sub FechaNacimiento_write(Valor As String)
+  
+  hFechaNacimiento = Valor 
+  
+End
+
+Private Function nombre_read() As String 
+  
+  Return hnombre 
+  
+End  
+
+Private Sub nombre_write(Valor As String)
+  
+  hnombre = Valor 
+  
+End
+
+Private Function foto_read() As String 
+  
+  Return hfoto 
+  
+End  
+
+Private Sub foto_write(Valor As String)
+  
+  hfoto = Valor 
+  
+End
+
+Public Sub Text() As String
+  
+  Dim cadena As String
+  
+  cadena = hfoto & "\n"
+  cadena &= hnombre & "\n"
+  cadena &= hApellidos & "\n"
+  cadena &= hFechaNacimiento & "\n"
+  cadena &= hcurso & "\n"
+  cadena &= hcentro & "\n"
+  cadena &= hlocalidad & "\n"
+  cadena &= hNumeroCarnet & "\n"
+  cadena &= htag & "\n"
+  cadena &= hid & "\n"
+  
+  Return cadena
+  
+End
