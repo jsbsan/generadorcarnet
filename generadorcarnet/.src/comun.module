@@ -15,7 +15,7 @@ Public Sub comprobarEntorno()
     falta = True
   Endif
   
-    If Not comun.instalado("zip") Then
+    If Not comun.instalado("unzip") Then
     texto = ("unzip") & "\n"
     falta = True
   Endif
