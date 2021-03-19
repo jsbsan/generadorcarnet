@@ -1,0 +1,18 @@
+' Gambas module file
+
+'comprobar version de inkscape
+
+Public Function version() As Integer
+
+  Dim cadena As String
+
+  Shell "inkscape -V" To cadena
+
+  If InStr(cadena, "nkscape 1.") Then
+    Return 1
+  Else
+    Return 0
+
+  Endif
+
+End

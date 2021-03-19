@@ -3,20 +3,20 @@
 Public mensaje As String
 
 Public Sub ButtonSalir_Click()
-  
+
   Me.Close
-  
+
 End
 
 Public Sub Button1_Click()
-  
+
   Clipboard.Copy(TextLabel1.text & gb.CrLf & TextArea1.Text)
-  
+
 End
 
 Public Sub Form_Open()
-  
+
   TextLabel1.text = "Programa: " & Application.Name & " Version: " & Application.Version & "<br>" & "Fecha: " & Str$(Now)
   TextArea1.text &= "\n" & mensaje
-  
+
 End

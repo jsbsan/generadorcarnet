@@ -1,3 +1,6 @@
+* Fri Mar 19 2021 jsbsan <jusabejusabe@gmail.com> 0.0.55
+- mejoras: diferencia entre inkscape 1.XX y inkscape 0.XX ya que utilizan distintos parametros
+
 * Fri Aug 07 2015 jsbsan <jusabejusabe@gmail.com> 0.0.54
 - tag le quito retornos de carro posibles
 

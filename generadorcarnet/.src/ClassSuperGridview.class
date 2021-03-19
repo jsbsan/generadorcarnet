@@ -9,15 +9,15 @@ Property indice As Integer[]
 Private hindice As New Integer[]
 
 Private Function indice_Read() As Integer[]
-  
+
   Return hindice
-  
+
 End
 
 Private Sub indice_Write(Value As Integer[])
-  
+
   hindice = Value
-  
+
 End
 
 '-----------------------------------------------------------------------
@@ -25,17 +25,17 @@ End
 '-----------------------------------------------------------------------
 
 Public Sub copiaralportapapeles()
-  
+
   Dim texto As String
   Dim a As Integer
   Dim b As Integer
-  
-  If Me.header = 1 Or Me.header = 3 Then 
+
+  If Me.header = 1 Or Me.header = 3 Then
     For a = 0 To Me.Columns.count - 1
-      texto &= Me.Columns[a].Title & "\t"  
-    Next 
+      texto &= Me.Columns[a].Title & "\t"
+    Next
     texto &= "\n"
-  Endif 
+  Endif
   For a = 0 To Me.Rows.Count - 1
     For b = 0 To Me.Columns.count - 1
       texto &= revisa(Me[a, b].text) & "\t"  'separa los datos con un tabulador
@@ -43,49 +43,49 @@ Public Sub copiaralportapapeles()
     texto &= "\n"  'fin de linea
   Next 'a
   Clipboard.Copy(texto)
-  Message.Info(("Copiado contenido al portapapeles"))  
-  
+  Message.Info(("Copiado contenido al portapapeles"))
+
 End
 
 Private Function revisa(cadena As String) As String
-  
+
   Dim a As Integer
   Dim letra As String
   Dim devuelta As String
-  
+
   For a = 1 To Len(cadena)
     letra = Mid$(cadena, a, 1)
-    If letra = "." Then 
+    If letra = "." Then
       letra = ","
-    Endif 
+    Endif
     devuelta &= letra
-  Next 
+  Next
   Return devuelta
-  
+
 End
 
 Public Sub observador1_Select()
-  
+
   Dim a As Integer
-  
+
   If filaseleccionada >= 0 Then
     'borro la anterior fila seleccionada
     For a = 0 To Me.Columns.Count - 1
       Me[filaseleccionada, a].Background = Color.White
-      
+
     Next
   Endif
-  
+
   'marcar fila
   For a = 0 To Me.Columns.Count - 1
     Try Me[Me.row, a].Background = Color.green
-    
+
   Next
   filaseleccionada = Me.row
-  
+
   '
   'marcar celda
   'GridviewPrueba[gridviewprueba.row, gridviewprueba.column].Background = Color.green
   '
-  
+
 End

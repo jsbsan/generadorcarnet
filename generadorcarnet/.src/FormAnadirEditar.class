@@ -6,16 +6,16 @@ Public reg As New ClassRegistro
 Public modo As Integer 'modo añadir=-1, editar=nº de id
 
 Public Sub ToolButtonCancelar_Click()
-  
+
   Me.Close
-  
+
 End
 
 Public Sub ToolButtonAceptar_Click()
-  
+
   'recoge todos los datos y lo envia al modulePrincipal para que sea alli tratado...
-  'copia de la foto al directorio de 
-  
+  'copia de la foto al directorio de
+
   reg.foto = Replace(PictureBox1.Tag, " ", "_")
   reg.nombre = campo01.Text
   reg.Apellidos = campo02.Text
@@ -25,8 +25,8 @@ Public Sub ToolButtonAceptar_Click()
   reg.localidad = campo06.Text
   reg.NumeroCarnet = Str$(campo07.Value)
   reg.tag = campo08.Text
-  
-  If modo = anadir Then 
+
+  If modo = anadir Then
     'si estoy añadiendo paso a añadir datos
     ModulePrincipal.anadirRegistro(reg)
     Form1.gridviewContenido.rows.count += 1
@@ -34,180 +34,180 @@ Public Sub ToolButtonAceptar_Click()
     ' si estoy editando paso a modificar datos..
     ModulePrincipal.EditarRegistro(reg, modo)
   Endif
-  
+
   'luego termina
   '
   Me.Close
-  
+
 End
 
 Public Sub Form_Open()
   'recargar datos...
-  
+
   LabelPlantillaActual.text = Replace(ModulePrincipal.plantillaUsada, User.Home & "/.GeneradorCarnets/plantillas/", "")
-  
+
   sistemadeocultacion(ModulePrincipal.plantillaUsada)
-  
-  If reg.foto <> "" And Exist(User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto) Then 
+
+  If reg.foto <> "" And Exist(User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto) Then
     PictureBox1.Tag = Replace$(reg.foto, " ", "_")
-    
+
     PictureBox1.Picture = Picture[User.home & "/.GeneradorCarnets/temporales/fotos/" & reg.foto]
   Else
-    If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos/icono_fotos_personas.png") Then 
+    If Not Exist(User.home & "/.GeneradorCarnets/temporales/fotos/icono_fotos_personas.png") Then
       Copy "icono_fotos_personas.png" To User.home & "/.GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"
     Endif
     PictureBox1.Picture = Picture[User.home & "/.GeneradorCarnets/temporales/fotos/icono_fotos_personas.png"]
     PictureBox1.Tag = "icono_fotos_personas.png"
   Endif
-  
-  campo01.Text = reg.nombre 
-  campo02.Text = reg.Apellidos 
+
+  campo01.Text = reg.nombre
+  campo02.Text = reg.Apellidos
   campo03.value = Val(reg.FechaNacimiento)
-  campo04.Text = reg.curso 
+  campo04.Text = reg.curso
   campo05.Text = reg.centro
   campo06.Text = reg.localidad
   campo07.Value = reg.NumeroCarnet
-  campo08.Text = reg.tag 
-  
+  campo08.Text = reg.tag
+
 End
 
 Public Sub campo01_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then campo02.SetFocus()
-  
+
 End
 
 Public Sub campo02_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then campo03.SetFocus()
-  
+
 End
 
 Public Sub campo03_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then campo04.SetFocus()
-  
+
 End
 
 Public Sub campo04_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then campo05.SetFocus()
-  
+
 End
 
 Public Sub campo05_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then campo06.SetFocus()
-  
+
 End
 
 Public Sub campo06_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then campo07.SetFocus()
-  
+
 End
 
 Public Sub campo07_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then campo08.SetFocus()
-  
+
 End
 
 Public Sub campo08_KeyPress()
-  
+
   If Key.code = key.enter Or key.code = key.return Then ToolButtonAceptar.SetFocus()
-  
+
 End
 
 Public Sub ToolButtonAceptar_KeyPress()
-  
+
   If key.code = key.enter Or key.code = key.return Then ToolButtonAceptar_Click()
-  
+
 End
 
 Public Sub ToolButtonCancelar_KeyPress()
-  
+
 End
 
 Public Sub PictureBox1_MouseDown()
-  
+
   reg.foto = asignaImagen(PictureBox1)
   PictureBox1.tag = reg.foto
-  
+
   '  Dialog.Title = ("Elija el archivo gráfico")
   '  Dialog.Path = ""
   '  Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de imágenes")]
-  '  If Not Dialog.OpenFile() Then 
+  '  If Not Dialog.OpenFile() Then
   '    PictureBox1.Picture = Picture[Dialog.Path]
   '    PictureBox1.tag = Dialog.Path
-  
+
   'Exec ["cp", PictureBox1.tag, User.home & "/.GeneradorCarnets/temporales/fotos/" & Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_")] Wait
   'reg.foto = Replace(ModuleIntermedio.extraedesdebarra(PictureBox1.tag), " ", "_") ' User.home & "/.GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
   'Endif
-  
+
 End
 
 Public Sub ToolButtonTomaFoto_Click()
-  
+
   Dim nombrefinal As String
   Dim comando As String = User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas"
-  
+
   Exec [comando] Wait
   '  User.home & "/webcam_carnet.png"
   nombrefinal = User.home & "/.GeneradorCarnets/temporales/fotos/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
-  
+
   If Exist(User.home & "/webcam_carnet.png") Then
     Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
     reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal) ' User.home & "/.GeneradorCarnets/temporales/fotos/" & ModuleIntermedio.extraedesdebarra(PictureBox1.tag)
     PictureBox1.tag = reg.foto
     PictureBox1.picture = Picture.Load(nombrefinal)
   Endif
-  
+
 End
 
 Public Sub iguala_Click()
-  
+
   Dim maximo As Integer
   Dim valor As Variant
   'se ha producido un click en el grupo de botones iguala
-  
-  If modo = 0 Then Return 
-  
-  If ModulePrincipal.Lista.registros.Max = -1 Then 
+
+  If modo = 0 Then Return
+
+  If ModulePrincipal.Lista.registros.Max = -1 Then
     Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
     Return
   Endif
-  
-  If modo = -1 Then 
+
+  If modo = -1 Then
     'estoy añadiendo un registro, me fijo en el ultimo dado
     maximo = ModulePrincipal.Lista.registros.Max
     If maximo = -1 Then Return
     valor = Object.GetProperty(ModulePrincipal.Lista.registros[maximo], Last.tag)
-    
+
   Else
     'estoy editando un registro, me fijo en el registro anterior
     valor = Object.GetProperty(ModulePrincipal.Lista.registros[modo - 1], Last.tag)
-    
+
   Endif
   'le paso el valor
-  Object.SetProperty(reg, Last.tag, valor)  
+  Object.SetProperty(reg, Last.tag, valor)
   '  Print Object.Type(devuelvetextbox(Last.tag))
-  If Object.Type(devuelvetextbox(Last.tag)) = "DateBox" Then 
-    
+  If Object.Type(devuelvetextbox(Last.tag)) = "DateBox" Then
+
   Else
     Object.SetProperty(devuelvetextbox(Last.tag), "text", Object.GetProperty(reg, Last.tag))
   Endif
-  
+
 End
 
 Public Sub devuelvetextbox(texto As String) As Object
-  
+
   Dim propiedades As String[] = ["nombre", "apellidos", "fechanacimiento", "curso", "centro", "localidad", "tag"]
-  
+
   Select Case propiedades.Find(Lower(texto))
     Case 0
       Return campo01
-    Case 1 
+    Case 1
       Return campo02
     Case 2
       Return campo03
@@ -218,89 +218,89 @@ Public Sub devuelvetextbox(texto As String) As Object
     Case 5
       Return campo06
     Case 6
-      Return campo08 
+      Return campo08
   End Select
-  
+
 End
 
 Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
-  
+
   Dim dialogofile As New FormElegirFichero
   Dim dat As New ClassDato
-  
+
   dialogofile.valor = dat
-  
+
   dialogofile.Titulo = ("Elija el archivo gráfico")
   dialogofile.Filtro = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
   dialogofile.ShowModal()
-  
+
   If dat.dato = "-1" Then Return
-  
+
   Return asignaImagen2Paso(dat.dato, PictureBoxElegido)
-  
+
 End
 
 Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebox) As String
-  
+
   Dim nombrecopia As String
   Dim extension As String
   Dim comparacion As String 'añadido para comprobar si existe un fichero con el mismo nombre y es igual
   Dim copiar As String
   Dim comando As String
   Dim nombresimple As String
-  
+
   If Not Exist(ruta) Then
-    Message.Info(("No se ha podido descargarse el archivo")) 
-    Return 
+    Message.Info(("No se ha podido descargarse el archivo"))
+    Return
   Endif
-  
+
   PictureBoxElegido.Picture = Picture["ojo22.png"]
   Wait 0.1
   PictureBoxElegido.Picture = Picture[ruta]
   PictureBoxElegido.tag = ruta
   copiar = "si"
-  
+
   nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
   nombrecopia = ModulePrincipal.RutaPrograma & "temporales/fotos/" & nombresimple
-  
+
   While (Exist(nombrecopia))
     'si existe fichero con el mismo nombre, 1º comprobar si es igual...
     comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
     Shell comando To comparacion
-    If comparacion = "" Then 
+    If comparacion = "" Then
       'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
       'no hago la copia
       copiar = "no"
-      
+
       Break
     Endif
-    
+
     'para que no machaque nombres de fichros...
     extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
-    If extension <> "" Then 
+    If extension <> "" Then
       nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
       copiar = "si"
     Else
-      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c"
       copiar = "si"
     Endif
-    
+
   Wend
-  
-  If copiar = "si" Then 
-    
+
+  If copiar = "si" Then
+
     Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
     PictureBoxElegido.Picture = Picture["importar.png"]
     Wait 0.1
     PictureBoxElegido.Picture = Picture[nombrecopia]
     PictureBoxElegido.tag = nombrecopia
-    
+
   Endif
-  
+
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 '---------------------------------------------
@@ -308,45 +308,45 @@ End
 '---------------------------------------------
 
 Public Sub PictureBox1_Drop()
-  
+
   reg.foto = suelta(PictureBox1)
   PictureBox1.tag = reg.foto
-  
+
 End
 
 Public Sub suelta(cajapicture As PictureBox) As String
-  
+
   Dim nombre As String
   Dim a As String
   Dim b As String[]
   Dim fpensando As New FormPensando
-  
+
   a = Drag.data ' limitamos el tipo de los datos pegados
   b = Split(a, gb.CrLf, "", True) ' cargamos la lista de rutas en un array b
   ' escapando las terminaciones de línea
   b[0] = Replace(b[0], "\x00", "")
-  If Left(b[0], 7) = "file://" Then 
+  If Left(b[0], 7) = "file://" Then
     a = Null  ' reutilizamos la variable "a"
-    
+
     a = Right$(b[0], -7) ' quitamos "file://"
     a = URLDecode(a)  ' descodificamos las cadenas
-    
+
     'fichero de ruta...
     Return asignaImagen2Paso(a, cajapicture)
-    
+
   Else
-    'comprobar si proviene de navegador http 
+    'comprobar si proviene de navegador http
     a = Replace(a, "\x00", "")
-    If InStr(a, "www.google") <> 0 Then 
-      a = comun.Between(a, "imgurl=", "&")  
+    If InStr(a, "www.google") <> 0 Then
+      a = comun.Between(a, "imgurl=", "&")
       a = URLDecode(a)  ' descodificamos las cadenas
-      
-      If cajapicture.tag = "1." & Right$(a, 3) Then 
-        nombre = "1" 
+
+      If cajapicture.tag = "1." & Right$(a, 3) Then
+        nombre = "1"
       Else
         nombre = "2"
       Endif
-      
+
       nombre = "/tmp/" & nombre & "." & Right$(a, 3)
       Try Kill nombre 'borro nombre anterior
       cajapicture.Picture = Picture["importar.png"]
@@ -358,25 +358,25 @@ Public Sub suelta(cajapicture As PictureBox) As String
       'fichero de ruta...
       Wait 0.1
       fpensando.Delete()
-      
+
       Return asignaImagen2Paso(nombre, cajapicture)
-      
+
     Endif
   Endif
-  
+
 End
 
 Private Function URLDecode(txt As String) As String
   ''' Descodifica los caracteres hexadecimales en las URI's recorriendo la cadena dada
   ''' Params: txt la URI a descodificar
   ''' Return: la URI descodificada
-  
+
   Dim txt_len As Integer
   Dim i As Integer
   Dim ch As String
   Dim digits As String
   Dim resultado As String
-  
+
   resultado = ""
   txt_len = Len(txt)
   i = 1
@@ -402,9 +402,9 @@ Private Function URLDecode(txt As String) As String
     Endif
     i = i + 1
   Loop
-  
+
   Return resultado
-  
+
 End
 
 '--------------------------------------------------------------------------------------
@@ -412,29 +412,29 @@ End
 '--------------------------------------------------------------------------------------
 
 Public Sub sistemadeocultacion(plantillaactual As String)
-  
+
   Dim a As Integer
   Dim contenido As String
   Dim listadeEtiquetas As String[] = ["CAMPO01", "CAMPO02", "CAMPO03", "CAMPO04", "CAMPO05", "CAMPO06", "CAMPO07", "CAMPO08", "FOTOPLANTILLA.JPG"]
-  
+
   'Inicialmente: poner todas las etiquetas como ocultas
   For a = 0 To listadeEtiquetas.max
     mostrarEtiquetas(a, False)
   Next
-  
+
   'cargamos la platillas
   contenido = Upper$(file.load(plantillaactual))
-  'comprobamos uno por uno los campo, si existe, activamos 
+  'comprobamos uno por uno los campo, si existe, activamos
   For a = 0 To listadeEtiquetas.max
-    If InStr(contenido, listadeEtiquetas[a]) <> 0 Then 
+    If InStr(contenido, listadeEtiquetas[a]) <> 0 Then
       'existe la etiqueta en la plantilla
-      'mostrar label/textbox/picturebox        
+      'mostrar label/textbox/picturebox
       mostrarEtiquetas(a, True)
     Endif
   Next
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 '----------------------------------------------
@@ -444,7 +444,7 @@ End
 Public Sub mostrarEtiquetas(a As Integer, mostrar As Boolean)
   'el parametro "a" indica que grupo se va a modificar la vision
   'el parametro "mostrar", es del tipo boolean, y asignara el valor true o false a las propiedades del mostrar.
-  
+
   Select Case a
     Case 0
       CAMPO01.visible = mostrar
@@ -454,7 +454,7 @@ Public Sub mostrarEtiquetas(a As Integer, mostrar As Boolean)
       buttoniguala2.visible = mostrar
     Case 2
       CAMPO03.visible = mostrar
-      
+
     Case 3
       CAMPO04.visible = mostrar
       buttoniguala4.visible = mostrar
@@ -472,5 +472,5 @@ Public Sub mostrarEtiquetas(a As Integer, mostrar As Boolean)
   End Select
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End

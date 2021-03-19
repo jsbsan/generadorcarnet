@@ -70,10 +70,10 @@ Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
   Endif
 
   Paint.Begin(AreaDibujo)
-  escalax = AreaDibujo.W / dra.Width
+    escalax = AreaDibujo.W / dra.Width
 
-  paint.Scale(escalax, escalax)
-  dra.Paint
+    paint.Scale(escalax, escalax)
+    dra.Paint
   Paint.End
 
 End
@@ -249,6 +249,8 @@ Public Sub IniciarLaPrimeraVez()
 
   borradoIterativo(User.home & "/.GeneradorCarnets/temporales/plantillas")
   borradoIterativo(User.home & "/.GeneradorCarnets/trabajoTmp")
+
+  Try Copy "FOTOPLANTILLA.JPG" To Application.Path & "/FOTOPLANTILLA.JPG"
 Catch
   ModuleMensajeError.SistemaDescripcionError()
 
@@ -381,12 +383,11 @@ Catch
 End
 
 Private Sub cambiarDireccioImagen(ruta As String)
-
-  Dim contenido As String
-
-  contenido = File.Load(ruta)
+  'no hace falta...
+  ' Dim contenido As String
+  '
+  ' contenido = File.Load(ruta)
 
   'leer todas las lineas y modificar solo la linea que tiene el texto de
 
 End
-

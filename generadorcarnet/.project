@@ -1,9 +1,8 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.4
 Title=Generador De Carnets
 Startup=Form1
 Icon=carnet.png
-Version=0.0.54
+Version=0.0.55
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -17,12 +16,11 @@ Authors="Julio Sánchez Berro (programa)\nAntonio Sánchez (plantillas)"
 TabSize=2
 Translate=1
 Language=es
-ExecPath=/home/uno/GeneradorCarnets.gambas
 Maintainer=jsbsan
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es/
 License=General Public License
-PackageName=generadorcarnet-0.0.54
+PackageName=generadorcarnet-0.0.55
 CreateEachDirectory=1
 Packager=1
 Systems=debian

@@ -3,15 +3,15 @@
 Private MiHttp As New HttpClient
 
 Public Sub comprobar(nombreprograma As String, actualversion As String, rutaUrl As String, Optional texto As String) '' NombrePrograma: nombre del programa, ActualVersion= es la version del programa actual, rutaUrL= es url donde tengo que leer el archivo update,label etiqueta para que aparezca texto de espere...
-  
+
   Dim a As Integer
   Dim Buffer, programa, VersionEnInternet, mensaje, mejoras, direccion, comando As String
   Dim res As Integer
   Dim tiempoespera As Integer = 4
-  
+
   MiHttp.url = rutaUrl
   MiHttp.Get()
-  
+
   While (Lof(MiHttp) = False And a < tiempoespera)
     'espero 1 segundo o que llegue a>tiempoespera
     a = a + 1
@@ -37,33 +37,33 @@ Public Sub comprobar(nombreprograma As String, actualversion As String, rutaUrl 
       mensaje = ("Existe una nueva versión") & "\n" & ("Programa:") & " " & programa & "\n " & ("Versión encontrada:") & VersionEnInternet & "\n" & ("Mejoras:") & "\n" & mejoras & " \n " & ("Dirección Url de descarga:") & "\n" & direccion
       res = Message.Question(Mensaje, ("Ir a la página de descarga"), ("No actualización"))
       If res = 1 Then
-        
+
         Desktop.Open(direccion)
-        
+
       Endif
     Else
-      If texto = "" Then 
+      If texto = "" Then
         mensaje = ("La versión actual:") & " " & actualversion & " \n " & ("es igual o superior que la que hay en el servidor") & " (" & VersionEnInternet & ")\n" & ("No necesita actualizarla")
         message.info(mensaje)
       Endif
     Endif
   Endif
-  
+
 End
 
 Private Function eliminar(cadena As String, caracter As String) As String
-  
+
   Return Replace$(cadena, caracter, "")
-  
+
 End
 
 Private Function Between(Datos As String, Cadena1 As String, Cadena2 As String) As String
-  
+
   Dim iinf As Integer
   Dim isup As Integer
-  
+
   iinf = InStr(Datos, Cadena1) + Len(Cadena1)
   isup = InStr(Datos, Cadena2, iinf)
   Return Mid(Datos, iinf, isup - iinf)
-  
+
 End

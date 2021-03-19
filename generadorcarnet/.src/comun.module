@@ -1,66 +1,66 @@
 ' Gambas module file
 
 Public Sub comprobarEntorno()
-  
+
   Dim texto As String
   Dim falta As Boolean = False
-  
+
   If Not comun.instalado("inkscape") Then
     texto = ("inkscape") & "\n"
     falta = True
   Endif
-  
-  If Not comun.instalado("zip") Then 
+
+  If Not comun.instalado("zip") Then
     texto = ("zip") & "\n"
     falta = True
   Endif
-  
-  If Not comun.instalado("pdftk") Then 
+
+  If Not comun.instalado("pdftk") Then
     texto &= ("pdftk") & "\n"
     falta = True
   Endif
-  
-  If Not comun.instalado("imagemagick") Then 
+
+  If Not comun.instalado("imagemagick") Then
     texto &= ("imagemagick") & "\n"
     falta = True
   Endif
-  
-  If Not comun.instalado("pcmanfm") Then 
+
+  If Not comun.instalado("pcmanfm") Then
     texto &= ("pcmanfm") & "\n"
     falta = True
   Endif
-  
+
   If falta = True Then
     Message.Info(("Falta los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
   Endif
-  
+
 End
 
 Public Function instalado(paquete As String) As Boolean
   'Indica si un paquete de software está instalado en el sistema o no (Debian y derivados)
-  
+
   Dim contenido As String
   Dim n As Integer
-  
-  Shell "dpkg -l|grep " & paquete & " > /tmp/paq.txt" Wait 
+
+  Shell "dpkg -l|grep " & paquete & " > /tmp/paq.txt" Wait
   Try contenido = File.load("/tmp/paq.txt")
   n = InStr(contenido, " " & paquete & " ")
-  
+
   If n > 0 And Left(contenido, 2) = "ii" Then 'si el paquete se desinstaló pero no completamente la línea empieza por rc
     Return True
-  Else 
+  Else
     Return False
-  Endif 
-  
-End 
+  Endif
+
+End
 
 Public Function Between(Datos As String, Cadena1 As String, Cadena2 As String) As String
-  
+
   Dim iinf As Integer
   Dim isup As Integer
-  
+
   iinf = InStr(Datos, Cadena1) + Len(Cadena1)
   isup = InStr(Datos, Cadena2, iinf)
   Return Mid(Datos, iinf, isup - iinf)
-  
+
 End
