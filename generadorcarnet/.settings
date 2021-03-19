@@ -91,8 +91,13 @@ Geometry=[-7,3,210,210]
 [DebugWindow/rutaUsuario]
 Geometry=[761,490,423,210]
 
+[Executable]
+DoNotIncrementVersion=False
+NoTestModule=False
+Path="generadorcarnet.gambas"
+
 [FCommit]
-LastCommit="0.0.50\n---- Esta línea y las siguientes serán ignoradas ----\n\nD     C .gambas\n      >   local no-versionado, incoming añadir upon actualizar\nD       .gambas/CLASSLISTAREGISTRO\nD       .gambas/CLASSREGISTRO\nD       .gambas/CLASSSUPERGRIDVIEW\nD       .gambas/COMUN\nD       .gambas/FORM1\nD       .gambas/FORMANADIREDITAR\nD       .gambas/MODULEINTERMEDIO\nD       .gambas/MODULEPRINCIPAL\nD       .gambas/MODULEUPDATE\nD       .hidden/CHANGELOG\nC       .lang/#project.pot\nD     C .lang/.pot\n      >   local borrar, incoming editar upon actualizar\nC       .lang/ClassDato.pot\nC       .lang/ClassListaRegistro.pot\nC       .lang/ClassRegistro.pot\nC       .lang/ClassSuperGridview.pot\nC       .lang/Form1.pot\nC       .lang/FormAnadirEditar.pot\nC       .lang/FormElegirFichero.pot\nC       .lang/FormError.pot\nC       .lang/FormPensando.pot\nD     C .lang/FormRutaResultados.pot\n      >   local no-versionado, incoming añadir upon actualizar\nD     C .lang/ModuleAbrirResultados.pot\n      >   local no-versionado, incoming añadir upon actualizar\nC       .lang/ModuleArrastrarYSoltarFicheros.pot\nC       .lang/ModuleIntermedio.pot\nC       .lang/ModuleMensajeError.pot\nC       .lang/ModulePrincipal.pot\nC       .lang/ModuleUnicaVez.pot\nC       .lang/ModuleUpdate.pot\nC       .lang/ModuleUtilidadesDisco.pot\nC       .lang/comun.pot\nD     C .lang/es.po\n      >   local no-versionado, incoming añadir upon actualizar\nC       .project\nC       .settings\nD     C .src/FormRutaResultados.class\n      >   local no-versionado, incoming añadir upon actualizar\nD     C .src/FormRutaResultados.form\n      >   local no-versionado, incoming añadir upon actualizar\nD     C .src/ModuleAbrirResultados.module\n      >   local no-versionado, incoming añadir upon actualizar\nM       .startup\nD     C cr-80.svg\n      >   local no-versionado, incoming añadir upon actualizar\nD     C generadorcarnet.gambas\n      >   local no-versionado, incoming añadir upon actualizar\nD     C ico-white-magnetica.png\n      >   local no-versionado, incoming añadir upon actualizar\nR  +  C icono_fotos_personas.png\n      >   local editar, incoming replace upon actualizar\nD     C icono_fotos_personasOLD.png\n      >   local no-versionado, incoming añadir upon actualizar"
+LastCommit="mejoras: diferencia entre inkscape 1.XX y inkscape 0.XX ya que utilizan distintos parametros"
 
 [OpenFile]
 File[1]="carnet.png"
