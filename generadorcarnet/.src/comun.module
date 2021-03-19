@@ -14,6 +14,12 @@ Public Sub comprobarEntorno()
     texto = ("zip") & "\n"
     falta = True
   Endif
+  
+    If Not comun.instalado("zip") Then
+    texto = ("unzip") & "\n"
+    falta = True
+  Endif
+
 
   If Not comun.instalado("pdftk") Then
     texto &= ("pdftk") & "\n"
@@ -31,7 +37,7 @@ Public Sub comprobarEntorno()
   Endif
 
   If falta = True Then
-    Message.Info(("Falta los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
+    Message.Info(("Necesito los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
   Endif
 
 End

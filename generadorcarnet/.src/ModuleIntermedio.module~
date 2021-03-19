@@ -371,7 +371,7 @@ Private Function reduce(ruta As String, rutafin As String) As Picture
   Dim dibujo As New Picture
   Dim comando As String
   'crea una minuatura de la imagen dada y la pasa al Fotos...Mini
-  comando = "convert " & ruta & " -resize 30x40  " & rutafin
+  comando = "convert '" & ruta & "' -resize 30x40  '" & rutafin & "'"
   Shell comando Wait
 
   dibujo = Picture[rutafin]

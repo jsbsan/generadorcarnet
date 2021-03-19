@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-19 10:29 UTC\n"
+"POT-Creation-Date: 2021-03-19 17:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,23 +14,23 @@ msgstr ""
 msgid "error al leer datos del portapapeles"
 msgstr ""
 
-#: ModulePrincipal.module:305
+#: ModulePrincipal.module:311
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:307
+#: ModulePrincipal.module:313
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:342
+#: ModulePrincipal.module:348
 msgid "Nombre de archivo incorrecto:"
 msgstr ""
 
-#: ModulePrincipal.module:466
+#: ModulePrincipal.module:472
 msgid "No encuentro fichero de datos.txt"
 msgstr ""
 
-#: ModulePrincipal.module:509
+#: ModulePrincipal.module:515
 msgid "El fichero no lo puedo leer.\n Versión Desconocida."
 msgstr ""
 

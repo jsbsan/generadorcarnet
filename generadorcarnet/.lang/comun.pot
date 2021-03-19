@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-19 10:29 UTC\n"
+"POT-Creation-Date: 2021-03-19 17:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,22 +19,26 @@ msgid "zip"
 msgstr ""
 
 #: comun.module:19
+msgid "unzip"
+msgstr ""
+
+#: comun.module:25
 msgid "pdftk"
 msgstr ""
 
-#: comun.module:24
+#: comun.module:30
 msgid "imagemagick"
 msgstr ""
 
-#: comun.module:29
+#: comun.module:35
 msgid "pcmanfm"
 msgstr ""
 
-#: comun.module:34
-msgid "Falta los siguientes programas por instarlar:"
+#: comun.module:40
+msgid "Necesito los siguientes programas por instarlar:"
 msgstr ""
 
-#: comun.module:34
+#: comun.module:40
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 

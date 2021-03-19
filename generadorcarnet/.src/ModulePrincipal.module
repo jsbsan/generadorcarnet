@@ -138,11 +138,17 @@ Public Sub creandoPNG(regtmp As ClassRegistro, a As Integer, formato As String, 
   If ModuleInkscape.version() = 0 Then
     proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-dpi=" & Str$(dpi), "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"]
   Else
-    proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-dpi=" & Str$(dpi), "--export-type=png", User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"]
+    proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.svg", "--export-dpi=" & Str$(dpi), "--export-type=png"]
   Endif
 
   EsperarProceso(proceso, a)
 
+
+  If ModuleInkscape.version() = 1 Then
+
+Move User.home & "/.GeneradorCarnets/trabajoTmp/plantillaTmp.png" To User.home & "/.GeneradorCarnets/trabajoTmp/imagen0" & Str$(numeroImagen) & ".png"
+
+Endif
   '  nombreinicio = User.home & "/.GeneradorCarnets/trabajoTmp/" & Str$(a) & "m.png"
   ' nombrefin = User.home & "/.GeneradorCarnets/trabajoTmp/" & Str$(a) & ".png"
 
@@ -528,9 +534,14 @@ Public Sub montarPlantilla2x4(numeropagina As Integer)
   If ModuleInkscape.version() = 0 Then
     proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-dpi=" & Str$(dpi), "--export-png", User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"]
   Else
-    proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-dpi=" & Str$(dpi), "--export-type=png", User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"]
+    proceso = Exec ["inkscape", User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.svg", "--export-dpi=" & Str$(dpi), "--export-type=png"]
   Endif
   EsperarProceso(proceso)
+
+If ModuleInkscape.version() = 1 Then
+  Move User.home & "/.GeneradorCarnets/trabajoTmp/plantillaA4_2x4.png" To User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png"
+Endif
+
 
   nombredestino = "\"" & User.home & "/.GeneradorCarnets/trabajoTmp/pdf/Página " & Right$("00" & numeropagina, 2) & ".pdf\""
   proceso = Shell ("convert " & User.home & "/.GeneradorCarnets/trabajoTmp/pagina" & Str$(numeropagina) & ".png " & nombredestino)

@@ -67,6 +67,9 @@ Geometry=[1282,64,210,210]
 [DebugWindow/campo03]
 Geometry=[-7,3,210,714]
 
+[DebugWindow/dibujo]
+Geometry=[1600,37,224,280]
+
 [DebugWindow/feditar.reg]
 Geometry=[-7,-5,210,210]
 
@@ -97,16 +100,16 @@ NoTestModule=False
 Path="generadorcarnet.gambas"
 
 [FCommit]
-LastCommit="actualizo el .gambas a qt5"
+LastCommit="acepto imagenes con parentecies en el nombre"
 
 [OpenFile]
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:35.15"
-Active=54
+Active=4
 File[3]=".src/ClassListaRegistro.class:6.25"
-File[4]=".src/ModuleIntermedio.module:0.73"
+File[4]=".src/ModuleIntermedio.module:13.220"
 File[5]=".src/Form1.form"
-File[6]=".src/Form1.class:45.721"
+File[6]=".src/Form1.class:2.13"
 File[7]="ojo22.png"
 File[8]="plantilla2.png"
 File[9]="plantilla/plantilla.svg:18.34"
@@ -155,7 +158,7 @@ File[51]="cr-80.svg:0.0"
 File[52]="ico-white-magnetica.png"
 File[53]=".src/FormRutaResultados.class:0.3"
 Count=54
-File[54]=".src/ModuleInkscape.module:0.0"
+File[54]=".src/ModuleInkscape.module:0.16"
 
 [Package]
 Dir="~/Descargas/"

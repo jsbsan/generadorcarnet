@@ -226,7 +226,7 @@ Public Sub IniciarLaPrimeraVez()
 
   'TODO: comprueba si existe, y si no lo crea...
   If Not Exist(User.home & "/.GeneradorCarnets/") Then Mkdir User.home & "/.GeneradorCarnets/"
-  If Not Exist(User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam" To User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas"
+  If Not Exist(User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas") Then Copy "FotoCarnetMyWebCam.gambas" To User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas"
   Chmod User.home & "/.GeneradorCarnets/FotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
 
   If Not Exist(User.home & "/.GeneradorCarnets/temporales") Then Mkdir User.home & "/.GeneradorCarnets/temporales"
