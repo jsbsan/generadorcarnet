@@ -127,7 +127,7 @@
       Stretch = True
     }
     { HBox1 HBox
-      MoveScaled(0,0,80,5)
+      MoveScaled(-1,0,84,5)
       { ToolButtonAnadir ToolButton
         MoveScaled(0,1,11,3)
         Font = Font["Bitstream Charter,-1"]
@@ -178,11 +178,11 @@
         Value = CheckBox.True
       }
       { ToolButtonImprimirCR80Rapidamente ToolButton
-        MoveScaled(71,1,10,3)
+        MoveScaled(71,1,13,3)
         Font = Font["Bitstream Charter,-1"]
         ToolTip = ("Imprimir Tarjetas CR-80 rápidamente")
         AutoResize = True
-        Text = ("Imprimir CR-80")
+        Text = ("Imp CR-80")
         Picture = Picture["ico-white-magnetica.png"]
         Border = True
       }
@@ -272,7 +272,7 @@
       MoveScaled(32,61,20,5)
       Font = Font["-1"]
       ToolTip = ("Hacer que la plantilla que se muestra sea la actual")
-      Text = ("Utilizar....")
+      Text = ("Utilizar.") & "..."
       Picture = Picture["icon:/22/attach"]
       Border = True
     }
@@ -385,7 +385,6 @@
       { ValueBoxNumeroInicialCarnet ValueBox
         MoveScaled(28,7,7,4)
         Text = ("ValueBox2")
-        Value = "1"
       }
     }
     { FrameImprimir Frame
@@ -403,7 +402,6 @@
       { ValueBoxNumeroRegistroImprimir ValueBox
         MoveScaled(24,8,5,3)
         Text = ("ValueBox1")
-        Value = "1"
       }
       { RadioButtonDesdeHasta RadioButton
         MoveScaled(2,12,21,3)
@@ -412,7 +410,6 @@
       { ValueBoxDesde ValueBox
         MoveScaled(24,12,5,3)
         Text = ("ValueBox1")
-        Value = "1"
       }
       { Label2 Label
         MoveScaled(30,12,11,3)
@@ -480,12 +477,10 @@
         { ValueBoxCarnetLargo ValueBox
           MoveScaled(29,6,7,3)
           Text = ("ValueBoxCarnetLargo")
-          Value = "191"
         }
         { ValueBoxCarnetAncho ValueBox
           MoveScaled(29,2,7,3)
           Text = ("ValueBoxAnchoCarnet")
-          Value = "303"
         }
         { Label16 Label
           MoveScaled(17,2,10,3)
@@ -585,7 +580,6 @@
       }
       { ValueBoxdpi ValueBox
         MoveScaled(14,15,10,3)
-        Value = "600"
       }
       { Label14 Label
         MoveScaled(8,15,5,3)

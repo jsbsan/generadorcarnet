@@ -97,12 +97,12 @@ NoTestModule=False
 Path="generadorcarnet.gambas"
 
 [FCommit]
-LastCommit="actualizo el .gambas"
+LastCommit="actualizo el .gambas a qt5"
 
 [OpenFile]
 File[1]="carnet.png"
 File[2]=".src/ClassRegistro.class:35.15"
-Active=47
+Active=54
 File[3]=".src/ClassListaRegistro.class:6.25"
 File[4]=".src/ModuleIntermedio.module:0.73"
 File[5]=".src/Form1.form"
@@ -154,7 +154,8 @@ File[50]=".src/FormRutaResultados.form"
 File[51]="cr-80.svg:0.0"
 File[52]="ico-white-magnetica.png"
 File[53]=".src/FormRutaResultados.class:0.3"
-Count=53
+Count=54
+File[54]=".src/ModuleInkscape.module:0.0"
 
 [Package]
 Dir="~/Descargas/"

@@ -70,10 +70,10 @@ Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
   Endif
 
   Paint.Begin(AreaDibujo)
-    escalax = AreaDibujo.W / dra.Width
+  escalax = AreaDibujo.W / dra.Width
 
-    paint.Scale(escalax, escalax)
-    dra.Paint
+  paint.Scale(escalax, escalax)
+  dra.Paint
   Paint.End
 
 End
