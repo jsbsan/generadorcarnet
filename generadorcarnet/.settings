@@ -97,7 +97,7 @@ NoTestModule=False
 Path="generadorcarnet.gambas"
 
 [FCommit]
-LastCommit="mejoras: diferencia entre inkscape 1.XX y inkscape 0.XX ya que utilizan distintos parametros"
+LastCommit="actualizo el .gambas"
 
 [OpenFile]
 File[1]="carnet.png"
