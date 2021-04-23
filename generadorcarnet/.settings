@@ -108,8 +108,12 @@ File[3]=".src/FormPensando.class:0.0"
 File[4]="pensando.png"
 File[5]=".src/Form1.form"
 File[6]=".src/ClassListaRegistro.class:0.62"
-Active=6
-Count=6
+Active=7
+Count=10
+File[7]="README.md:42.4"
+File[8]="01.jpeg"
+File[9]="02.jpeg"
+File[10]="03.jpeg"
 
 [Package]
 Dir="~/Descargas/"
