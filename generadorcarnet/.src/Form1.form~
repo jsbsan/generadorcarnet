@@ -15,9 +15,9 @@
     { TextLabelPantallaPresentacion3 TextLabel
       MoveScaled(11,2,52,54)
       Background = Color.Background
+      Border = Border.Sunken
       Text = ("<h1>Generador de Carnets</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4.2 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
       Alignment = Align.Center
-      Border = Border.Sunken
     }
     { PictureBoxIconoInkscape PictureBox
       MoveScaled(37,57,6.8571,6.8571)
@@ -26,8 +26,8 @@
     }
     { Label1 Label
       MoveScaled(2,58,33,6)
-      Text = ("Crea tus propias plantillas con:")
       Alignment = Align.Center
+      Text = ("Crea tus propias plantillas con:")
     }
     { PictureBox2 PictureBox
       MoveScaled(66,18,11,20)
@@ -43,16 +43,16 @@
       Font = Font["Bitstream Charter,Underline"]
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
-      Text = ("http://www.jsbsan.blogspot.com.es/")
       Alignment = Align.Center
+      Text = ("http://www.jsbsan.blogspot.com.es/")
     }
     { labelInkscape Label
       MoveScaled(48,59,14,3)
       Font = Font["Underline"]
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
-      Text = ("inkscape")
       Alignment = Align.Center
+      Text = ("inkscape")
     }
     { Label13 Label
       MoveScaled(4,72,31,4)
@@ -68,23 +68,23 @@
       Font = Font["Underline"]
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
-      Text = ("minino.galpon.org")
       Alignment = Align.Center
+      Text = ("minino.galpon.org")
     }
     { LabelVersion Label
       MoveScaled(24,13,22,4)
       Font = Font["Bitstream Charter,Bold,+1"]
       AutoResize = True
-      Text = ("Versión:")
       Alignment = Align.Center
+      Text = ("Versión:")
     }
     { LabelProyectoWeb Label
-      MoveScaled(21,10,28,3)
+      MoveScaled(22,5,28,3)
       Font = Font["Bitstream Charter,Underline"]
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
-      Text = ("Enlace Web del Proyecto")
       Alignment = Align.Center
+      Text = ("Enlace Web del Proyecto")
     }
     Index = 1
     Text = ("Crear Grupo")
@@ -100,8 +100,8 @@
     }
     { Label4 Label
       MoveScaled(0,76,10,5)
-      Text = ("Nombre:")
       Alignment = Align.Right
+      Text = ("Nombre:")
     }
     { TextBoxNombreFicheroNuevo TextBox
       MoveScaled(11,76,27,5)
@@ -127,7 +127,7 @@
       Stretch = True
     }
     { HBox1 HBox
-      MoveScaled(0,0,80,5)
+      MoveScaled(-1,0,84,5)
       { ToolButtonAnadir ToolButton
         MoveScaled(0,1,11,3)
         Font = Font["Bitstream Charter,-1"]
@@ -178,11 +178,11 @@
         Value = CheckBox.True
       }
       { ToolButtonImprimirCR80Rapidamente ToolButton
-        MoveScaled(71,1,10,3)
+        MoveScaled(71,1,13,3)
         Font = Font["Bitstream Charter,-1"]
         ToolTip = ("Imprimir Tarjetas CR-80 rápidamente")
         AutoResize = True
-        Text = ("Imprimir CR-80")
+        Text = ("Imp CR-80")
         Picture = Picture["ico-white-magnetica.png"]
         Border = True
       }
@@ -196,9 +196,9 @@
       MoveScaled(1,64,76,17)
       Font = Font["Bitstream Charter,-1"]
       Drop = True
+      Border = Border.Plain
       Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre del fichero debe de tener <br>una coma para separar los apellidos y el nombre de la persona.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
       Alignment = Align.Center
-      Border = Border.Plain
     }
     Index = 4
     Text = ("Guardar Grupo")
@@ -272,7 +272,7 @@
       MoveScaled(32,61,20,5)
       Font = Font["-1"]
       ToolTip = ("Hacer que la plantilla que se muestra sea la actual")
-      Text = ("Utilizar....")
+      Text = ("Utilizar.") & "..."
       Picture = Picture["icon:/22/attach"]
       Border = True
     }
@@ -309,8 +309,8 @@
     }
     { LabelPlantilla Label
       MoveScaled(16,6,43,5)
-      Text = ("Plantilla:")
       Alignment = Align.Center
+      Text = ("Plantilla:")
     }
     { ButtonPlantillaPrimera Button
       MoveScaled(3,6,7,5)
@@ -334,8 +334,8 @@
     }
     { LabelRegistro Label
       MoveScaled(30,68,15,5)
-      Text = ("Registro:")
       Alignment = Align.Center
+      Text = ("Registro:")
     }
     { ButtonPlantillaAnteriorReg Button
       MoveScaled(23,68,7,5)
@@ -351,9 +351,9 @@
     }
     { TextLabelFaltanDatos2 TextLabel
       MoveScaled(5,29,65,8)
+      Border = Border.Plain
       Text = ("<h3>Faltan datos para mostar</h3>")
       Alignment = Align.Center
-      Border = Border.Plain
     }
     { ToolButtonEditaPlantilla2 ToolButton
       MoveScaled(27,0,20,5)
@@ -385,7 +385,6 @@
       { ValueBoxNumeroInicialCarnet ValueBox
         MoveScaled(28,7,7,4)
         Text = ("ValueBox2")
-        Value = "1"
       }
     }
     { FrameImprimir Frame
@@ -403,7 +402,6 @@
       { ValueBoxNumeroRegistroImprimir ValueBox
         MoveScaled(24,8,5,3)
         Text = ("ValueBox1")
-        Value = "1"
       }
       { RadioButtonDesdeHasta RadioButton
         MoveScaled(2,12,21,3)
@@ -412,7 +410,6 @@
       { ValueBoxDesde ValueBox
         MoveScaled(24,12,5,3)
         Text = ("ValueBox1")
-        Value = "1"
       }
       { Label2 Label
         MoveScaled(30,12,11,3)
@@ -430,8 +427,8 @@
       Text = ("Parámetros Avanzados")
       { Label5 Label
         MoveScaled(3,21,29,4)
-        Text = ("Tamaño del papel (geomtría)")
         Alignment = Align.Right
+        Text = ("Tamaño del papel (geomtría)")
       }
       { TextBoxGeometria TextBox
         MoveScaled(33,21,23,4)
@@ -439,8 +436,8 @@
       }
       { Label6 Label
         MoveScaled(12,16,21,3)
-        Text = ("Carnets Horizontales")
         Alignment = Align.Right
+        Text = ("Carnets Horizontales")
       }
       { TextBoxTileH TextBox
         MoveScaled(34,16,5,4)
@@ -448,8 +445,8 @@
       }
       { Label9 Label
         MoveScaled(12,13,21,3)
-        Text = ("Carnets Verticales")
         Alignment = Align.Right
+        Text = ("Carnets Verticales")
       }
       { TextBoxTileV TextBox
         MoveScaled(34,12,5,4)
@@ -461,41 +458,39 @@
       }
       { Label15 Label
         MoveScaled(5,24,48,5)
-        Text = ("Por defecto tamaño A4 y 10 px alrededor")
         Alignment = Align.Center
+        Text = ("Por defecto tamaño A4 y 10 px alrededor")
       }
       { Frame2 Frame
         MoveScaled(2,0,60,10)
         Text = ("Tamaño de los carnets")
         { Label18 Label
           MoveScaled(37,2,4,3)
-          Text = ("px")
           Alignment = Align.Left
+          Text = ("px")
         }
         { Label19 Label
           MoveScaled(37,6,4,3)
-          Text = ("px")
           Alignment = Align.Left
+          Text = ("px")
         }
         { ValueBoxCarnetLargo ValueBox
           MoveScaled(29,6,7,3)
           Text = ("ValueBoxCarnetLargo")
-          Value = "191"
         }
         { ValueBoxCarnetAncho ValueBox
           MoveScaled(29,2,7,3)
           Text = ("ValueBoxAnchoCarnet")
-          Value = "303"
         }
         { Label16 Label
           MoveScaled(17,2,10,3)
-          Text = ("ancho:")
           Alignment = Align.Right
+          Text = ("ancho:")
         }
         { Label17 Label
           MoveScaled(17.5714,5.5714,10,3)
-          Text = ("largo:")
           Alignment = Align.Right
+          Text = ("largo:")
         }
         { RadioButtonPriW RadioButton
           MoveScaled(40,2,24,3)
@@ -585,12 +580,11 @@
       }
       { ValueBoxdpi ValueBox
         MoveScaled(14,15,10,3)
-        Value = "600"
       }
       { Label14 Label
         MoveScaled(8,15,5,3)
-        Text = ("dpi:")
         Alignment = Align.Right
+        Text = ("dpi:")
       }
     }
     { CheckBoxCR80 CheckBox

@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Fri, 23 Apr 2021 12:00:00 +0000
+Source: generadorcarnet-qt5
+Binary: generadorcarnet-qt5
+Architecture: source all
+Version: 0.0.61-1
+Distribution: unstable
+Urgency: low
+Maintainer: jsbsan <jusabejusabe@gmail.com>
+Changed-By: jsbsan <jusabejusabe@gmail.com>
+Description:
+ generadorcarnet-qt5 - qt5 package for Generador De Carnets
+Changes:
+ generadorcarnet-qt5 (0.0.61-1) unstable; urgency=low
+ .
+   * quito moviebox que ya no existe en gambas3 3.16
+Checksums-Sha1:
+ e83d1a7cc4aae4639a78e9af0431ecdc2b476196 585 generadorcarnet-qt5_0.0.61-1.dsc
+ 315b069c871f4af324d38df034280c7fafebd834 1085 generadorcarnet-qt5_0.0.61-1.tar.gz
+ b6e0dd5d4c7970448eb46bd2d536b989f965d699 1600 generadorcarnet-qt5_0.0.61-1_all.deb
+ 14d3b88d6b01d119b3ddf5c8a6aa84337e2b98db 13477 generadorcarnet-qt5_0.0.61-1_amd64.buildinfo
+Checksums-Sha256:
+ 8d2068358c09383072b4d6e3c0f6721227a7c12b51f1f2f515ac446be94a360b 585 generadorcarnet-qt5_0.0.61-1.dsc
+ 136872001109c840cb000cf5aa481b3d4b92bed32bd159667cf071cd30991264 1085 generadorcarnet-qt5_0.0.61-1.tar.gz
+ ac6bffc9e786b79dd0c7d5f85d394b6ede161f9aed4f469e2173c2c3ed696c2d 1600 generadorcarnet-qt5_0.0.61-1_all.deb
+ d9e197262d1319bf0ce277a7f23160293bd00734744949a1dd7ddf125d8ff04a 13477 generadorcarnet-qt5_0.0.61-1_amd64.buildinfo
+Files:
+ 95eed9de996230ff316ce3faa7954d81 585 contrib/graphics optional generadorcarnet-qt5_0.0.61-1.dsc
+ 851c76943cab2d10d2cd7c972e13ff6c 1085 contrib/graphics optional generadorcarnet-qt5_0.0.61-1.tar.gz
+ 8631e904fb1b22b4e34c2d9c64b6fdf4 1600 contrib/graphics optional generadorcarnet-qt5_0.0.61-1_all.deb
+ 25159f138a3d0a106859c48352b96485 13477 contrib/graphics optional generadorcarnet-qt5_0.0.61-1_amd64.buildinfo

@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Fri, 23 Apr 2021 12:00:00 +0000
+Source: generadorcarnet-qt4
+Binary: generadorcarnet-qt4
+Architecture: source all
+Version: 0.0.61-1
+Distribution: unstable
+Urgency: low
+Maintainer: jsbsan <jusabejusabe@gmail.com>
+Changed-By: jsbsan <jusabejusabe@gmail.com>
+Description:
+ generadorcarnet-qt4 - qt4 package for Generador De Carnets
+Changes:
+ generadorcarnet-qt4 (0.0.61-1) unstable; urgency=low
+ .
+   * quito moviebox que ya no existe en gambas3 3.16
+Checksums-Sha1:
+ 49c34ee101e75e94c9b1567df5b5a8d99602fd3e 585 generadorcarnet-qt4_0.0.61-1.dsc
+ 5f8be05ee37bc5f8d78ceeb738e306a157fecba6 1085 generadorcarnet-qt4_0.0.61-1.tar.gz
+ d2fae2488f66e266830a337c45c407b87ff6ec03 1596 generadorcarnet-qt4_0.0.61-1_all.deb
+ 9136ebd432a99d1973a9b681214a3bf02f5d43a3 13477 generadorcarnet-qt4_0.0.61-1_amd64.buildinfo
+Checksums-Sha256:
+ d50ecd964f4de31a839cda0246c6be74834dbd6949a8717493f90ace4f89a7cb 585 generadorcarnet-qt4_0.0.61-1.dsc
+ ea477b2a569cc44a0c0f1a5bfadf380046e32ea5af5053eba0324e6bf45bf6a4 1085 generadorcarnet-qt4_0.0.61-1.tar.gz
+ adf31d952fad43892d14d8bacbf2a6f10d27b96e9595c7e0e6f2b38536599c82 1596 generadorcarnet-qt4_0.0.61-1_all.deb
+ c46c2ecc3d11d96b8317c1bee07fbb092a7fb4eb6a0bc83c76d0c2c4a5672da8 13477 generadorcarnet-qt4_0.0.61-1_amd64.buildinfo
+Files:
+ 522e1d29cc10fde2d4c3ba086897dd0c 585 contrib/graphics optional generadorcarnet-qt4_0.0.61-1.dsc
+ 381fbf0bd08ede0dce820f20888fd883 1085 contrib/graphics optional generadorcarnet-qt4_0.0.61-1.tar.gz
+ 8dc4324d1c918b5d42d84a25d021b20f 1596 contrib/graphics optional generadorcarnet-qt4_0.0.61-1_all.deb
+ 5852874adf50d30255f1cf577c2cf0ac 13477 contrib/graphics optional generadorcarnet-qt4_0.0.61-1_amd64.buildinfo

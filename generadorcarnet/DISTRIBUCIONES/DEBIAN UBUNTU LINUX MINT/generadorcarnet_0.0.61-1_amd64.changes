@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Fri, 23 Apr 2021 12:00:00 +0000
+Source: generadorcarnet
+Binary: generadorcarnet
+Architecture: source all
+Version: 0.0.61-1
+Distribution: unstable
+Urgency: low
+Maintainer: jsbsan <jusabejusabe@gmail.com>
+Changed-By: jsbsan <jusabejusabe@gmail.com>
+Description:
+ generadorcarnet - Genera facilmente carnets para tus alumnos, empleados, etc.
+Changes:
+ generadorcarnet (0.0.61-1) unstable; urgency=low
+ .
+   * quito moviebox que ya no existe en gambas3 3.16
+Checksums-Sha1:
+ fecdddf1318e54acdc5caeeced01311bcdfe841c 1292 generadorcarnet_0.0.61-1.dsc
+ 46a138ea0f53423493f21bc7953926abf13b0be6 1917 generadorcarnet_0.0.61-1.diff.gz
+ 89c84337518854427034f3fea849f1717459b8ec 5208488 generadorcarnet_0.0.61-1_all.deb
+ 21d81888ae01ce673106a764bb9d83d3c0fe87de 16721 generadorcarnet_0.0.61-1_amd64.buildinfo
+Checksums-Sha256:
+ 6065449f0788f89ef55c1b81d5359a9a72f0fcbeca8f1a43fc2784c0f37ce580 1292 generadorcarnet_0.0.61-1.dsc
+ 8c685bb5aa9cfa1be9a78f9deedd0cec498de2a6155c3e5a08d48279a2f979f8 1917 generadorcarnet_0.0.61-1.diff.gz
+ 27d5ac55c04bd0eefdf39aea73366ff1cbca0d92493b66029dbc3ef72b06eca9 5208488 generadorcarnet_0.0.61-1_all.deb
+ 6b956b3f6b6c1e0573d1d2868eb2c5db7fb590e1f2dfdaca1e074e5b565aae36 16721 generadorcarnet_0.0.61-1_amd64.buildinfo
+Files:
+ 8ac604792590c470cd4807e36029ad98 1292 contrib/graphics optional generadorcarnet_0.0.61-1.dsc
+ 1005b1d2916e3ce8e976ed715f1dfee6 1917 contrib/graphics optional generadorcarnet_0.0.61-1.diff.gz
+ 29a36bdcbdbec3cbb8483a57d38f8bee 5208488 contrib/graphics optional generadorcarnet_0.0.61-1_all.deb
+ 3452cc9367260cc6426a646cf532d38e 16721 contrib/graphics optional generadorcarnet_0.0.61-1_amd64.buildinfo
