@@ -1,11 +1,6 @@
 [Bookmarks]
 ModuleAbrirResultados=[12]
 
-[Breakpoints]
-Breakpoint[1]="ClassRegistro.170"
-Breakpoint[2]="ClassRegistro.177"
-Count=2
-
 [DebugWindow]
 Count=0
 
@@ -108,12 +103,13 @@ File[3]=".src/FormPensando.class:0.0"
 File[4]="pensando.png"
 File[5]=".src/Form1.form"
 File[6]=".src/ClassListaRegistro.class:0.62"
-Active=7
-Count=10
+Active=11
+Count=11
 File[7]="README.md:42.4"
 File[8]="01.jpeg"
 File[9]="02.jpeg"
 File[10]="03.jpeg"
+File[11]=".src/ModuleUpdate.module:52.11"
 
 [Package]
 Dir="~/Descargas/"

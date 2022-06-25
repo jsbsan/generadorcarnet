@@ -9,6 +9,8 @@ Public Sub comprobar(nombreprograma As String, actualversion As String, rutaUrl 
   Dim res As Integer
   Dim tiempoespera As Integer = 4
 
+  If True Then Return 'anula la comprobacion de update
+
   MiHttp.url = rutaUrl
   MiHttp.Get()
 

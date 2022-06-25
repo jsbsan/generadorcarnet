@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  #project.pot (generadorcarnet 3.16.0)  #-#-#-#-#\n"
-"Project-Id-Version: generadorcarnet 3.16.0\n"
-"POT-Creation-Date: 2021-04-23 18:06 UTC\n"
+"#-#-#-#-#  #project.pot (generadorcarnet 3.17.2)  #-#-#-#-#\n"
+"Project-Id-Version: generadorcarnet 3.17.2\n"
+"POT-Creation-Date: 2022-06-25 16:29 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,7 +57,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FormPensando.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-23 18:06 UTC\n"
+"POT-Creation-Date: 2022-06-25 16:29 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ModuleInkscape.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-23 18:06 UTC\n"
+"POT-Creation-Date: 2022-06-25 16:29 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -112,7 +112,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ModuleUpdate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-23 18:06 UTC\n"
+"POT-Creation-Date: 2022-06-25 16:29 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -910,55 +910,55 @@ msgstr ""
 msgid "Ya se esta ejecutando este programa"
 msgstr ""
 
-#: ModuleUpdate.module:21
+#: ModuleUpdate.module:23
 msgid "No ha sido posible conectarse al servidor"
 msgstr ""
 
-#: ModuleUpdate.module:21
+#: ModuleUpdate.module:23
 msgid "No puedo comprobar si hay nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:34
+#: ModuleUpdate.module:36
 msgid "El archivo de versión no es para este programa"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "Existe una nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "Programa:"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "Versión encontrada:"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "Mejoras:"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "Dirección Url de descarga:"
 msgstr ""
 
-#: ModuleUpdate.module:38
+#: ModuleUpdate.module:40
 msgid "Ir a la página de descarga"
 msgstr ""
 
-#: ModuleUpdate.module:38
+#: ModuleUpdate.module:40
 msgid "No actualización"
 msgstr ""
 
-#: ModuleUpdate.module:46
+#: ModuleUpdate.module:48
 msgid "La versión actual:"
 msgstr ""
 
-#: ModuleUpdate.module:46
+#: ModuleUpdate.module:48
 msgid "es igual o superior que la que hay en el servidor"
 msgstr ""
 
-#: ModuleUpdate.module:46
+#: ModuleUpdate.module:48
 msgid "No necesita actualizarla"
 msgstr ""
 
